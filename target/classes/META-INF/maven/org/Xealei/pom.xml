@@ -163,6 +163,12 @@
     <version>5.2.2</version>
 </dependency>
 
+<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-devtools -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-devtools</artifactId>
+    <version>4.0.0-rc-1</version>
+</dependency>
 
 
 

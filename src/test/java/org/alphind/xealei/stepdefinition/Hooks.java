@@ -14,7 +14,7 @@ public class Hooks extends BaseClass {
 	public void beforeScenario() throws Exception {
 
 		browserType("Chrome");
-		loadUrl(readData("TestDatas", "Environments", 1, 0));
+		loadUrl(readData("TestDatas", "Environments", 2, 1));
 		maximize();
 		implicitWaitBySeconds(10);
 	}
@@ -39,7 +39,7 @@ public class Hooks extends BaseClass {
 		
 		waitForPageLoad();
 		sleep(1000);
-		close();
+		//close();
 	}
 
 }

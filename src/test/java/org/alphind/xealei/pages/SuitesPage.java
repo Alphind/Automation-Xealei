@@ -32,13 +32,13 @@ public class SuitesPage extends BaseClass {
 	// location']/parent::div/parent::div/parent::mat-select")
 	private WebElement dropDownLocation;
 
-	@FindBy(xpath = "//input[@ng-reflect-name='length']")
+	@FindBy(xpath = "//input[@placeholder='Enter Length']")
 	private WebElement txtLength;
 
-	@FindBy(xpath = "//input[@ng-reflect-name='breadth']")
-	private WebElement txtBreadth;
+	@FindBy(xpath = "//input[@placeholder='Enter Width ']")
+	private WebElement txtWidth;
 
-	@FindBy(xpath = "//input[@ng-reflect-name='height']")
+	@FindBy(xpath = "//input[@placeholder='Enter Height']")
 	private WebElement txtHeight;
 
 	@FindBy(xpath = "//span[text()='Add']/parent::button")
@@ -91,7 +91,7 @@ public class SuitesPage extends BaseClass {
 	private WebElement txtVerifyLengthUpdatedSuccessfully;
 
 	@FindBy(xpath = "(//span[@class='d-block'])[4]")
-	private WebElement txtVerifyBreadthUpdatedSuccessfully;
+	private WebElement txtVerifyWidthUpdatedSuccessfully;
 
 	@FindBy(xpath = "(//span[@class='d-block'])[5]")
 	private WebElement txtVerifyHeighUpdatedSuccessfully;
@@ -120,8 +120,8 @@ public class SuitesPage extends BaseClass {
 		return txtLength;
 	}
 
-	public WebElement getTxtBreadth() {
-		return txtBreadth;
+	public WebElement getTxtWidth() {
+		return txtWidth;
 	}
 
 	public WebElement getTxtHeight() {
@@ -173,7 +173,7 @@ public class SuitesPage extends BaseClass {
 	}
 
 	public WebElement getTxtVerifyBreadthUpdatedSuccessfully() {
-		return txtVerifyBreadthUpdatedSuccessfully;
+		return txtVerifyWidthUpdatedSuccessfully;
 	}
 
 	public WebElement getTxtVerifyHeightUpdatedSuccessfully() {
@@ -207,7 +207,7 @@ public class SuitesPage extends BaseClass {
 		locationDD = locationDD.replaceAll("locationName", readData("TestDatas", "Suites", 1, 1));
 		clickXpath(locationDD);
 		sendKeys(getTxtLength(), readData("TestDatas", "Suites", 1, 2));
-		sendKeys(getTxtBreadth(), readData("TestDatas", "Suites", 1, 3));
+		sendKeys(getTxtWidth(), readData("TestDatas", "Suites", 1, 3));
 		sendKeys(getTxtHeight(), readData("TestDatas", "Suites", 1, 4));
 		waitForElementToBeClickable(getBtnAdd(), 10);
 		click(getBtnAdd());
@@ -234,8 +234,8 @@ public class SuitesPage extends BaseClass {
 //		clickXpath(availabilityDD);
 		getTxtLength().clear();
 		sendKeys(getTxtLength(), readData("TestDatas", "EditSuite", 1, 2));
-		getTxtBreadth().clear();
-		sendKeys(getTxtBreadth(), readData("TestDatas", "EditSuite", 1, 3));
+		getTxtWidth().clear();
+		sendKeys(getTxtWidth(), readData("TestDatas", "EditSuite", 1, 3));
 		getTxtHeight().clear();
 		sendKeys(getTxtHeight(), readData("TestDatas", "EditSuite", 1, 4));
 		click(getBtnUpdateSuite());

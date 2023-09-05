@@ -46,12 +46,13 @@ public class LoginPage extends BaseClass {
 	/*
 	 * Description - Below method helps to perform the Testcase actions for Login Page..
 	 */
+	
 	public void Login(String email, String password) throws Exception {
 		
-		sendKeys(getTxtUserName(),readData("TestDatas", "Login", 1, 0));
-		sendKeys(getTxtPassword(),readData("TestDatas", "Login", 1, 1));
+		sendKeys(getTxtUserName(),readData("TestDatas", "Login", 2, 0));
+		sendKeys(getTxtPassword(),readData("TestDatas", "Login", 2, 1));
 		click(getBtnLogin());
-		waitForPageLoad();
+		//waitForPageLoad();
 	}
 	
 }

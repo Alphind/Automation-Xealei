@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="54.498">
-    <testcase classname="Verify Xealei Suites Page" name="To verify user able to Add/Create and Edit Suite in Suites page by entering all fields" time="54.088">
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="49.547">
+    <testcase classname="Verify Xealei Suites Page" name="To verify user able to Add/Create and Edit Suite in Suites page by entering all fields" time="49.006">
         <system-out><![CDATA[Given User is on Xealei login page..........................................passed
 When User must perform <"email">,<"password">...............................passed
 Then User must verify once login is successfull "Home"......................passed
