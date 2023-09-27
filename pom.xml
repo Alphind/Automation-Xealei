@@ -164,13 +164,21 @@
 </dependency>
 
 <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-devtools -->
+<!--
 <dependency>
     <groupId>org.seleniumhq.selenium</groupId>
     <artifactId>selenium-devtools</artifactId>
     <version>4.0.0-rc-1</version>
 </dependency>
+-->
 
-
+<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.30</version>
+    <scope>provided</scope>
+</dependency>
 
 
 </dependencies>
