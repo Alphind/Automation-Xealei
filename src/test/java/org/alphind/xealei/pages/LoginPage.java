@@ -1,4 +1,16 @@
+/* Copyright (C) 2023  Alphind Solution Software Pvt. Ltd. - All Rights Reserved.
+
+* created by Mohamed Razul, on date
+
+* reviewed by Hajira Begam
+
+* You may use, distribute and modify this code for internal purpose,  however, distribution outside the organization     * is prohibited without prior and proper license agreement
+
+*/
+
 package org.alphind.xealei.pages;
+
+import java.awt.event.KeyEvent;
 
 import org.alphind.xealei.baseclass.BaseClass;
 import org.openqa.selenium.WebElement;
@@ -7,52 +19,234 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends BaseClass {
 
-	/* 
-	 * Description - All the Login Module/Page locators are stored here..  
+	/*
+	 * Description - All the Login Module/Page locators are stored here..
 	 */
+
 	public LoginPage() {
-		PageFactory.initElements(driver,this);
+		PageFactory.initElements(driver, this);
 	}
 	
+	@FindBy(xpath = "//p[text()='Powered by Alphind © 2023']")
+	private WebElement valForLoginScreen;
+	
+	@FindBy(xpath = "//img[@class='logo-img']")
+	private WebElement imageVerification;
+	
+	@FindBy(xpath = "//h3[text()='LOGIN']")
+	private WebElement loginTextVerification;
+
+	@FindBy(xpath = "//mat-label[text()='Email * ']")
+	private WebElement UNMandatoryVerification;
+	
+	@FindBy(xpath = "//mat-label[text()='Password *']")
+	private WebElement PassMandatoryVerification;
+	
+	@FindBy(xpath = "//mat-icon[@ng-reflect-svg-icon='eye-show']")
+	private WebElement eyeShow;
+
+	@FindBy(xpath = "//a[text()='Forgot password?']")
+	private WebElement hyperLnkForgotPassword;
+	
+	@FindBy(xpath = "//a[text()='Privacy Policy']")
+	private WebElement lnkPrivacyPolicy;
+	
+	@FindBy(xpath = "//h1[text()='PRIVACY POLICY']")
+	private WebElement privacyPolicyContent;
+
+	@FindBy(xpath = "//p[text()='Powered by Alphind © 2023']")
+	private WebElement bottomText;
+
 	@FindBy(xpath = "//input[@placeholder='Email']")
-	private WebElement txtUserName;
+	private WebElement userName;
 
 	@FindBy(xpath = "//input[@placeholder='Password']")
-	private WebElement txtPassword;
-	
+	private WebElement password;
+
 	@FindBy(xpath = "//button[text()='Login ']")
-	private WebElement btnLogin;
-	
+	private WebElement loginButton;
+
 	@FindBy(xpath = "//h5[text()='Home']")
-	private WebElement successFulMessage;
-	
+	private WebElement redirectToHomePageSuccessfully;
 
-	public WebElement getTxtUserName() {
-		return txtUserName;
-	}
+	@FindBy(xpath = "//span[text()='User not found']")
+	private WebElement userNotFoundErrorMessage;
 
-	public WebElement getTxtPassword() {
-		return txtPassword;
-	}
+	@FindBy(xpath = "//span[text()='Incorrect password']")
+	private WebElement incorrectPasswordErrorMessage;
 
-	public WebElement getBtnLogin() {
-		return btnLogin;
+	@FindBy(xpath = "//mat-error[text()=' Please enter email ID ']")
+	private WebElement errorMessageForEmail;
+
+	@FindBy(xpath = "//mat-error[text()=' Please enter password ']")
+	private WebElement errorMessageForPassword;
+
+	public WebElement getValForLoginScreen() {
+		return valForLoginScreen;
 	}
 	
-	public WebElement getSuccessFulMessage() {
-		return successFulMessage;
+	public WebElement getImageVerification() {
+		return imageVerification;
 	}
 	
+	public WebElement getLoginTextVerification() {
+		return loginTextVerification;
+	}
+
+	public WebElement getUNMandatoryVerification() {
+		return UNMandatoryVerification;
+	}
+
+	public WebElement getPassMandatoryVerification() {
+		return PassMandatoryVerification;
+	}
+	
+	public WebElement getEyeShow() {
+		return eyeShow;
+	}
+	
+	public WebElement getHyperLnkForgotPassword() {
+		return hyperLnkForgotPassword;
+	}
+	
+	public WebElement getLnkPrivacyPolicy() {
+		return lnkPrivacyPolicy;
+	}
+	
+	public WebElement getBottomText() {
+		return bottomText;
+	}
+	
+	public WebElement getPrivacyPolicyContent() {
+		return privacyPolicyContent;
+	}
+	
+	public WebElement getUserName() {
+		return userName;
+	}
+
+	public WebElement getPassword() {
+		return password;
+	}
+
+	public WebElement getLoginButton() {
+		return loginButton;
+	}
+
+	public WebElement getRedirectToHomePageSuccessfully() {
+		return redirectToHomePageSuccessfully;
+	}
+
+	public WebElement getUserNotFoundErrorMessage() {
+		return userNotFoundErrorMessage;
+	}
+
+	public WebElement getIncorrectPasswordErrorMessage() {
+		return incorrectPasswordErrorMessage;
+	}
+
+	public WebElement getErrorMessageForEmail() {
+		return errorMessageForEmail;
+	}
+
+	public WebElement getErrorMessageForPassword() {
+		return errorMessageForPassword;
+	}
+
 	/*
-	 * Description - Below method helps to perform the Testcase actions for Login Page..
+	 * Description - Below method helps to perform the Testcase actions for Login
+	 * Page..
 	 */
-	
-	public void Login(String email, String password) throws Exception {
+
+	public void enterPassword() throws Exception {
 		
-		sendKeys(getTxtUserName(),readData("TestDatas", "Login", 2, 0));
-		sendKeys(getTxtPassword(),readData("TestDatas", "Login", 2, 1));
-		click(getBtnLogin());
-		//waitForPageLoad();
+		sendKeys(getPassword(), readExcel("Test Datas", "Login", 1, 4));
 	}
 	
+	public void LoginWithInvalidCredentials() throws Exception {
+
+		sendKeys(getUserName(), readExcel("Test Datas", "Login", 1, 3));
+		sendKeys(getPassword(), readExcel("Test Datas", "Login", 1, 4));
+		click(getLoginButton());
+	}
+
+	public void LoginWithValidEmail() throws Exception {
+
+		if (getConfigureProperty("Environment_QA").equalsIgnoreCase("Yes")) {
+			sendKeys(getUserName(), readExcel("Test Datas", "Login", 1, 1));
+		} else if (getConfigureProperty("Environment_PREPOD").equalsIgnoreCase("Yes")) {
+			sendKeys(getUserName(), readExcel("Test Datas", "Login", 2, 1));
+		} else if (getConfigureProperty("Environment_PRODUCTION").equalsIgnoreCase("Yes")) {
+			sendKeys(getUserName(), readExcel("Test Datas", "Login", 2, 1));
+		}
+		click(getLoginButton());
+	}
+
+	public void LoginWithValidPassword() throws Exception {
+
+		if (getConfigureProperty("Environment_QA").equalsIgnoreCase("Yes")) {
+			sendKeys(getPassword(), readExcel("Test Datas", "Login", 1, 2));
+		} else if (getConfigureProperty("Environment_PREPOD").equalsIgnoreCase("Yes")) {
+			sendKeys(getPassword(), readExcel("Test Datas", "Login", 2, 2));
+		} else if (getConfigureProperty("Environment_PRODUCTION").equalsIgnoreCase("Yes")) {
+			sendKeys(getPassword(), readExcel("Test Datas", "Login", 2, 2));
+		}
+		click(getLoginButton());
+	}
+
+	public void LoginWithValidEmailAndInvalidPassword() throws Exception {
+
+		if (getConfigureProperty("Environment_QA").equalsIgnoreCase("Yes")) {
+			sendKeys(getUserName(), readExcel("Test Datas", "Login", 1, 1));
+			sendKeys(getPassword(), readExcel("Test Datas", "Login", 1, 4));
+		} else if (getConfigureProperty("Environment_PREPOD").equalsIgnoreCase("Yes")) {
+			sendKeys(getUserName(), readExcel("Test Datas", "Login", 2, 1));
+			sendKeys(getPassword(), readExcel("Test Datas", "Login", 1, 4));
+		} else if (getConfigureProperty("Environment_PRODUCTION").equalsIgnoreCase("Yes")) {
+			sendKeys(getUserName(), readExcel("Test Datas", "Login", 2, 1));
+			sendKeys(getPassword(), readExcel("Test Datas", "Login", 1, 4));
+		}
+		click(getLoginButton());
+	}
+
+	public void clickLoginButtonWithoutEnterCredentials() {
+
+		waitForPageLoad();
+		click(getLoginButton());
+
+	}
+
+	public void LoginWithValidCredentials() throws Exception {
+
+
+		if (getConfigureProperty("Environment_QA").equalsIgnoreCase("Yes")) {
+			sendKeys(getUserName(), readExcel("Test Datas", "Login", 1, 1));
+			sendKeys(getPassword(), readExcel("Test Datas", "Login", 1, 2));
+		} else if (getConfigureProperty("Environment_PREPOD").equalsIgnoreCase("Yes")) {
+			sendKeys(getUserName(), readExcel("Test Datas", "Login", 2, 1));
+			sendKeys(getPassword(), readExcel("Test Datas", "Login", 2, 2));
+		} else if (getConfigureProperty("Environment_PRODUCTION").equalsIgnoreCase("Yes")) {
+			sendKeys(getUserName(), readExcel("Test Datas", "Login", 2, 1));
+			sendKeys(getPassword(), readExcel("Test Datas", "Login", 2, 2));
+		}
+		click(getLoginButton());
+	}
+
+	public void LoginUsingEnterKey() throws Exception {
+
+		if (getConfigureProperty("Environment_QA").equalsIgnoreCase("Yes")) {
+			sendKeys(getUserName(), readExcel("Test Datas", "Login", 1, 1));
+			sendKeys(getPassword(), readExcel("Test Datas", "Login", 1, 2));
+		} else if (getConfigureProperty("Environment_PREPOD").equalsIgnoreCase("Yes")) {
+			sendKeys(getUserName(), readExcel("Test Datas", "Login", 2, 1));
+			sendKeys(getPassword(), readExcel("Test Datas", "Login", 2, 2));
+		} else if (getConfigureProperty("Environment_PRODUCTION").equalsIgnoreCase("Yes")) {
+			sendKeys(getUserName(), readExcel("Test Datas", "Login", 2, 1));
+			sendKeys(getPassword(), readExcel("Test Datas", "Login", 2, 2));
+		}
+		
+		keyPress(KeyEvent.VK_ENTER);
+		keyRelease(KeyEvent.VK_ENTER);
+	}
+
 }

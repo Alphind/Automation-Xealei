@@ -1,7 +1,21 @@
+/* Copyright (C) 2023  Alphind Solution Software Pvt. Ltd. - All Rights Reserved.
+
+* created by Mohamed Razul, on date
+
+* reviewed by Hajira Begam
+
+* You may use, distribute and modify this code for internal purpose,  however, distribution outside the organization     * is prohibited without prior and proper license agreement
+
+*/
+
 package org.alphind.xealei.baseclass;
 
 import java.awt.AWTException;
 import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -15,6 +29,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
@@ -24,38 +39,45 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
+
+import io.cucumber.java.Scenario;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
 
 	// Driver initialized in class level
 
+	protected Scenario s ;
 	public static WebDriver driver;
 
 	// 1. To set the browser
 
-	public void browserType(String browser) {
+	public void browserType() throws Exception {
 
-		if (browser.equalsIgnoreCase("CHROME")) {
+		if (getConfigureProperty("Chrome").equalsIgnoreCase("Yes")) {
 			WebDriverManager.chromedriver().setup(); 
 			driver = new ChromeDriver();
-		} else if (browser.equalsIgnoreCase("EDGE")) {
+		} else if (getConfigureProperty("Edge").equalsIgnoreCase("Yes")) {
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
-		} else if (browser.equalsIgnoreCase("FIREFOX")) {
+		} else if (getConfigureProperty("Firefox").equalsIgnoreCase("Yes")) {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 		}
@@ -136,12 +158,18 @@ public class BaseClass {
 
 	// 13. Screenshot
 
-	public void takesScreenshot(String Name) throws Exception {
+	public String takesScreenshot(String Name) throws Exception {
 
 		TakesScreenshot screen = (TakesScreenshot) driver;
 		File source = screen.getScreenshotAs(OutputType.FILE);
-		File destination = new File("C:\\Xealei Automation\\Xealei\\target\\Screenshots\\" + Name + ".png");
+		File destination = new File(".//ExtentReports//Screenshots//" + Name + ".png");
 		FileUtils.copyFile(source, destination);
+		FileInputStream fis = new FileInputStream(destination);
+		byte[] bytes = new byte[(int)destination.length()];
+		fis.read(bytes);
+		String base64 = new String(Base64.encodeBase64(bytes));
+		fis.close();
+		return "data:image/png;base64"+base64;
 	}
 
 //	// 14. Screenshot for Report
@@ -174,10 +202,10 @@ public class BaseClass {
 
 	// 18. readData from Excel
 
-	public String readData(String pathName, String sheetName, int rowNum, int cellNum) throws IOException {
+	public String readExcel(String fileName, String sheetName, int rowNum, int cellNum) throws IOException {
 
 		String res = null;
-		File file = new File("C:\\Xealei Automation\\Xealei\\src\\test\\resources\\Excel\\" + pathName + ".xlsx");
+		File file = new File(".//Excel//"+fileName+".xlsx");
 		FileInputStream stream = new FileInputStream(file);
 		Workbook workbook = new XSSFWorkbook(stream);
 		Sheet sheet = workbook.getSheet(sheetName);
@@ -212,10 +240,9 @@ public class BaseClass {
 
 	// 19. Configuration Property File
 
-	public String getConfigureProperty(String key) throws Exception {
+	public String getConfigureProperty(String key) throws Exception{
 
-		FileInputStream stream = new FileInputStream(
-				"C:\\Xealei Automation\\Xealei\\src\\test\\resources\\Configuration\\Config.properties");
+		FileInputStream stream = new FileInputStream(".//Configuration Property file//Config.properties");
 		Properties properties = new Properties();
 		properties.load(stream);
 		return properties.get(key).toString();
@@ -317,7 +344,7 @@ public class BaseClass {
 
 	// 32. String click
 
-	public void clickXpath(String elementxpath) {
+	public void selectDropDown(String elementxpath) {
 		click(driver.findElement(By.xpath(elementxpath)));
 	}
 
@@ -331,10 +358,10 @@ public class BaseClass {
 
 	// 34. Write Data to Excel
 
-	public void writeData(String fileName, String sheetname, int rownum, int cellnum, String newdatacell)
+	public String writeExcel(String fileName, String sheetname, int rownum, int cellnum,String newdatacell)
 			throws IOException {
 
-		File file = new File("C:\\Xealei Automation\\Xealei\\src\\test\\resources\\Excel\\" + fileName + ".xlsx");
+		File file = new File(".//Excel//"+fileName+".xlsx");
 		FileInputStream stream = new FileInputStream(file);
 		Workbook workbook = new XSSFWorkbook(stream);
 		Sheet sheet = workbook.getSheet(sheetname);
@@ -344,8 +371,11 @@ public class BaseClass {
 		FileOutputStream stream1 = new FileOutputStream(file);
 		workbook.write(stream1);
 		workbook.close();
+		return newdatacell;
 	}
 
+	
+	
 	// 35.getText
 
 	public String getText(WebElement updatedSuiteName) {
@@ -401,7 +431,7 @@ public class BaseClass {
 	public void waitForPageLoad() {
 
 			WebElement loading = driver.findElement(By.xpath("//div[contains(text(),'Loading')]"));
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 			wait.until(ExpectedConditions.invisibilityOf(loading));
 		
 	}
@@ -417,5 +447,162 @@ public class BaseClass {
 					e.printStackTrace();
 				}
 		}
+		
+    // 44. Robot class for upload photo 
+		
+		public void uploadImage(String imagePath) {
+		StringSelection stringSelection = new StringSelection(imagePath);
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        clipboard.setContents(stringSelection, null);
+        Robot robot = null;
+        try {
+            robot = new Robot();
+        } catch (AWTException e) {
+            e.printStackTrace();
+        }
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+}
+		
+		//45. Environment SetupUp
+		
+		public void environment(String Env) {
+			
+		if(Env.equalsIgnoreCase("QA")) {
+			loadUrl("https://qa.xealei.com/");
+		} else if (Env.equalsIgnoreCase("PREPOD")) {
+			loadUrl("https://preprod.xealei.com/");
+		}
+		}
+		
+		
+		public void cleanRecordFromDB(boolean CleanRecord, String collectionName, String key, String value) {
+			
+			if (CleanRecord == true) {
+				
+//			// ************* MongoDB deployment's connection string *************
+			String uri = "mongodb+srv://adminXealei:hNntCLqUSkTxbJel@xealei-qa.1of90.mongodb.net"
+					+ "/xealeiqa?retryWrites=true&w=majority";
 
+			MongoClient mongoClient = MongoClients.create(uri);
+
+//			// ************* Create one Collection *************
+	     	MongoDatabase db = mongoClient.getDatabase("xealeiqa");
+	
+//			//************* To delete particular document *************
+		   db.getCollection(collectionName).findOneAndDelete(Filters.eq(key, value));
+			System.out.println("Document deleted successfully..!");
+	     	
+			}
+		}
+		
+		
+//		public List<String> readDatafromExcel001(String pathName, String sheetName, int cellNum)  {
+//
+//			try {
+//			List<String> res =null;
+//			File file = new File(".//Excel//"+pathName+".xlsx");
+//			FileInputStream stream = new FileInputStream(file);
+//			Workbook workbook = new XSSFWorkbook(stream);
+//			Sheet sheet = workbook.getSheet(sheetName);
+//			
+//			int lastrownum = sheet.getLastRowNum();
+//			
+//			for(int i=1;i<lastrownum;i++) {
+//				Row row = sheet.getRow(i);
+//				Cell cell = row.getCell(cellNum);
+//				CellType cellType = cell.getCellType();
+//				switch (cellType) {
+//
+//				case STRING:
+//					res.add(cell.getStringCellValue());
+//					break;
+//				case NUMERIC:
+//					if (DateUtil.isCellDateFormatted(cell)) {
+//						Date date = cell.getDateCellValue();
+//						SimpleDateFormat dateFormat = new SimpleDateFormat("MMM/dd/yy");
+//						res.add( dateFormat.format(date));
+//					} else {
+//						double numericCellValue = cell.getNumericCellValue();
+//						BigDecimal b = BigDecimal.valueOf(numericCellValue);
+//						res.add(b.toString());
+//					}
+//					break;
+//				default:
+//					break;
+//				}
+//			}
+//			
+//			workbook.close();
+//			return res;}
+//			catch(IOException e) {
+//				e.printStackTrace();
+//				return null;
+//			}
+//
+//		}
+		
+//		// 40. Explicit wait - WebDriverWait for inVisiblityOfElement
+		
+		public void waitForInVisiblityOfElement(WebElement element, long seconds) {
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
+			wait.until(ExpectedConditions.visibilityOf(element));
+		}
+		
+//     //  41. Clear Text
+		
+		public void clearText(WebElement element) {
+			element.clear();
+		}
+
+//	     //  42. Refresh Page
+		
+		public void refreshPage() {
+			driver.navigate().refresh();
+		}
+		
+//	     //  43. Environment set up
+		
+		public void env() throws Exception {
+			
+			if (getConfigureProperty("Environment_QA").equalsIgnoreCase("Yes")) {
+				driver.get(readExcel("Test Datas", "Environments",1,1));
+			} else if (getConfigureProperty("Environment_PREPOD").equalsIgnoreCase("Yes")) {
+				driver.get(readExcel("Test Datas", "Environments",2,1));
+			} else if (getConfigureProperty("Environment_PRODUCTION").equalsIgnoreCase("Yes")) {
+				driver.get(readExcel("Test Datas", "Environments",3,1));	
+			}
+		}
+		
+//	     //  44. get Current URL
+		
+		public String getCurrentUrl() {
+		
+			String currentUrl = driver.getCurrentUrl();
+			return currentUrl;	
+		}
+ 
+//		// 45. Scroll Down - (JavaScript Executor)
+		
+		public void scrollDownToAnElement(WebElement element) {
+			
+			JavascriptExecutor executor = (JavascriptExecutor)driver;
+			executor.executeScript("argument[0].scrollIntoView()",element);
+		}
+		
+//		// 46. Scroll Bottom of the page - (JavaScript Executor)
+		
+		public void scrollDownToBottomOfThePage() {
+			
+			JavascriptExecutor executor = (JavascriptExecutor)driver;
+			executor.executeScript("window.scrollBy(0,document.body.scrollHeight)");
+		}	
+		
+		
 }

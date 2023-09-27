@@ -14,14 +14,18 @@
         <protocol>https</protocol>
         
         <!-- title of the document -->
-        <documentTitle>Extent</documentTitle>
+        <documentTitle>Xealei</documentTitle>
         
         <!-- report name - displayed at top-nav -->
-        <reportName>Xealei Automation Report</reportName>
+        <reportName>Automation Report</reportName>
+        
+        <!-- timestamp format -->
+        <timeStampFormat>dd MMM, yyyy HH:mm:ss</timeStampFormat>
+        
         
         <!-- location of charts in the test view -->
         <!-- top, bottom -->
-        <testViewChartLocation>bottom</testViewChartLocation>
+        <testViewChartLocation>top</testViewChartLocation>
         
         <!-- custom javascript -->
         <scripts>
