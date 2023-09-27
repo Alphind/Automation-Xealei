@@ -170,7 +170,7 @@
     <artifactId>selenium-devtools</artifactId>
     <version>4.0.0-rc-1</version>
 </dependency>
--->
+!-->
 
 <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 <dependency>
