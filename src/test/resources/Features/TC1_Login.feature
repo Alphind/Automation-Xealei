@@ -8,17 +8,17 @@
 #
 #*/
 
-
+@LOGIN
 Feature: Verify Xealei Login Page
 
-  Scenario Outline: To verify the web url link
+  Scenario Outline: To verify the web url link for login page
     Given User should open the browser
     When User must enter the respective URL in browser tab
     Then User must verify the login page is displayed
     Then User must verify the tab url address for login screen
 
 
-  Scenario Outline: To verify the login screen for image, fields, logo & button.
+  Scenario Outline: To verify the login page for image, fields, logo & button.
     Given User is on Xealei login page
     Then User must verify the xealei Logo is displayed
     Then User must verify the Login text is displayed
@@ -80,7 +80,7 @@ Feature: Verify Xealei Login Page
     When User must perform login with valid email and password
     Then User must verify once the page is navigate to HOME_DASHBOARD successfully "Home"
 
-@LOGIN
+
   Scenario Outline: To verify Xealei login page by click the ENTER key with valid credentials
     Given User is on Xealei login page
     When User must perform login with valid email and password by click the Enter key

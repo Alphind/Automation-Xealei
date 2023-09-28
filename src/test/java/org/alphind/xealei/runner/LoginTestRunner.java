@@ -26,9 +26,8 @@ plugin = {"html:target/html.html",
 		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"})
 
 
-public class TestRunner  {
+public class LoginTestRunner  {
 	
 
-	
 }
 
