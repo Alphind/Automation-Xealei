@@ -25,7 +25,7 @@
             <configuration>
                 <!-- Specify your test runner classes here -->
                 <includes>
-                    <include>org.alphind.xealei.runner.TestRunner2</include>
+                    <include>org.alphind.xealei.runner.TestRunner</include>
                     <!-- Add more TestRunners as needed -->
                 </includes>
             </configuration>
