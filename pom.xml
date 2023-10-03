@@ -4,21 +4,36 @@
   <artifactId>Xealei</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
-  <build>
+ <!-- <build>
 	  <plugins>
+		  
 		  <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-surefire-plugin</artifactId>
     <version>3.1.0</version>
     <dependencies>
-      <dependency>
-        <groupId>org.apache.maven.surefire</groupId>
-        <artifactId>surefire-junit47</artifactId>
-        <version>3.1.0</version>
-      </dependency>
     </dependencies>
-  </plugin>
+  </plugin> -->
   
+  <build>
+	  <plugins>
+        <!-- Maven Surefire Plugin -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.1.0</version>
+            <configuration>
+                <!-- Specify your test runner classes here -->
+                <includes>
+                    <include>org.alphind.xealei.runner.TestRunner2</include>
+                    <!-- Add more TestRunners as needed -->
+                </includes>
+            </configuration>
+        </plugin>
+<!--    </plugins>
+</build> -->
+  
+
   <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -33,7 +48,7 @@
   </build>
   
 <dependencies>
-	  
+	
 <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
 <dependency>
     <groupId>io.cucumber</groupId>
@@ -54,6 +69,13 @@
     <groupId>org.seleniumhq.selenium</groupId>
     <artifactId>selenium-java</artifactId>
     <version>4.8.3</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-core -->
+<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-core</artifactId>
+    <version>6.9.1</version>
 </dependency>
 
 <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
@@ -128,12 +150,6 @@
     <version>1.78</version>
 </dependency>
 
-<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-core -->
-<dependency>
-    <groupId>io.cucumber</groupId>
-    <artifactId>cucumber-core</artifactId>
-    <version>6.9.1</version>
-</dependency>
 
 <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
 <dependency>
@@ -179,6 +195,9 @@
     <version>1.18.30</version>
     <scope>provided</scope>
 </dependency>
+
+
+ 
 
 
 </dependencies>

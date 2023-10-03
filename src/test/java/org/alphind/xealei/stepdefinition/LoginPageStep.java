@@ -131,7 +131,7 @@ public class LoginPageStep extends BaseClass {
 			System.out.println("Pasword Textbox doesn't contains eye icon");
 			throw new Exception("Assertion Failed");
 		}
-
+		
 	}
 
 	@Then("User must verify the {string} text is displayed in Login button")

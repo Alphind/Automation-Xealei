@@ -42,7 +42,7 @@ public class LoginPage extends BaseClass {
 	@FindBy(xpath = "//mat-label[text()='Password *']")
 	private WebElement PassMandatoryVerification;
 	
-	@FindBy(xpath = "//mat-icon[@ng-reflect-svg-icon='eye-show']")
+	@FindBy(xpath = "//img[@class='show-hide-pwd1']")
 	private WebElement eyeShow;
 
 	@FindBy(xpath = "//a[text()='Forgot password?']")
