@@ -26,9 +26,15 @@
                 <!-- Specify your test runner classes here -->
                 <includes>
                     <include>org.alphind.xealei.runner.TestRunner2</include>
-                    <!-- Add more TestRunners as needed -->
                 </includes>
             </configuration>
+                <dependencies>
+      <dependency>
+        <groupId>org.apache.maven.surefire</groupId>
+        <artifactId>surefire-junit47</artifactId>
+        <version>3.1.0</version>
+      </dependency>
+    </dependencies>
         </plugin>
 <!--    </plugins>
 </build> -->

@@ -88,6 +88,7 @@ public class LoginPageStep extends BaseClass {
 	@Then("User must verify the Email and password fields contains * symbol")
 	public void user_must_verify_the_email_and_password_fields_contains_symbol() throws Exception {
 
+		
 		String email = getText(pom.getLoginPage().getUNMandatoryVerification());
 		String password = getText(pom.getLoginPage().getPassMandatoryVerification());
 
