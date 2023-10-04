@@ -17,7 +17,7 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src\\test\\resources\\Features\\TC1_Login.feature",tags = "@LOGIN01",
+@CucumberOptions(features = "src\\test\\resources\\Features\\TC3_Add Suites.feature",tags = "@Suite01",
 glue = "org.alphind.xealei.stepdefinition",dryRun = !true ,monochrome = true,
 
 plugin = {"html:target/html.html",
