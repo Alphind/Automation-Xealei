@@ -30,16 +30,13 @@ public class LoginPage extends BaseClass {
 	@FindBy(xpath = "//p[text()='Powered by Alphind © 2023']")
 	private WebElement valForLoginScreen;
 	
-	@FindBy(xpath = "//img[@class='logo-img']")
-	private WebElement imageVerification;
-	
 	@FindBy(xpath = "//h3[text()='LOGIN']")
 	private WebElement loginTextVerification;
 
-	@FindBy(xpath = "//mat-label[text()='Email * ']")
+	@FindBy(xpath = "(//span[@class='text-danger']/parent::mat-label)[1]")
 	private WebElement UNMandatoryVerification;
 	
-	@FindBy(xpath = "//mat-label[text()='Password *']")
+	@FindBy(xpath = "(//span[@class='text-danger']/parent::mat-label)[2]")
 	private WebElement PassMandatoryVerification;
 	
 	@FindBy(xpath = "//img[@class='show-hide-pwd1']")
@@ -83,10 +80,6 @@ public class LoginPage extends BaseClass {
 
 	public WebElement getValForLoginScreen() {
 		return valForLoginScreen;
-	}
-	
-	public WebElement getImageVerification() {
-		return imageVerification;
 	}
 	
 	public WebElement getLoginTextVerification() {

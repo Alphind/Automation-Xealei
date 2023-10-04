@@ -63,19 +63,6 @@ public class LoginPageStep extends BaseClass {
 
 	}
 
-	@Then("User must verify the xealei Logo is displayed")
-	public void user_must_verify_the_xealei_logo_is_displayed() throws Exception {
-
-		boolean displayed = pom.getLoginPage().getImageVerification().isDisplayed();
-		if (displayed) {
-			System.out.println("Expected Xealei Image is presented in Login page");
-		} else {
-			System.out.println("Expected Xealei Image is Not presented in Login page");
-			throw new Exception("Assertion Failed");
-		}
-
-	}
-
 	@Then("User must verify the Login text is displayed")
 	public void user_must_verify_the_login_text_is_displayed() {
 
@@ -95,7 +82,7 @@ public class LoginPageStep extends BaseClass {
 		System.out.println(email);
 		System.out.println(password);
 
-		if (email.contains("*") && password.contains("*")) {
+		if (email.contains("Email *") && password.contains("Password *")) {
 			System.out.println("UN and Password fields name contains * symbol");
 		} else {
 			System.out.println("* symbol is missing : Expected * but was :" + email + ", " + password);

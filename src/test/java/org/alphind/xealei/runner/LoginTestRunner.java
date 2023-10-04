@@ -17,7 +17,7 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src\\test\\resources\\Features\\TC1_Login.feature",tags = "@LOGIN",
+@CucumberOptions(features = "src\\test\\resources\\Features\\TC1_Login.feature",tags = "@Login-AllScenarios",
 glue = "org.alphind.xealei.stepdefinition",dryRun = !true ,monochrome = true,
 
 plugin = {"html:target/html.html",
@@ -26,7 +26,7 @@ plugin = {"html:target/html.html",
 		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"})
 
 
-public class TestRunner  {
+public class LoginTestRunner  {
 	
 
 }

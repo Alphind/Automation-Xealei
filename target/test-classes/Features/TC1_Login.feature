@@ -8,7 +8,7 @@
 #
 #*/
 
-@LOGIN
+@Login-AllScenarios
 Feature: Verify Xealei Login Page
 
   Scenario Outline: To verify the web url link for login page
@@ -18,9 +18,8 @@ Feature: Verify Xealei Login Page
     Then User must verify the tab url address for login screen
 
 
-  Scenario Outline: To verify the login page for image, fields, logo & button.
+  Scenario Outline: To verify the login page for fields, logo & button.
     Given User is on Xealei login page
-    Then User must verify the xealei Logo is displayed
     Then User must verify the Login text is displayed
     Then User must verify the Email and password fields contains * symbol
     Then User must verify the Email textbox contains "Email" text

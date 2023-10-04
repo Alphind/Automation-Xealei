@@ -1,6 +1,6 @@
 /* Copyright (C) 2023  Alphind Solution Software Pvt. Ltd. - All Rights Reserved.
 
-* created by Mohamed Razul, on date
+* created by Mohamed Razul, on date 
 
 * reviewed by Hajira Begam
 
@@ -22,7 +22,7 @@ import io.cucumber.java.Scenario;
 public class Hooks extends BaseClass {
 
 	@Before
-	public void beforeScenario() throws Exception {
+	public void setUp() throws Exception {
 		browserType();
 		env();
 		maximize();
@@ -43,30 +43,28 @@ public class Hooks extends BaseClass {
 		if (scenario.isFailed()) {
 			final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 			scenario.attach(screenshot, "image/png", scenario.getName());
-		}
-
-//		else {
-//			waitForPageLoad();
-//			sleep(1000);
-//			final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-//			scenario.attach(screenshot,"image/png", scenario.getName());
-//		}
-		
+		}	
 	}
 	
 	
 	@After(order = 1)
 	public void tearDown() {
+		
 		waitForPageLoad();
-		sleep(1000);
-		//close();
+		if(driver != null) {
+			sleep(1000);
+			quit();
+		}
+		
 	}
 	
 	@After(order = 2)
 	public void cleaningProcess() {
 		
-//		cleanRecordFromDB(true, "xealeiqa", "", "");
-//		cleanRecordFromDB(true, null, null, null);
+	/* cleanRecordFromDB(true, "xealeiqa", "", "");
+	 * cleanRecordFromDB(true, null, null, null);
+	 */
+		
 
 	}
 	
