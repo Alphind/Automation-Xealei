@@ -1,6 +1,6 @@
 /* Copyright (C) 2023  Alphind Solution Software Pvt. Ltd. - All Rights Reserved.
 
-* created by Mohamed Razul, on date 
+* created by Mohamed Razul
 
 * reviewed by Hajira Begam
 

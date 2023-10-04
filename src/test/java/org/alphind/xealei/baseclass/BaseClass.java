@@ -1,6 +1,6 @@
 /* Copyright (C) 2023  Alphind Solution Software Pvt. Ltd. - All Rights Reserved.
 
-* created by Mohamed Razul, on date
+* created by Mohamed Razul
 
 * reviewed by Hajira Begam
 
@@ -29,7 +29,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
-import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
@@ -167,7 +166,7 @@ public class BaseClass {
 		FileInputStream fis = new FileInputStream(destination);
 		byte[] bytes = new byte[(int)destination.length()];
 		fis.read(bytes);
-		String base64 = new String(Base64.encodeBase64(bytes));
+		String base64 = new String((bytes));
 		fis.close();
 		return "data:image/png;base64"+base64;
 	}

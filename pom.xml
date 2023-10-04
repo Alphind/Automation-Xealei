@@ -1,3 +1,13 @@
+<!-- /* Copyright (C) 2023  Alphind Solution Software Pvt. Ltd. - All Rights Reserved.
+
+* created by Mohamed Razul
+
+* reviewed by Hajira Begam
+
+* You may use, distribute and modify this code for internal purpose,  however, distribution outside the organization     * is prohibited without prior and proper license agreement
+
+*/ -->
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org</groupId>
@@ -90,7 +100,7 @@
 <dependency>
     <groupId>io.github.bonigarcia</groupId>
     <artifactId>webdrivermanager</artifactId>
-    <version>5.4.1</version>
+    <version>5.5.3</version>
 </dependency>
 
 <!-- https://mvnrepository.com/artifact/junit/junit -->
@@ -187,12 +197,12 @@
     <version>5.2.2</version>
 </dependency>
 
-<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-devtools -->
-<dependency>
+ <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-devtools -->
+<!-- <dependency>
     <groupId>org.seleniumhq.selenium</groupId>
     <artifactId>selenium-devtools</artifactId>
     <version>4.0.0-rc-1</version>
-</dependency>
+</dependency> -->
 
 <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 <dependency>

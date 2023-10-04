@@ -8,7 +8,7 @@
 #
 #*/
 
-@Regression
+@Suite01
 Feature: Verify Xealei Suites Page
 
 

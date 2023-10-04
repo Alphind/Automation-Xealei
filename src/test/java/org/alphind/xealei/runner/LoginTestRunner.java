@@ -17,10 +17,9 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src\\test\\resources\\Features\\TC1_Login.feature",tags = "@Login-AllScenarios",
-glue = "org.alphind.xealei.stepdefinition",dryRun = !true ,monochrome = true,
 
-plugin = {"html:target/html.html",
+@CucumberOptions(features = "src\\test\\resources\\Features\\TC1_Login.feature",tags = "@Login-AllScenarios",
+glue = "org.alphind.xealei.stepdefinition",dryRun = !true ,monochrome = true, plugin = {"html:target/html.html",
 		"junit:target/junit.xml",
 		"json:target/json.json",
 		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"})

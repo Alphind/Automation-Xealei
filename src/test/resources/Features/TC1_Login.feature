@@ -73,7 +73,7 @@ Feature: Verify Xealei Login Page
     When User click Login button without enter username and password
     Then User must verify the error message contains for both email and password after click the Login button "Please enter email ID" and "Please enter password"
 
-@LOGIN01
+
   Scenario Outline: To verify Xealei login page with valid credentials
     Given User is on Xealei login page
     When User must perform login with valid email and password
