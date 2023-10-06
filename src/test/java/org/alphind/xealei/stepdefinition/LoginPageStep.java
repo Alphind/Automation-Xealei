@@ -56,7 +56,7 @@ public class LoginPageStep extends BaseClass {
 		}
 	}
 
-// ***** To verify the login screen for image, fields, logo & button *****
+// ***** To verify the login screen for fields, logo & button *****
 
 	@Given("User is on Xealei login page")
 	public void user_is_on_xealei_login_page() {
