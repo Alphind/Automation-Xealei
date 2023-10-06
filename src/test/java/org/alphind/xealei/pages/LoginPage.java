@@ -27,7 +27,7 @@ public class LoginPage extends BaseClass {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath = "//p[@class='text-muted text-center mt-6']")
+	@FindBy(xpath = "//p[contains(text(),'Powered by Alphind © 2023')]")
 	private WebElement valForLoginScreen;
 	
 	@FindBy(xpath = "//h3[text()='LOGIN']")
@@ -63,7 +63,7 @@ public class LoginPage extends BaseClass {
 	@FindBy(xpath = "//button[text()='Login ']")
 	private WebElement loginButton;
 
-	@FindBy(xpath = "//h5[text()='Home']")
+	@FindBy(xpath = "//h5[@x-page='home']")
 	private WebElement redirectToHomePageSuccessfully;
 
 	@FindBy(xpath = "//span[text()='User not found']")
