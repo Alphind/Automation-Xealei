@@ -26,8 +26,7 @@ glue = "org.alphind.xealei.stepdefinition",dryRun = !true ,monochrome = true, pl
 
 
 public class LoginTestRunner  {
-	
-	
 
+	
 }
 

@@ -59,14 +59,17 @@ import com.mongodb.client.model.Filters;
 import io.cucumber.java.Scenario;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+
 public class BaseClass {
 
 	// Driver initialized in class level
 
 	protected Scenario s ;
 	//public ThreadLocal<WebDriver> dr = new ThreadLocal<WebDriver>();
+    
 	public static WebDriver driver;
-
+	
+	
 	// 1. To set the browser
 
 	public void browserType() throws Exception {
@@ -74,9 +77,11 @@ public class BaseClass {
 		if (getConfigureProperty("Chrome").equalsIgnoreCase("Yes")) {
 			WebDriverManager.chromedriver().setup(); 
 			driver = new ChromeDriver();
+			
 		} else if (getConfigureProperty("Edge").equalsIgnoreCase("Yes")) {
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
+			
 		} else if (getConfigureProperty("Firefox").equalsIgnoreCase("Yes")) {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
