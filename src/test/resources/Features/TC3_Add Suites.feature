@@ -8,15 +8,14 @@
 #
 #*/
 
+Feature: Verify Xealei Suites > Add Suites Page
+
 Background:  
 
     Given User is on Xealei login page
     When User must perform login with valid email and password
     Then User must verify once the page is navigate to HOME_DASHBOARD successfully "Home"
-
-
-Feature: Verify Xealei Suites > Add Suites Page
-
+    
   Scenario Outline: To verify the web url link for suite page
   
     And User must navigate to Suite Module

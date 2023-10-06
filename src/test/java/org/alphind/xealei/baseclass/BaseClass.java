@@ -64,6 +64,7 @@ public class BaseClass {
 	// Driver initialized in class level
 
 	protected Scenario s ;
+	//public ThreadLocal<WebDriver> dr = new ThreadLocal<WebDriver>();
 	public static WebDriver driver;
 
 	// 1. To set the browser
@@ -196,7 +197,7 @@ public class BaseClass {
 	// 17. Quit
 
 	public void quit() {
-		driver.quit();
+		driver.close();
 	}
 
 	// 18. readData from Excel

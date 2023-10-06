@@ -51,22 +51,19 @@ public class Hooks extends BaseClass {
 	public void tearDown() {
 		
 		waitForPageLoad();
-		if(driver != null) {
-			sleep(1000);
+	
 			quit();
-		}
 		
 	}
 	
-	@After(order = 2)
-	public void cleaningProcess() {
-		
-	/* cleanRecordFromDB(true, "xealeiqa", "", "");
-	 * cleanRecordFromDB(true, null, null, null);
-	 */
+//	@After(order = 2)
+//	public void cleaningProcess() {
+//		
+//	cleanRecordFromDB(true, "xealeiqa", "", "");
+//	cleanRecordFromDB(true, null, null, null);
+//  }
 		
 
-	}
 	
 
 }
