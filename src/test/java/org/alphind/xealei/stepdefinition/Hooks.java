@@ -52,7 +52,7 @@ public class Hooks extends BaseClass {
 		
 		waitForPageLoad();
 	
-			quit();
+		//	quit();
 		
 	}
 	
