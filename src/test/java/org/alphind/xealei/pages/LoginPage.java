@@ -64,7 +64,7 @@ public class LoginPage extends BaseClass {
 	private WebElement loginButton;
 
 	@FindBy(xpath = "//h5[@x-page='home']")
-	private WebElement redirectToHomePageSuccessfully;
+	private WebElement navToHomePageSuccessfully;
 
 	@FindBy(xpath = "//span[text()='User not found']")
 	private WebElement userNotFoundErrorMessage;
@@ -126,8 +126,8 @@ public class LoginPage extends BaseClass {
 		return loginButton;
 	}
 
-	public WebElement getRedirectToHomePageSuccessfully() {
-		return redirectToHomePageSuccessfully;
+	public WebElement getNavToHomePageSuccessfully() {
+		return navToHomePageSuccessfully;
 	}
 
 	public WebElement getUserNotFoundErrorMessage() {
