@@ -47,16 +47,16 @@ public class Hooks extends BaseClass {
 	}
 	
 	
-	@After(order = 1)
-	public void tearDown() {
-		
-		waitForPageLoad();
-		if(driver != null) {
-			sleep(2000);
-			quit();
-		}
-		
-	}
+//	@After(order = 1)
+//	public void tearDown() {
+//		
+//		waitForPageLoad();
+//		if(driver != null) {
+//			sleep(2000);
+//			quit();
+//		}
+//		
+//	}
 	
 //	@After(order = 2)
 //	public void cleaningProcess() {
