@@ -26,14 +26,6 @@ public class LoginPageStep extends BaseClass {
 
 // ***** To verify the web url link *****
 
-	@Given("User should open the browser")
-	public void user_should_open_the_browser() {
-	}
-
-	@When("User must enter the respective URL in browser tab")
-	public void user_must_enter_the_respective_url_in_browser_tab() {
-	}
-
 	@Then("User must verify the login page is displayed")
 	public void user_must_verify_the_login_page_is_displayed() {
 
