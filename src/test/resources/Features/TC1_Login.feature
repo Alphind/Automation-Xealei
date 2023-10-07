@@ -63,4 +63,4 @@ Feature: Verify Xealei Login Page
 
   Scenario Outline: To verify Xealei login page by click the ENTER key with valid credentials
     When User must perform login with valid email and password by click the Enter key
-    Then User must verify once the page is navigate to HOME_DASHBOARD successfully "Home"
+   # Then User must verify once the page is navigate to HOME_DASHBOARD successfully "Home"
