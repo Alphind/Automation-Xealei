@@ -7,6 +7,7 @@
 #* You may use, distribute and modify this code for internal purpose,  however, distribution outside the organization     * is prohibited without prior and proper license agreement
 #
 #*/
+Feature: Verify Xealei Suites > Edit Suites Page
 
 Background:
     Given User is on Xealei login page
@@ -15,7 +16,6 @@ Background:
     And User must navigate to Suite Module
     Then User must verify suite page is displayed "Suites"
 
-Feature: Verify Xealei Suites > Edit Suites Page
 
  
   Scenario Outline: To verify duplicate validation for 'Suite Name' in Edit Suites screen
