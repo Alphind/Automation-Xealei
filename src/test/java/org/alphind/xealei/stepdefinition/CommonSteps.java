@@ -10,9 +10,15 @@
 
 package org.alphind.xealei.stepdefinition;
 
+import java.time.Duration;
+
 import org.alphind.xealei.baseclass.BaseClass;
 import org.alphind.xealei.pom.PageObjectManager;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.cucumber.java.en.Then;
 
@@ -26,7 +32,10 @@ public class CommonSteps extends BaseClass {
 		System.out.println("exp Text :" + expMessage);
 		System.out.println("Actual Text :" + getText(pom.getLoginPage().getNavToHomePageSuccessfully()));
 		
-		visibilityOfElement(pom.getLoginPage().getNavToHomePageSuccessfully(), 10);
+		WebElement val = driver.findElement(By.xpath("//h5[@x-page='home']"));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.invisibilityOf(val));
+		
 		Assert.assertEquals("Unable to navigate HOME Dashboard", expMessage,
 				getText(pom.getLoginPage().getNavToHomePageSuccessfully()));
 
