@@ -427,8 +427,9 @@ public class BaseClass {
 
 	// 41. getText - String
 
-	public void getTextString(String elementxpath) {
-		getText(driver.findElement(By.xpath(elementxpath)));
+	public String getTextString(String elementxpath) {
+		String text = getText(driver.findElement(By.xpath(elementxpath)));
+		return text;
 	}
 
 	// 42. Wait for Loading
@@ -436,7 +437,7 @@ public class BaseClass {
 	public void waitForPageLoad() {
 
 			WebElement loading = driver.findElement(By.xpath("//div[contains(text(),'Loading')]"));
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofMinutes(3));
 			wait.until(ExpectedConditions.invisibilityOf(loading));
 		
 	}

@@ -43,7 +43,7 @@ public class AddSuitesPage extends BaseClass {
 	@FindBy(xpath = "//h5[text()='Suites']")
 	private WebElement suitesPage;
 
-	@FindBy(xpath = "//span[text()='Add Suites']/parent::span/parent::button")
+	@FindBy(xpath = "//span[text()='Add Suites']")
 	private WebElement btnAddSuites;
 
 	@FindBy(xpath = "//h2[contains(text(),'Add Suite')]")
@@ -67,25 +67,151 @@ public class AddSuitesPage extends BaseClass {
 	@FindBy(xpath = "//button[@class='button4 mat-raised-button mat-button-base']")
 	private WebElement btnAdd;
 
+	public WebElement getSuitesModule() {
+		return suitesModule;
+	}
+
+	public WebElement getBtnAddSuites() {
+		return btnAddSuites;
+	}
+
+	public WebElement getBtnAdd() {
+		return btnAdd;
+	}
+
+	public String getDropDownListForLocation() {
+		return dropDownListForLocation;
+	}
+
+	public WebElement getActToastMsg() {
+		return actToastMsg;
+	}
+
+	public WebElement getSuitesSearchBox() {
+		return suitesSearchBox;
+	}
+
+	public WebElement getSearchCreatedSN() {
+		return searchCreatedSN;
+	}
+
+	public WebElement getCreatedSN() {
+		return createdSN;
+	}
+
+	public WebElement getCreatedLoc() {
+		return createdLoc;
+	}
+
+	public WebElement getSuiteAvailability() {
+		return suiteAvailability;
+	}
+
+	public WebElement getRtnToSuitesPage() {
+		return rtnToSuitesPage;
+	}
+
+	public WebElement getBtnToastMsg() {
+		return btnToastMsg;
+	}
+
+	public WebElement getLocationAvailability() {
+		return locationAvailability;
+	}
+
+	public String getUpDatedLocation() {
+		return upDatedLocation;
+	}
+
+	public String getAvailability() {
+		return availability;
+	}
+
+	public WebElement getEditSuiteButton() {
+		return editSuiteButton;
+	}
+
+	public WebElement getSuiteUpdateButton() {
+		return suiteUpdateButton;
+	}
+
+	public WebElement getUpdatedSuiteName() {
+		return updatedSuiteName;
+	}
+
+	public WebElement getUpdatedLocation() {
+		return updatedLocation;
+	}
+
+	public WebElement getUpdatedLength() {
+		return updatedLength;
+	}
+
+	public WebElement getUpdatedWidth() {
+		return updatedWidth;
+	}
+
+	public WebElement getUpdatedHeight() {
+		return updatedHeight;
+	}
+
+	public String getCreateSuiteName() {
+		return createSuiteName;
+	}
+
+	public String getCreatedSuite() {
+		return createdSuite;
+	}
+
+	public String getGetLocationDataFromExcel() {
+		return getLocationDataFromExcel;
+	}
+
+	public String getSuiteName() {
+		return SuiteName;
+	}
+
+	public String getLocation() {
+		return Location;
+	}
+
+	public String getLength() {
+		return Length;
+	}
+
+	public String getWidth() {
+		return Width;
+	}
+
+	public String getHeight() {
+		return Height;
+	}
+
 	@FindBy(xpath = "//span[text()='Please Enter Suite Name']")
-	private WebElement valMsgForSuiteName;
+	private WebElement actValMsgForSuiteName;
 
 	@FindBy(xpath = "//span[text()='Please select facility location']")
-	private WebElement valMsgForLocation;
+	private WebElement actValMsgForLocation;
 
 	String dropDownListForLocation = "//span[text()='locationName']/parent::mat-option";
 
-//	@FindBy(xpath = "//div[@class='row col-12']//span[@class='btn-txt']")
-//	private WebElement actualText;
-
 	@FindBy(xpath = "//span[text()='Saved Successfully!!']")
-	private WebElement toastMsg;
+	private WebElement actToastMsg;
+	
+	@FindBy(xpath = "//span[text()='Suite Name already exists.']")
+	private WebElement actSNExitsToastMsg;
 
 	@FindBy(xpath = "//input[@placeholder='Search']")
 	private WebElement suitesSearchBox;
 
 	@FindBy(xpath = "//span[@class='btn-txt']")
 	private WebElement searchCreatedSN;
+	
+	@FindBy(xpath = "//span[text()='View']/parent::button")
+	private WebElement clickViewBtn;
+	
+	@FindBy(xpath = "//img[@class='profile-thumb']")
+	private WebElement clickImageInSearchedSN;
 
 	@FindBy(xpath = "(//span[@class='d-block'])[1]")
 	private WebElement createdSN;
@@ -111,10 +237,16 @@ public class AddSuitesPage extends BaseClass {
 	@FindBy(xpath = "//span[text()='ok']/parent::button")
 	private WebElement btnToastMsg;
 	
+	@FindBy(xpath = "//button[@type='button']")
+	private WebElement btnPopupClose;
 	
+	@FindBy(xpath = "//ol[@class='breadcrumb']")
+	private WebElement breadCrumLink;
 	
-	@FindBy(xpath = "//span[text()='updatedLocation']/parent::span/parent::div/parent::div/parent::mat-select")
-	private WebElement createdLocation2;
+	String BC = "//span[text()='createdSN']/parent::li/parent::ol";
+	
+	@FindBy(xpath = "//li[@class='breadcrumb-item']")
+	private WebElement txtRtnToSuitesBreadCrum;
 
 	@FindBy(xpath = "//mat-select[@placeholder='Select location']")
 	private WebElement locationAvailability;
@@ -152,16 +284,20 @@ public class AddSuitesPage extends BaseClass {
 		return addSuitePopupText;
 	}
 
-	public WebElement getValidationMessageForSuiteName() {
-		return valMsgForSuiteName;
+	public WebElement getActValMsgForSuiteName() {
+		return actValMsgForSuiteName;
 	}
 
-	public WebElement getValidationMessageForLocation() {
-		return valMsgForLocation;
+	public WebElement getActValMsgForLocation() {
+		return actValMsgForLocation;
 	}
 
-	public WebElement getToastMessage() {
-		return toastMsg;
+	public WebElement getActToastMessage() {
+		return actToastMsg;
+	}
+
+	public WebElement getActSNExitsToastMsg() {
+		return actSNExitsToastMsg;
 	}
 
 	public WebElement getCreatedSuiteName() {
@@ -184,17 +320,32 @@ public class AddSuitesPage extends BaseClass {
 		return createdHeight;
 	}
 
+	public WebElement getBreadCrumLink() {
+		return breadCrumLink;
+	}
+
+	public WebElement getTxtRtnToSuitesBreadCrum() {
+		return txtRtnToSuitesBreadCrum;
+	}
+	
+	public WebElement getClickViewBtn() {
+		return clickViewBtn;
+	}
+
+	
 	
 	/*
-	 * Description - Below methods helps to perform the Testcase actions for Suites
+	 * Description - Below methods helps to perform the Testcase actions for Add Suites 
 	 * page..
 	 * 
 	 */
 
 	String createSuiteName;
+	
 	public String createdSuite;
 	public String getLocationDataFromExcel;
-
+    public String existingSN;
+    
 	String SuiteName;
 	String Location;
 	String Length;
@@ -214,8 +365,82 @@ public class AddSuitesPage extends BaseClass {
 		waitForPageLoad();
 		click(btnAddSuites);
 	}
+	 
+	public void add() {
+		
+		click(btnAdd);
+	}
+	
+	public void closePopup() {
+	
+		click(btnPopupClose);
+	}
 
-	public void createSuitePerformedOnlyNonMandatoryFields() throws IOException {
+	public void clickBreadCrumSuiteLink() {
+		
+		click(getTxtRtnToSuitesBreadCrum());
+	}
+	
+	public void allFieldsExceptLocation() throws IOException {
+
+		createSuiteName = (readExcel("Test Datas", "AddSuites", 1, 0) + dateAndTime());
+		System.out.println(createSuiteName);
+		sendKeys(suiteName, createSuiteName);
+		sendKeys(length, readExcel("Test Datas", "AddSuites", 1, 2));
+		sendKeys(width, readExcel("Test Datas", "AddSuites", 1, 3));
+		sendKeys(height, readExcel("Test Datas", "AddSuites", 1, 4));
+		click(btnAdd);
+
+	}
+	
+	public void exceptSuiteName() throws IOException {
+
+		click(suiteName);
+		clearText(suiteName);
+		click(location);
+		getLocationDataFromExcel = readExcel("Test Datas", "AddSuites", 1, 1);
+		dropDownListForLocation = dropDownListForLocation.replaceAll("locationName", getLocationDataFromExcel);
+		selectDropDown(dropDownListForLocation);
+		click(btnAdd);
+
+	}
+
+
+	public void duplicateDatas() throws IOException {
+		
+		createSuiteName = (readExcel("Test Datas", "AddSuites", 1, 0) + dateAndTime());
+		System.out.println(createSuiteName);
+		sendKeys(suiteName, createSuiteName);
+		createdSuite = writeExcel("Test Datas", "AddSuites", 1, 5, createSuiteName);
+		click(location);
+		getLocationDataFromExcel = readExcel("Test Datas", "AddSuites", 1, 1);
+		dropDownListForLocation = dropDownListForLocation.replaceAll("locationName", getLocationDataFromExcel);
+		selectDropDown(dropDownListForLocation);
+		click(btnAdd);
+		waitForPageLoad();
+		Assert.assertEquals("Toast Message is not displayed","Saved Successfully!!", getText(actToastMsg));
+		click(btnAddSuites);
+		waitForPageLoad();
+		sendKeys(suiteName, readExcel("Test Datas", "AddSuites", 1, 5));
+		click(location);
+		getLocationDataFromExcel = readExcel("Test Datas", "AddSuites", 1, 1);
+		dropDownListForLocation = dropDownListForLocation.replaceAll("locationName", getLocationDataFromExcel);
+		selectDropDown(dropDownListForLocation);
+		click(btnAdd);
+
+	}
+	
+public void existSuiteNamewithDiffLocation() throws IOException {
+		
+		sendKeys(suiteName, readExcel("Test Datas", "AddSuites", 1, 5));
+		click(location);
+		getLocationDataFromExcel = readExcel("Test Datas", "AddSuites", 2, 1);
+		dropDownListForLocation = dropDownListForLocation.replaceAll("locationName", getLocationDataFromExcel);
+		selectDropDown(dropDownListForLocation);
+		click(btnAdd);
+	}
+	
+	public void nonMandatoryFields() throws IOException {
 
 		sendKeys(length, readExcel("Test Datas", "AddSuites", 1, 2));
 		sendKeys(width, readExcel("Test Datas", "AddSuites", 1, 3));
@@ -224,7 +449,7 @@ public class AddSuitesPage extends BaseClass {
 
 	}
 
-	public void createSuitePerformedOnlyMandatoryFields() throws Exception {
+	public void mandatoryFields() throws Exception {
 
 		createSuiteName = (readExcel("Test Datas", "AddSuites", 1, 0) + dateAndTime());
 		System.out.println(createSuiteName);
@@ -239,7 +464,6 @@ public class AddSuitesPage extends BaseClass {
 	}
 
 	public void getCreatedSuitePerformedMandatoryField() throws IOException {
-
 		
 		waitForPageLoad();
 		sendKeyWithEnter(suitesSearchBox, createdSuite);
@@ -261,10 +485,15 @@ public class AddSuitesPage extends BaseClass {
 		for (int i = 1; i <= noOfRows; i++) {
 
 			SuiteName = sheet.getRow(i).getCell(0).getStringCellValue() + dateAndTime();
+			System.out.println(SuiteName);
 			Location = sheet.getRow(i).getCell(1).getStringCellValue();
+			System.out.println(Location);
 			Length = sheet.getRow(i).getCell(2).getStringCellValue();
+			System.out.println(Length);
 			Width = sheet.getRow(i).getCell(3).getStringCellValue();
+			System.out.println(Width);
 			Height = sheet.getRow(i).getCell(4).getStringCellValue();
+			System.out.println(Height);
 
 			waitForPageLoad();
 			sendKeys(suiteName, SuiteName);
@@ -272,15 +501,22 @@ public class AddSuitesPage extends BaseClass {
 		    waitForVisiblityOfElement(location, 10);
 			click(location);
 		    waitForPageLoad();
+		    String dropDownListForLocation = "//span[text()='locationName']/parent::mat-option";    
 			dropDownListForLocation = dropDownListForLocation.replaceAll("locationName", Location);
 			selectDropDown(dropDownListForLocation);
+			
+			System.out.println(dropDownListForLocation);
+			
 			waitForPageLoad();
 			sendKeys(length, Length);
+			System.out.println(Length);
 			sendKeys(width, Width);
+			System.out.println(Width);
 			sendKeys(height, Height);
+			System.out.println(Height);
 			click(btnAdd);
 			waitForPageLoad();
-			Assert.assertEquals("Toast Message is not displayed",expToastMessage, getText(toastMsg));
+			Assert.assertEquals("Toast Message is not displayed",expToastMessage, getText(actToastMsg));
 			waitForPageLoad();
 			click(btnToastMsg);
 			sheet.getRow(i).getCell(5).setCellValue(SuiteName);
@@ -292,7 +528,8 @@ public class AddSuitesPage extends BaseClass {
 			} else {
 				System.out.println("Row is !empty");
 				waitForPageLoad();
-			click(btnAddSuites);
+				visibilityOfElement(btnAddSuites, 10);
+				click(btnAddSuites);
 			waitForPageLoad();
 			click(btnAddSuites);
 			}	       
@@ -326,11 +563,12 @@ public void getCreatedSuitePerformedAllFields() throws IOException, AWTException
 		keyPress(KeyEvent.VK_ENTER);
 		keyRelease(KeyEvent.VK_ENTER);
 		waitForPageLoad();
-		click(searchCreatedSN);
+		click(clickViewBtn);
 		waitForPageLoad();
 		waitForPageLoad();
 		waitFortextToBePresentInElement(createdSN, getText(createdSN), 10);
 		sleep(1000);
+		waitForPageLoad();
 		Assert.assertEquals("Created SuiteName Mismatched", createdSuiteName, getText(createdSN));
 		Assert.assertEquals("Created Location  Mismatched", Location,         getText(createdLoc));
 		Assert.assertEquals("Created Length    Mismatched", Length,           getText(createdLength));
@@ -350,74 +588,22 @@ public void getCreatedSuitePerformedAllFields() throws IOException, AWTException
 	}
 }
 
+public void searchCreatedSuiteName() throws IOException {
 
-
+	waitForPageLoad();
+	existingSN = readExcel("Test Datas", "AddSuites", 1, 5);
+	sendKeyWithEnter(suitesSearchBox, existingSN);
+	waitForPageLoad();
+	click(clickImageInSearchedSN);
 }
 
-
-//		createSuiteName = (readDatafromExcel("Test Datas", "AddSuites", 1, 0) );
-//		System.out.println(createSuiteName);
-//		sendKeys(suiteName, createSuiteName);
-//		createdSuite = writeDataInExcel("Test Datas", "AddSuites",1, 5, createSuiteName);
-//		click(location);
-//		getLocationDataFromExcel = readDatafromExcel("Test Datas", "AddSuites", 1, 1);
-//		dropDownListForLocation = dropDownListForLocation.replaceAll("locationName",getLocationDataFromExcel);
-//		selectDropDown(dropDownListForLocation);
-//		sendKeys(length, readDatafromExcel("Test Datas", "Suites", 1, 2));
-//		sendKeys(width, readDatafromExcel("Test Datas", "AddSuites", 1, 3));
-//		sendKeys(height, readDatafromExcel("Test Datas", "AddSuites", 1, 4));
-//		waitForElementToBeClickable(addButtonToAddSuite, 10);
-//		click(addButtonToAddSuite);
-
+public String getBreadCrumLinkText() throws IOException {
 	
+	waitForPageLoad();
+	String existingSN = readExcel("Test Datas", "AddSuites", 1, 5);
+	BC = BC.replaceAll("createdSN",existingSN );
+	String textString = getTextString(BC);
+	return textString;
+}
 
-//	public void addSuite(String SuiteName, String Location, String Length, String Breadth, String Height)
-//			throws Exception {
-//
-//		waitForPageLoad();
-//		click(getBtnSuitesPage());
-//		waitForPageLoad();
-//		sleep(5000);
-//		click(getBtnAddSuites());
-//		createdSuitesdata = (readDatafromExcel("TestDatas", "Suites", 1, 0) + dateAndTime());
-//		sendKeys(getTxtSuiteName(), createdSuitesdata);
-//		writeDataInExcel("TestDatas", "Suites", 1, 5, createdSuitesdata);
-//		waitForPageLoad();
-//		click(getDropDownLocation());
-//		locationDD = locationDD.replaceAll("locationName", readDatafromExcel("TestDatas", "Suites", 1, 1));
-//		clickXpath(locationDD);
-//		sendKeys(getTxtLength(), readDatafromExcel("TestDatas", "Suites", 1, 2));
-//		sendKeys(getTxtWidth(), readDatafromExcel("TestDatas", "Suites", 1, 3));
-//		sendKeys(getTxtHeight(), readDatafromExcel("TestDatas", "Suites", 1, 4));
-//		waitForElementToBeClickable(getBtnAdd(), 10);
-//		click(getBtnAdd());
-//		waitForPageLoad();
-//		sendKeyWithEnter(getSearchBoxSuites(), createdSuitesdata);
-//		waitForPageLoad();
-//		click(getTxtCreatedSuiteName());
-//	}
-//
-//	public void editSuite(String SuiteName, String Location, String Availability, String Length, String Breadth,
-//			String Height) throws Exception {
-//
-//		click(getBtnEditSuite());
-//		getTxtSuiteName().clear();
-//		waitForPageLoad();
-//		String updatedSuite = readDatafromExcel("TestDatas", "EditSuite", 1, 0) + dateAndTime();
-//		sendKeys(getTxtSuiteName(), updatedSuite + dateAndTime());
-//		writeDataInExcel("TestDatas", "EditSuite", 1, 5, updatedSuite);
-//		click(getDropDownLocation());
-//		upDatedLocationDD = upDatedLocationDD.replaceAll("updatedLocation", readDatafromExcel("TestDatas", "EditSuite", 1, 1));
-//		clickXpath(upDatedLocationDD);
-////		click(getDropDownAvailability());
-////		availabilityDD = availabilityDD.replaceAll("availability", readData("TestDatas", "EditSuite", 1, 6));
-////		clickXpath(availabilityDD);
-//		getTxtLength().clear();
-//		sendKeys(getTxtLength(), readDatafromExcel("TestDatas", "EditSuite", 1, 2));
-//		getTxtWidth().clear();
-//		sendKeys(getTxtWidth(), readDatafromExcel("TestDatas", "EditSuite", 1, 3));
-//		getTxtHeight().clear();
-//		sendKeys(getTxtHeight(), readDatafromExcel("TestDatas", "EditSuite", 1, 4));
-//		click(getBtnUpdateSuite());
-//	}
-
+}

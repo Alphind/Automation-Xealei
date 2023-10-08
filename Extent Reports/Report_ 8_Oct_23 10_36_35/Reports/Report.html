@@ -1,0 +1,2049 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Xealei</title>
+<link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@d6562a79075e061305ccfdb82f01e5e195e2d307/spark/css/spark-style.css" rel="stylesheet" />
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@7cc78ce/spark/js/jsontree.js"></script>
+<style type="text/css"></style></head><body class="spa bdd-report standard">
+  <div class="app">
+    <div class="layout">
+<div class="header navbar">
+<div class="vheader">
+<div class="nav-logo">
+<a href="#">
+<div class="logo" style="background-image: url('https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png')"></div>
+</a>
+</div>
+<ul class="nav-left">
+<li class="search-box">
+<a class="search-toggle" href="#">
+<i class="search-icon fa fa-search"></i>
+<i class="search-icon-close fa fa-close"></i>
+</a>
+</li>
+<li class="search-input"><input id="search-tests" class="form-control" type="text" placeholder="Search..."></li>
+</ul>
+<ul class="nav-right">
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Automation Report</span></a>
+</li>
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">08 Oct, 2023 10:36:35</span></a>
+</li>
+</ul>
+</div>
+</div><div class="side-nav">
+<div class="side-nav-inner">
+<ul class="side-nav-menu">
+<li class="nav-item dropdown" onclick="toggleView('test-view')">
+<a id="nav-test" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('exception-view')">
+<a id="nav-exception" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bug"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('category-view')">
+<a id="nav-category" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-tag"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
+<a id="nav-dashboard" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bar-chart"></i></span>
+</a>
+</li>
+</ul>
+</div>
+</div>      <div class="vcontainer">
+        <div class="main-content">
+<div class="test-wrapper row view test-view">
+  <div class="test-list">
+    <div class="test-list-tools">
+<ul class="tools pull-left">
+<li><a href="#"><span class="font-size-14">Tests</span></a></li>
+</ul>
+<ul class="tools text-right">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
+<ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
+<div class="dropdown-divider"></div>
+<a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
+</ul>
+</li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
+<ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" href="#">@AddSuites-AllScenarios</a><a class="dropdown-item" href="#">@InProgress</a>
+</ul>
+</li>
+</ul>
+</div>    <div class="test-list-wrapper scrollable">
+      <ul class="test-list-item">
+        <li class="test-item"  status="fail" test-id="1"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Verify Xealei Suites > Add Suites Page</p>
+            <p class="text-sm">
+              <span>10:36:36 AM</span> / <span>00:07:27:613</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">Verify Xealei Suites > Add Suites Page</h5>
+<span class='badge badge-success'>10.08.2023 10:36:36 AM</span>
+<span class='badge badge-danger'>10.08.2023 10:44:04 AM</span>
+<span class='badge badge-default'>00:07:27:613</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>To verify the web url link for suite page</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.LoginPageStep.user_is_on_xealei_login_page()">
+                <span>Given User is on Xealei login page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify the web url link for suite page
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded1.png' src="../Screenshots/embedded1.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.LoginPageStep.user_must_perform_login_with_valid_email_and_password()">
+                <span>When User must perform login with valid email and password</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify the web url link for suite page
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded2.png' src="../Screenshots/embedded2.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.CommonSteps.user_must_verify_once_the_page_is_navigate_to_home_dashboard_successfully(java.lang.String)">
+                <span>Then User must verify once the page is navigate to HOME_DASHBOARD successfully "Home"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify the web url link for suite page
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded3.png' src="../Screenshots/embedded3.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_navigate_to_suite_module()">
+                <span>And User must navigate to Suite Module</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify the web url link for suite page
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded4.png' src="../Screenshots/embedded4.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_suite_page_is_displayed(java.lang.String)">
+                <span>Then User must verify suite page is displayed "Suites"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify the web url link for suite page
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded5.png' src="../Screenshots/embedded5.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_the_tab_url_address_for_suites_screen()">
+                <span>Then User must verify the tab url address for suites screen</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify the web url link for suite page
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded6.png' src="../Screenshots/embedded6.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="18"><span class="badge log fail-bg mr-2">Fail</span>To verify the field 'Suite Name *' and 'Location *' is mandatory</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.LoginPageStep.user_is_on_xealei_login_page()">
+                <span>Given User is on Xealei login page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify the field 'Suite Name *' and 'Location *' is mandatory
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded7.png' src="../Screenshots/embedded7.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.LoginPageStep.user_must_perform_login_with_valid_email_and_password()">
+                <span>When User must perform login with valid email and password</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify the field 'Suite Name *' and 'Location *' is mandatory
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded8.png' src="../Screenshots/embedded8.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.CommonSteps.user_must_verify_once_the_page_is_navigate_to_home_dashboard_successfully(java.lang.String)">
+                <span>Then User must verify once the page is navigate to HOME_DASHBOARD successfully "Home"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify the field 'Suite Name *' and 'Location *' is mandatory
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded9.png' src="../Screenshots/embedded9.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_navigate_to_suite_module()">
+                <span>And User must navigate to Suite Module</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify the field 'Suite Name *' and 'Location *' is mandatory
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded10.png' src="../Screenshots/embedded10.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_suite_page_is_displayed(java.lang.String)">
+                <span>Then User must verify suite page is displayed "Suites"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify the field 'Suite Name *' and 'Location *' is mandatory
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded11.png' src="../Screenshots/embedded11.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_click_add_suite_button()">
+                <span>And User must click Add Suite button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify the field 'Suite Name *' and 'Location *' is mandatory
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded12.png' src="../Screenshots/embedded12.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_popup_should_be_displayed_after_click_the_add_suites_button(java.lang.String)">
+                <span>Then User must verify "Add Suite" popup should be displayed after click the Add Suites button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify the field 'Suite Name *' and 'Location *' is mandatory
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded13.png' src="../Screenshots/embedded13.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_perform_all_fields_except_location()">
+                <span>And User must perform all fields except Location</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify the field 'Suite Name *' and 'Location *' is mandatory
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded14.png' src="../Screenshots/embedded14.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_the_error_message_under_location_field(java.lang.String)">
+                <span>Then User must verify the error message under Location field "Please select facility location"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify the field 'Suite Name *' and 'Location *' is mandatory
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded15.png' src="../Screenshots/embedded15.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_perform_all_fields_except_suite_name()">
+                <span>And User must perform all fields except Suite Name</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify the field 'Suite Name *' and 'Location *' is mandatory
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded16.png' src="../Screenshots/embedded16.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_the_error_message_under_suite_name_field(java.lang.String)">
+                <span>Then User must verify the error message under Suite Name field "Please Enter Suite Name"</span>
+      <div>
+        <textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//span[text()='Please Enter Suite Name']"}
+  (Session info: chrome=117.0.5938.149)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.8.3', revision: 'e5e76298c3'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.8.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [247438fa2f800802a769e8178f3764bc, findElement {using=xpath, value=//span[text()='Please Enter Suite Name']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 117.0.5938.149, chrome: {chromedriverVersion: 117.0.5938.149 (e3344ddefa1..., userDataDir: C:\Users\admin\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52876}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:52876/devtoo..., se:cdpVersion: 117.0.5938.149, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 247438fa2f800802a769e8178f3764bc
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:193)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:183)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at jdk.proxy2/jdk.proxy2.$Proxy28.getText(Unknown Source)
+	at org.alphind.xealei.baseclass.BaseClass.getText(BaseClass.java:388)
+	at org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_the_error_message_under_suite_name_field(AddSuitesPageStep.java:110)
+	at ?.User must verify the error message under Suite Name field "Please Enter Suite Name"(file:///C:/Automation-Testing/Xealei/src/test/resources/Features/TC3_Add%20Suites.feature:33)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify the field 'Suite Name *' and 'Location *' is mandatory
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded17.png' src="../Screenshots/embedded17.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER">
+                <span>org.alphind.xealei.stepdefinition.Hooks.screenShot(io.cucumber.java.Scenario)</span>
+      <div>To verify the field 'Suite Name *' and 'Location *' is mandatory
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded18.png' src="../Screenshots/embedded18.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="44"><span class="badge log fail-bg mr-2">Fail</span>To verify duplicate validation for 'Suite Name'</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.LoginPageStep.user_is_on_xealei_login_page()">
+                <span>Given User is on Xealei login page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify duplicate validation for 'Suite Name'
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded19.png' src="../Screenshots/embedded19.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.LoginPageStep.user_must_perform_login_with_valid_email_and_password()">
+                <span>When User must perform login with valid email and password</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify duplicate validation for 'Suite Name'
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded20.png' src="../Screenshots/embedded20.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.CommonSteps.user_must_verify_once_the_page_is_navigate_to_home_dashboard_successfully(java.lang.String)">
+                <span>Then User must verify once the page is navigate to HOME_DASHBOARD successfully "Home"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify duplicate validation for 'Suite Name'
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded21.png' src="../Screenshots/embedded21.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_navigate_to_suite_module()">
+                <span>And User must navigate to Suite Module</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify duplicate validation for 'Suite Name'
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded22.png' src="../Screenshots/embedded22.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_suite_page_is_displayed(java.lang.String)">
+                <span>Then User must verify suite page is displayed "Suites"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify duplicate validation for 'Suite Name'
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded23.png' src="../Screenshots/embedded23.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_click_add_suite_button()">
+                <span>And User must click Add Suite button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify duplicate validation for 'Suite Name'
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded24.png' src="../Screenshots/embedded24.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_popup_should_be_displayed_after_click_the_add_suites_button(java.lang.String)">
+                <span>Then User must verify "Add Suite" popup should be displayed after click the Add Suites button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify duplicate validation for 'Suite Name'
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded25.png' src="../Screenshots/embedded25.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_perform_only_mandatory_fields_with_existing_suite_name_and_location()">
+                <span>And User must perform only mandatory fields with existing suiteName and location</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify duplicate validation for 'Suite Name'
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded26.png' src="../Screenshots/embedded26.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_the_toast_message_after_perform_dupicate_datas(java.lang.String)">
+                <span>Then User must verify the toast message after perform dupicate datas "Suite Name already exists."</span>
+      <div>
+        <textarea disabled class="code-block">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//span[text()='Suite Name already exists.']"}
+  (Session info: chrome=117.0.5938.149)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.8.3', revision: 'e5e76298c3'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.8.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [64b92ca6fc67c6874f2c903943fb4e0b, findElement {using=xpath, value=//span[text()='Suite Name already exists.']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 117.0.5938.149, chrome: {chromedriverVersion: 117.0.5938.149 (e3344ddefa1..., userDataDir: C:\Users\admin\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52928}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:52928/devtoo..., se:cdpVersion: 117.0.5938.149, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 64b92ca6fc67c6874f2c903943fb4e0b
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:193)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:183)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:158)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:162)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at jdk.proxy2/jdk.proxy2.$Proxy28.getText(Unknown Source)
+	at org.alphind.xealei.baseclass.BaseClass.getText(BaseClass.java:388)
+	at org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_the_toast_message_after_perform_dupicate_datas(AddSuitesPageStep.java:127)
+	at ?.User must verify the toast message after perform dupicate datas "Suite Name already exists."(file:///C:/Automation-Testing/Xealei/src/test/resources/Features/TC3_Add%20Suites.feature:77)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify duplicate validation for 'Suite Name'
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded27.png' src="../Screenshots/embedded27.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER">
+                <span>org.alphind.xealei.stepdefinition.Hooks.screenShot(io.cucumber.java.Scenario)</span>
+      <div>To verify duplicate validation for 'Suite Name'
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded28.png' src="../Screenshots/embedded28.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="66"><span class="badge log pass-bg mr-2">Pass</span>To verify duplicate Suite name with different 'Location'</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.LoginPageStep.user_is_on_xealei_login_page()">
+                <span>Given User is on Xealei login page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify duplicate Suite name with different 'Location'
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded29.png' src="../Screenshots/embedded29.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.LoginPageStep.user_must_perform_login_with_valid_email_and_password()">
+                <span>When User must perform login with valid email and password</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify duplicate Suite name with different 'Location'
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded30.png' src="../Screenshots/embedded30.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.CommonSteps.user_must_verify_once_the_page_is_navigate_to_home_dashboard_successfully(java.lang.String)">
+                <span>Then User must verify once the page is navigate to HOME_DASHBOARD successfully "Home"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify duplicate Suite name with different 'Location'
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded31.png' src="../Screenshots/embedded31.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_navigate_to_suite_module()">
+                <span>And User must navigate to Suite Module</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify duplicate Suite name with different 'Location'
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded32.png' src="../Screenshots/embedded32.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_suite_page_is_displayed(java.lang.String)">
+                <span>Then User must verify suite page is displayed "Suites"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify duplicate Suite name with different 'Location'
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded33.png' src="../Screenshots/embedded33.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_click_add_suite_button()">
+                <span>And User must click Add Suite button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify duplicate Suite name with different 'Location'
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded34.png' src="../Screenshots/embedded34.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_popup_should_be_displayed_after_click_the_add_suites_button(java.lang.String)">
+                <span>Then User must verify "Add Suite" popup should be displayed after click the Add Suites button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify duplicate Suite name with different 'Location'
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded35.png' src="../Screenshots/embedded35.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_perform_only_mandatory_fields_with_existing_suite_name_and_different_location()">
+                <span>And User must perform only mandatory fields with existing suiteName and different location</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify duplicate Suite name with different 'Location'
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded36.png' src="../Screenshots/embedded36.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_the_toast_message_after_perform_existing_suite_name_and_different_location(java.lang.String)">
+                <span>Then User must verify the toast message after perform existing suiteName and different location "Saved Successfully!!"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify duplicate Suite name with different 'Location'
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded37.png' src="../Screenshots/embedded37.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="88"><span class="badge log pass-bg mr-2">Pass</span>To verify validation message is displayed under mandatory fields also verify the user able to close the Add Suite popup</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.LoginPageStep.user_is_on_xealei_login_page()">
+                <span>Given User is on Xealei login page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify validation message is displayed under mandatory fields also verify the user able to close the Add Suite popup
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded38.png' src="../Screenshots/embedded38.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.LoginPageStep.user_must_perform_login_with_valid_email_and_password()">
+                <span>When User must perform login with valid email and password</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify validation message is displayed under mandatory fields also verify the user able to close the Add Suite popup
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded39.png' src="../Screenshots/embedded39.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.CommonSteps.user_must_verify_once_the_page_is_navigate_to_home_dashboard_successfully(java.lang.String)">
+                <span>Then User must verify once the page is navigate to HOME_DASHBOARD successfully "Home"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify validation message is displayed under mandatory fields also verify the user able to close the Add Suite popup
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded40.png' src="../Screenshots/embedded40.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_navigate_to_suite_module()">
+                <span>And User must navigate to Suite Module</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify validation message is displayed under mandatory fields also verify the user able to close the Add Suite popup
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded41.png' src="../Screenshots/embedded41.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_suite_page_is_displayed(java.lang.String)">
+                <span>Then User must verify suite page is displayed "Suites"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify validation message is displayed under mandatory fields also verify the user able to close the Add Suite popup
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded42.png' src="../Screenshots/embedded42.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_click_add_suite_button()">
+                <span>And User must click Add Suite button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify validation message is displayed under mandatory fields also verify the user able to close the Add Suite popup
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded43.png' src="../Screenshots/embedded43.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_popup_should_be_displayed_after_click_the_add_suites_button(java.lang.String)">
+                <span>Then User must verify "Add Suite" popup should be displayed after click the Add Suites button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify validation message is displayed under mandatory fields also verify the user able to close the Add Suite popup
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded44.png' src="../Screenshots/embedded44.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_click_add_button()">
+                <span>And User must click Add button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify validation message is displayed under mandatory fields also verify the user able to close the Add Suite popup
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded45.png' src="../Screenshots/embedded45.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_the_error_message_contains_for_mandatory_fields_and(java.lang.String,java.lang.String)">
+                <span>Then User must verify the error message contains for Mandatory fields "Please Enter Suite Name" and "Please select facility location"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify validation message is displayed under mandatory fields also verify the user able to close the Add Suite popup
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded46.png' src="../Screenshots/embedded46.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_close_the_add_suite_popup()">
+                <span>And User must close the Add Suite popup</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify validation message is displayed under mandatory fields also verify the user able to close the Add Suite popup
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded47.png' src="../Screenshots/embedded47.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_the_add_suite_popup_is_closed_successfully()">
+                <span>Then User must verify the Add Suite popup is closed successfully</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify validation message is displayed under mandatory fields also verify the user able to close the Add Suite popup
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded48.png' src="../Screenshots/embedded48.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="114"><span class="badge log pass-bg mr-2">Pass</span>To verify user able to Add/Create Suites by entering only Non-Mandatory fields</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.LoginPageStep.user_is_on_xealei_login_page()">
+                <span>Given User is on Xealei login page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering only Non-Mandatory fields
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded49.png' src="../Screenshots/embedded49.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.LoginPageStep.user_must_perform_login_with_valid_email_and_password()">
+                <span>When User must perform login with valid email and password</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering only Non-Mandatory fields
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded50.png' src="../Screenshots/embedded50.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.CommonSteps.user_must_verify_once_the_page_is_navigate_to_home_dashboard_successfully(java.lang.String)">
+                <span>Then User must verify once the page is navigate to HOME_DASHBOARD successfully "Home"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering only Non-Mandatory fields
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded51.png' src="../Screenshots/embedded51.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_navigate_to_suite_module()">
+                <span>And User must navigate to Suite Module</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering only Non-Mandatory fields
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded52.png' src="../Screenshots/embedded52.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_suite_page_is_displayed(java.lang.String)">
+                <span>Then User must verify suite page is displayed "Suites"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering only Non-Mandatory fields
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded53.png' src="../Screenshots/embedded53.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_click_add_suite_button()">
+                <span>And User must click Add Suite button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering only Non-Mandatory fields
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded54.png' src="../Screenshots/embedded54.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_popup_should_be_displayed_after_click_the_add_suites_button(java.lang.String)">
+                <span>Then User must verify "Add Suite" popup should be displayed after click the Add Suites button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering only Non-Mandatory fields
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded55.png' src="../Screenshots/embedded55.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_perform_only_non_mandatory_fields()">
+                <span>And User must perform only non-mandatory fields</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering only Non-Mandatory fields
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded56.png' src="../Screenshots/embedded56.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_the_error_message_contains_for_mandatory_fields_and(java.lang.String,java.lang.String)">
+                <span>Then User must verify the error message contains for Mandatory fields "Please Enter Suite Name" and "Please select facility location"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering only Non-Mandatory fields
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded57.png' src="../Screenshots/embedded57.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="136"><span class="badge log pass-bg mr-2">Pass</span>To verify user able to Add/Create Suites by entering only Mandatory fields and also verify the 'Bread Crums' button in Suites view screen</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.LoginPageStep.user_is_on_xealei_login_page()">
+                <span>Given User is on Xealei login page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering only Mandatory fields and also verify the 'Bread Crums' button in Suites view screen
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded58.png' src="../Screenshots/embedded58.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.LoginPageStep.user_must_perform_login_with_valid_email_and_password()">
+                <span>When User must perform login with valid email and password</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering only Mandatory fields and also verify the 'Bread Crums' button in Suites view screen
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded59.png' src="../Screenshots/embedded59.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.CommonSteps.user_must_verify_once_the_page_is_navigate_to_home_dashboard_successfully(java.lang.String)">
+                <span>Then User must verify once the page is navigate to HOME_DASHBOARD successfully "Home"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering only Mandatory fields and also verify the 'Bread Crums' button in Suites view screen
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded60.png' src="../Screenshots/embedded60.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_navigate_to_suite_module()">
+                <span>And User must navigate to Suite Module</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering only Mandatory fields and also verify the 'Bread Crums' button in Suites view screen
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded61.png' src="../Screenshots/embedded61.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_suite_page_is_displayed(java.lang.String)">
+                <span>Then User must verify suite page is displayed "Suites"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering only Mandatory fields and also verify the 'Bread Crums' button in Suites view screen
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded62.png' src="../Screenshots/embedded62.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_click_add_suite_button()">
+                <span>And User must click Add Suite button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering only Mandatory fields and also verify the 'Bread Crums' button in Suites view screen
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded63.png' src="../Screenshots/embedded63.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_popup_should_be_displayed_after_click_the_add_suites_button(java.lang.String)">
+                <span>Then User must verify "Add Suite" popup should be displayed after click the Add Suites button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering only Mandatory fields and also verify the 'Bread Crums' button in Suites view screen
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded64.png' src="../Screenshots/embedded64.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_perform_only_mandatory_fields()">
+                <span>And User must perform only mandatory fields</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering only Mandatory fields and also verify the 'Bread Crums' button in Suites view screen
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded65.png' src="../Screenshots/embedded65.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_the_toast_message_after_perform_only_mandatory_fields(java.lang.String)">
+                <span>Then User must verify the toast message after perform only mandatory fields "Saved Successfully!!"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering only Mandatory fields and also verify the 'Bread Crums' button in Suites view screen
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded66.png' src="../Screenshots/embedded66.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_mandatory_fields_are_created_successsfully()">
+                <span>Then User must verify mandatory fields are created successsfully</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering only Mandatory fields and also verify the 'Bread Crums' button in Suites view screen
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded67.png' src="../Screenshots/embedded67.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="160"><span class="badge log pass-bg mr-2">Pass</span>To verify user able to Add/Create Suites by entering all fields</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.LoginPageStep.user_is_on_xealei_login_page()">
+                <span>Given User is on Xealei login page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering all fields
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded68.png' src="../Screenshots/embedded68.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.LoginPageStep.user_must_perform_login_with_valid_email_and_password()">
+                <span>When User must perform login with valid email and password</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering all fields
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded69.png' src="../Screenshots/embedded69.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.CommonSteps.user_must_verify_once_the_page_is_navigate_to_home_dashboard_successfully(java.lang.String)">
+                <span>Then User must verify once the page is navigate to HOME_DASHBOARD successfully "Home"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering all fields
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded70.png' src="../Screenshots/embedded70.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_navigate_to_suite_module()">
+                <span>And User must navigate to Suite Module</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering all fields
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded71.png' src="../Screenshots/embedded71.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_suite_page_is_displayed(java.lang.String)">
+                <span>Then User must verify suite page is displayed "Suites"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering all fields
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded72.png' src="../Screenshots/embedded72.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_click_add_suite_button()">
+                <span>And User must click Add Suite button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering all fields
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded73.png' src="../Screenshots/embedded73.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_popup_should_be_displayed_after_click_the_add_suites_button(java.lang.String)">
+                <span>Then User must verify "Add Suite" popup should be displayed after click the Add Suites button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering all fields
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded74.png' src="../Screenshots/embedded74.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_perform_all_fields_and_verify_the_toast_message_after_perform_all_fields(java.lang.String)">
+                <span>And User must perform all fields and verify the toast message after perform all fields "Saved Successfully!!"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering all fields
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded75.png' src="../Screenshots/embedded75.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_all_fields_are_created_successsfully()">
+                <span>Then User must verify all fields are created successsfully</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify user able to Add/Create Suites by entering all fields
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded76.png' src="../Screenshots/embedded76.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="182"><span class="badge log pass-bg mr-2">Pass</span>To verify 'Bread Crums' button in Suites view screen</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.LoginPageStep.user_is_on_xealei_login_page()">
+                <span>Given User is on Xealei login page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify 'Bread Crums' button in Suites view screen
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded77.png' src="../Screenshots/embedded77.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.LoginPageStep.user_must_perform_login_with_valid_email_and_password()">
+                <span>When User must perform login with valid email and password</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify 'Bread Crums' button in Suites view screen
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded78.png' src="../Screenshots/embedded78.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.CommonSteps.user_must_verify_once_the_page_is_navigate_to_home_dashboard_successfully(java.lang.String)">
+                <span>Then User must verify once the page is navigate to HOME_DASHBOARD successfully "Home"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify 'Bread Crums' button in Suites view screen
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded79.png' src="../Screenshots/embedded79.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_navigate_to_suite_module()">
+                <span>And User must navigate to Suite Module</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify 'Bread Crums' button in Suites view screen
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded80.png' src="../Screenshots/embedded80.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_suite_page_is_displayed(java.lang.String)">
+                <span>Then User must verify suite page is displayed "Suites"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify 'Bread Crums' button in Suites view screen
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded81.png' src="../Screenshots/embedded81.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_search_the_existing_suite_name_and_click_the_image_in_suites_screen()">
+                <span>And User must search the existing suiteName and click the image in suites screen</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify 'Bread Crums' button in Suites view screen
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded82.png' src="../Screenshots/embedded82.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_the_breadcrums_link_should_be_display_with_module_suite_name_selected_suite_name()">
+                <span>Then User must verify the breadcrums link should be display with module suite name > selected suite name</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify 'Bread Crums' button in Suites view screen
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded83.png' src="../Screenshots/embedded83.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="org.alphind.xealei.stepdefinition.AddSuitesPageStep.user_must_verify_after_click_the_breadcrums_link_it_should_be_return_to_suite_searched_page()">
+                <span>Then User must verify after click the breadcrums link it should be return to Suite searched page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER_STEP">
+                <span>org.alphind.xealei.stepdefinition.Hooks.ssAfterStep(io.cucumber.java.Scenario)</span>
+      <div>To verify 'Bread Crums' button in Suites view screen
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../Screenshots/embedded84.png' src="../Screenshots/embedded84.png">
+    
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+<div class="test-content scrollable">
+<div class="test-content-tools">
+<ul><li><a class="back-to-test" href="#"><i class="fa fa-arrow-left"></i></a></li></ul>
+</div>
+<div class="test-content-detail"><div class="detail-body"></div></div>
+</div></div>
+<div class="test-wrapper row view exception-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>2</span>
+</span>
+<p class="name">org.openqa.selenium.NoSuchElementException</p>
+<p class="duration text-sm">2 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>org.openqa.selenium.NoSuchElementException</h4>
+<span status="fail" class='badge log badge-danger'>2 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>10:37:41 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='40'>Then User must verify the error message under Suite Name field "Please Enter Suite Name"</a>
+<div class="">
+<span class="badge badge-default">Verify Xealei Suites > Add Suites Page.To verify the field 'Suite Name *' and 'Location *' is mandatory.Then User must verify the error message under Suite Name field "Please Enter Suite Name"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>10:38:49 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='62'>Then User must verify the toast message after perform dupicate datas "Suite Name already exists."</a>
+<div class="">
+<span class="badge badge-default">Verify Xealei Suites > Add Suites Page.To verify duplicate validation for 'Suite Name'.Then User must verify the toast message after perform dupicate datas "Suite Name already exists."</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="test-wrapper row view category-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">2</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>7</span>
+<span class='badge log badge-danger'>2</span>
+</span>
+<p class="name">@AddSuites-AllScenarios</p>
+<p class="duration text-sm">9 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@AddSuites-AllScenarios</h4>
+<span status="pass" class='badge log pass-bg'>7 passed</span>
+<span status="fail" class='badge log badge-danger'>2 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>10:36:37 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='2'>To verify the web url link for suite page</a>
+<div class="">
+<span class="badge badge-default">Verify Xealei Suites > Add Suites Page.To verify the web url link for suite page</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>10:37:06 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='18'>To verify the field 'Suite Name *' and 'Location *' is mandatory</a>
+<div class="">
+<span class="badge badge-default">Verify Xealei Suites > Add Suites Page.To verify the field 'Suite Name *' and 'Location *' is mandatory</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>10:38:04 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='44'>To verify duplicate validation for 'Suite Name'</a>
+<div class="">
+<span class="badge badge-default">Verify Xealei Suites > Add Suites Page.To verify duplicate validation for 'Suite Name'</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>10:39:12 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='66'>To verify duplicate Suite name with different 'Location'</a>
+<div class="">
+<span class="badge badge-default">Verify Xealei Suites > Add Suites Page.To verify duplicate Suite name with different 'Location'</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>10:39:45 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='88'>To verify validation message is displayed under mandatory fields also verify the user able to close the Add Suite popup</a>
+<div class="">
+<span class="badge badge-default">Verify Xealei Suites > Add Suites Page.To verify validation message is displayed under mandatory fields also verify the user able to close the Add Suite popup</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>10:40:12 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='114'>To verify user able to Add/Create Suites by entering only Non-Mandatory fields</a>
+<div class="">
+<span class="badge badge-default">Verify Xealei Suites > Add Suites Page.To verify user able to Add/Create Suites by entering only Non-Mandatory fields</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>10:40:41 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='136'>To verify user able to Add/Create Suites by entering only Mandatory fields and also verify the 'Bread Crums' button in Suites view screen</a>
+<div class="">
+<span class="badge badge-default">Verify Xealei Suites > Add Suites Page.To verify user able to Add/Create Suites by entering only Mandatory fields and also verify the 'Bread Crums' button in Suites view screen</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>10:41:24 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='160'>To verify user able to Add/Create Suites by entering all fields</a>
+<div class="">
+<span class="badge badge-default">Verify Xealei Suites > Add Suites Page.To verify user able to Add/Create Suites by entering all fields</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>10:43:27 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='182'>To verify 'Bread Crums' button in Suites view screen</a>
+<div class="">
+<span class="badge badge-default">Verify Xealei Suites > Add Suites Page.To verify 'Bread Crums' button in Suites view screen</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">@InProgress</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@InProgress</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>10:38:04 AM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='44'>To verify duplicate validation for 'Suite Name'</a>
+<div class="">
+<span class="badge badge-default">Verify Xealei Suites > Add Suites Page.To verify duplicate validation for 'Suite Name'</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="container-fluid p-4 view dashboard-view">
+<div class="row">
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Started</p>
+<h3>08 Oct, 2023 10:36:35</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Ended</p>
+<h3>08 Oct, 2023 10:44:05</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-pass">Features Passed</p>
+<h3>0</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-fail">Features Failed</p>
+<h3>1</h3>
+</div></div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Features</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='parent-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='0%'>
+<b>0</b> features passed
+</small>
+</div>
+<div>
+<small data-tooltip='100%'><b>1</b> features failed,
+<b>0</b> skipped, <b data-tooltip='0%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Scenarios</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='child-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='77%'><b>7</b> scenarios passed</small></div>
+<div>
+<small data-tooltip='22%'><b>2</b> scenarios failed,
+<b>0</b> skipped, <b data-tooltip='%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Steps</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='grandchild-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='98%'><b>164</b> steps passed</small></div>
+<div>
+<small data-tooltip='1%'><b>2</b> steps failed,
+<b>0</b> skipped, <b data-tooltip='%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><div class="col-md-12">
+<div class="card"><div class="card-header"><p>Timeline</p></div>
+<div class="card-body pt-0"><div>
+<canvas id="timeline" height="120"></canvas>
+</div></div>
+</div>
+</div></div>
+<script>
+var timeline = {
+"Verify Xealei Suites > Add Suites Page":447.613
+};
+</script>
+<div class="row">
+<div class="col-lg-6 col-md-12 category-container">
+<div class="card">
+<div class="card-header"><p>Tags</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
+<tr>
+<td>@AddSuites-AllScenarios</td>
+<td>7</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>77.778%</td>
+</tr>
+<tr>
+<td>@InProgress</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0%</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+var statusGroup = {
+parentCount: 5,
+passParent: 0,
+failParent: 1,
+warningParent: 0,
+skipParent: 0,
+childCount: 5,
+passChild: 7,
+failChild: 2,
+warningChild: 0,
+skipChild: 0,
+infoChild: 0,
+grandChildCount: 5,
+passGrandChild: 164,
+failGrandChild: 2,
+warningGrandChild: 0,
+skipGrandChild: 0,
+infoGrandChild: 0,
+eventsCount: 5,
+};
+</script>        </div>
+      </div>
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@d6562a79075e061305ccfdb82f01e5e195e2d307/spark/js/spark-script.js"></script>
+<script type="text/javascript"></script></body>
+</html>
