@@ -238,10 +238,14 @@ public class LoginPage extends BaseClass {
 			sendKeys(getPassword(), readExcel("Test Datas", "Login", 2, 2));
 		}
 		
+		keyPress(KeyEvent.VK_TAB);
+		keyRelease(KeyEvent.VK_TAB);
+		keyPress(KeyEvent.VK_TAB);
+		keyRelease(KeyEvent.VK_TAB);
+		
 		keyPress(KeyEvent.VK_ENTER);
 		keyRelease(KeyEvent.VK_ENTER);	
-		
-		waitForPageLoad();
+
 	}
 
 }

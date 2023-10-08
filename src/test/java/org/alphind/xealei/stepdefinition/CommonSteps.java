@@ -23,10 +23,11 @@ public class CommonSteps extends BaseClass {
 	@Then("User must verify once the page is navigate to HOME_DASHBOARD successfully {string}")
 	public void user_must_verify_once_the_page_is_navigate_to_home_dashboard_successfully(String expMessage) {
 
+		waitForPageLoad();
+		
 		System.out.println("exp Text :" + expMessage);
 		System.out.println("Actual Text :" + getText(pom.getLoginPage().getNavToHomePageSuccessfully()));
-		
-		waitForPageLoad();
+	
 		Assert.assertEquals("Unable to navigate HOME Dashboard", expMessage,
 				getText(pom.getLoginPage().getNavToHomePageSuccessfully()));
 
