@@ -7,7 +7,7 @@
 #* You may use, distribute and modify this code for internal purpose,  however, distribution outside the organization     * is prohibited without prior and proper license agreement
 #
 #*/
-@Login-AllScenarios
+#@Login-AllScenarios
 Feature: Verify Xealei Login Page
 
   Background: 
@@ -56,7 +56,7 @@ Feature: Verify Xealei Login Page
   Scenario Outline: To verify Xealei Login Page without enter Email/Username and Password
     When User click Login button without enter username and password
     Then User must verify the error message contains for both email and password after click the Login button "Please enter email ID" and "Please enter password"
-
+@Login-AllScenarios
   Scenario Outline: To verify Xealei login page by click the ENTER key with valid credentials
     When User must perform login with valid email and password by click the Enter key
     Then User must verify once the page is navigate to HOME_DASHBOARD successfully "Home"

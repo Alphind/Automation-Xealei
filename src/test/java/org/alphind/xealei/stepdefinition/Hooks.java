@@ -26,7 +26,6 @@ public class Hooks extends BaseClass {
 	@Before
 	public void setUp() throws Exception {
 
-		
 	        	browserType();
 	    		env();
 	    		maximize();

@@ -244,7 +244,10 @@ public class LoginPage extends BaseClass {
 		keyRelease(KeyEvent.VK_TAB);
 		
 		keyPress(KeyEvent.VK_ENTER);
-		keyRelease(KeyEvent.VK_ENTER);	
+		keyRelease(KeyEvent.VK_ENTER);
+		
+		waitForPageLoad();
+		
 
 	}
 

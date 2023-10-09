@@ -63,7 +63,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class BaseClass {
 
 	// Driver initialized in class level
-
 	protected Scenario s ;
 	//public ThreadLocal<WebDriver> dr = new ThreadLocal<WebDriver>();
     
