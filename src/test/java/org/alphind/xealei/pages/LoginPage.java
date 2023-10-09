@@ -10,8 +10,6 @@
 
 package org.alphind.xealei.pages;
 
-import java.awt.event.KeyEvent;
-
 import org.alphind.xealei.baseclass.BaseClass;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -229,7 +227,7 @@ public class LoginPage extends BaseClass {
 
 		if (getConfigureProperty("Environment_QA").equalsIgnoreCase("Yes")) {
 			sendKeys(getUserName(), readExcel("Test Datas", "Login", 1, 1));
-			sendKeys(getPassword(), readExcel("Test Datas", "Login", 1, 2));
+			sendKeyWithEnter(getPassword(), readExcel("Test Datas", "Login", 1, 2));
 		} else if (getConfigureProperty("Environment_PREPOD").equalsIgnoreCase("Yes")) {
 			sendKeys(getUserName(), readExcel("Test Datas", "Login", 2, 1));
 			sendKeys(getPassword(), readExcel("Test Datas", "Login", 2, 2));
@@ -237,16 +235,6 @@ public class LoginPage extends BaseClass {
 			sendKeys(getUserName(), readExcel("Test Datas", "Login", 2, 1));
 			sendKeys(getPassword(), readExcel("Test Datas", "Login", 2, 2));
 		}
-		
-		keyPress(KeyEvent.VK_TAB);
-		keyRelease(KeyEvent.VK_TAB);
-		keyPress(KeyEvent.VK_TAB);
-		keyRelease(KeyEvent.VK_TAB);
-		
-		keyPress(KeyEvent.VK_ENTER);
-		keyRelease(KeyEvent.VK_ENTER);
-		
-		waitForPageLoad();
 		
 
 	}

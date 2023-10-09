@@ -45,7 +45,6 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -76,10 +75,7 @@ public class BaseClass {
 
 		if (getConfigureProperty("Chrome").equalsIgnoreCase("Yes")) {
 			WebDriverManager.chromedriver().setup(); 
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--remote-allow-origins=*");
-
-			driver = new ChromeDriver(options);
+			driver = new ChromeDriver();
 			
 		} else if (getConfigureProperty("Edge").equalsIgnoreCase("Yes")) {
 			WebDriverManager.edgedriver().setup();
@@ -612,6 +608,7 @@ public class BaseClass {
 			JavascriptExecutor executor = (JavascriptExecutor)driver;
 			executor.executeScript("window.scrollBy(0,document.body.scrollHeight)");
 		}	
+		
 		
 		
 }
