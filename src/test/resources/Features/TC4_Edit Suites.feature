@@ -21,19 +21,17 @@ Feature: Verify Xealei Suites > Edit Suites Page
     And User must click the Edit button
     Then User must verify "Edit Suite" popup should be displayed after click the Edit button
 
-  Scenario Outline: To verify the field 'Suite Name *' is mandatory
+  Scenario Outline: To verify the field 'Suite Name *' and 'Location *' is mandatory
     And User must delete the Suite Name and click Add button
-    Then User must verify the error message contain for Mandatory field "Please Enter Suite Name"
+    Then User must verify the error message under Suite Name field "Please Enter Suite Name
+    And User must perform all fields with empty Location
+    Then User must verify the error message under Location field "Please select facility location"
 
-  Scenario Outline: To verify the field 'Location *' is mandatory
-    And User must delete the Suite Name and click Add button
-    Then User must verify the error message contain for Mandatory field "Please select facility location"
-
-  Scenario Outline: To verify duplicate validation for 'Suite Name' in Edit Suites screen
+  Scenario Outline: To verify duplicate validation for 'Suite Name'
     And User must perform only mandatory fields with existing suiteName and location
     Then User must verify the toast message after perform dupicate datas "Suite Name already exists."
 
-  Scenario Outline: To verify duplicate Suite name with different 'Location' in Edit Suites screen
+  Scenario Outline: To verify duplicate Suite name with different 'Location' 
     And User must perform only mandatory fields with existing suiteName and different location
     Then User must verify the toast message after perform existing suiteName and different location "Saved Successfully!!"
 
