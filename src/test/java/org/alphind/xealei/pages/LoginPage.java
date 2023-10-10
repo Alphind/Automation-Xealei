@@ -20,8 +20,9 @@ public class LoginPage extends BaseClass {
 	/*
 	 * Description - All the Login Module/Page locators are stored here..
 	 */
-
+	
 	public LoginPage() {
+		//this.driver = getDriver();
 		PageFactory.initElements(driver, this);
 	}
 	

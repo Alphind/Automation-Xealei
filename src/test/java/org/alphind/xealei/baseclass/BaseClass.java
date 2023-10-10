@@ -85,23 +85,27 @@ public class BaseClass {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 		}
+		
 	}
 
 	// 2. To launch the URL
 
 	public void loadUrl(String Url) {
+		//dr.get().get(Url);
 		driver.get(Url);
 	}
 
 	// 3. Maximize Window
 
 	public void maximize() {
+		//dr.get().manage().window().maximize();
 		driver.manage().window().maximize();
 	}
 
 	// 4. To find the element by using ID
 
 	public WebElement findElementById(String id) {
+		//WebElement element = dr.get().findElement(By.id(id));
 		WebElement element = driver.findElement(By.id(id));
 		return element;
 	}
@@ -109,6 +113,7 @@ public class BaseClass {
 	// 5. To find the element by using NAME
 
 	public WebElement findElementByName(String name) {
+		//WebElement element = dr.get().findElement(By.name(name));
 		WebElement element = driver.findElement(By.name(name));
 		return element;
 	}
@@ -116,6 +121,7 @@ public class BaseClass {
 	// 6. To find the element by using CLASSNAME
 
 	public WebElement findElementByClassName(String className) {
+		//WebElement element = dr.get().findElement(By.className(className));
 		WebElement element = driver.findElement(By.className(className));
 		return element;
 	}
@@ -123,6 +129,7 @@ public class BaseClass {
 	// 7. To find the element by using XPATH
 
 	public WebElement xpath(String xpath) {
+		//WebElement element = dr.get().findElement(By.xpath(xpath));
 		WebElement element = driver.findElement(By.xpath(xpath));
 		return element;
 	}
@@ -143,12 +150,14 @@ public class BaseClass {
 	// 10. To set the timeout for findElement and findElements
 
 	public void implicitWaitBySeconds(long seconds) {
+		//dr.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
 	}
 
 	// 11. Explicit wait - WebDriverWait for alertIsPresent
 
 	public void waitForAlertIsPresent(long seconds) {
+	//	WebDriverWait wait = new WebDriverWait(dr.get(), Duration.ofSeconds(seconds));
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
 		wait.until(ExpectedConditions.alertIsPresent());
 	}
@@ -156,6 +165,7 @@ public class BaseClass {
 	// 12. Explicit wait - WebDriverWait for elementToBeClickable
 
 	public void waitForElementToBeClickable(WebElement element, long seconds) {
+		// WebDriverWait wait = new WebDriverWait(dr.get(), Duration.ofSeconds(seconds));
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
@@ -164,6 +174,7 @@ public class BaseClass {
 
 	public String takesScreenshot(String Name) throws Exception {
 
+		//TakesScreenshot screen = (TakesScreenshot) dr.get();
 		TakesScreenshot screen = (TakesScreenshot) driver;
 		File source = screen.getScreenshotAs(OutputType.FILE);
 		File destination = new File(".//ExtentReports//Screenshots//" + Name + ".png");
@@ -195,13 +206,15 @@ public class BaseClass {
 	// 16. Close
 
 	public void close() {
+		//dr.get().close();
 		driver.close();
 	}
 
 	// 17. Quit
 
 	public void quit() {
-		driver.close();
+		//dr.get().quit();
+		driver.quit();
 	}
 
 	// 18. readData from Excel
@@ -304,6 +317,7 @@ public class BaseClass {
 
 	public void elementIsClickable(WebElement element, long seconds) {
 
+		//WebDriverWait wait = new WebDriverWait(dr.get(), Duration.ofSeconds(seconds));
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
@@ -311,6 +325,7 @@ public class BaseClass {
 	// 27. explicitWait for textToBePresentInElement
 
 	public void waitFortextToBePresentInElement(WebElement element, String text, long seconds) {
+		//WebDriverWait wait = new WebDriverWait(dr.get(), Duration.ofSeconds(seconds));
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
 		wait.until(ExpectedConditions.textToBePresentInElement(element, text));
 	}
@@ -318,6 +333,7 @@ public class BaseClass {
 	// 28. explicitWait for visibilityOfElement
 
 	public void visibilityOfElement(WebElement element, long seconds) {
+		//WebDriverWait wait = new WebDriverWait(dr.get(), Duration.ofSeconds(seconds));
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
@@ -326,6 +342,7 @@ public class BaseClass {
 
 	public WebElement cssSelector(String css) {
 
+		//WebElement element = dr.get().findElement(By.cssSelector(css));
 		WebElement element = driver.findElement(By.cssSelector(css));
 		return element;
 	}
@@ -334,6 +351,7 @@ public class BaseClass {
 
 	public WebElement findElementByTagName(String tagName) {
 
+		//WebElement element = dr.get().findElement(By.tagName(tagName));
 		WebElement element = driver.findElement(By.tagName(tagName));
 		return element;
 	}
@@ -342,6 +360,7 @@ public class BaseClass {
 
 	public List<WebElement> findElementsByXpath(String xpath) {
 
+		//List<WebElement> elements = dr.get().findElements(By.xpath(xpath));
 		List<WebElement> elements = driver.findElements(By.xpath(xpath));
 		return elements;
 	}
@@ -349,6 +368,7 @@ public class BaseClass {
 	// 32. String click
 
 	public void selectDropDown(String elementxpath) {
+		//click(dr.get().findElement(By.xpath(elementxpath)));
 		click(driver.findElement(By.xpath(elementxpath)));
 	}
 
@@ -420,6 +440,7 @@ public class BaseClass {
 	// 40. Explicit wait - WebDriverWait for VisiblityOfElement
 
 	public void waitForVisiblityOfElement(WebElement element, long seconds) {
+		//WebDriverWait wait = new WebDriverWait(dr.get(), Duration.ofSeconds(seconds));
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
@@ -427,6 +448,7 @@ public class BaseClass {
 	// 41. getText - String
 
 	public String getTextString(String elementxpath) {
+		//String text = getText(dr.get().findElement(By.xpath(elementxpath)));
 		String text = getText(driver.findElement(By.xpath(elementxpath)));
 		return text;
 	}
@@ -435,6 +457,8 @@ public class BaseClass {
 
 	public void waitForPageLoad() {
 
+//		WebElement loading = dr.get().findElement(By.xpath("//div[contains(text(),'Loading')]"));
+//		WebDriverWait wait = new WebDriverWait(dr.get(), Duration.ofMinutes(3));
 			WebElement loading = driver.findElement(By.xpath("//div[contains(text(),'Loading')]"));
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofMinutes(3));
 			wait.until(ExpectedConditions.invisibilityOf(loading));
@@ -556,6 +580,7 @@ public class BaseClass {
 //		// 40. Explicit wait - WebDriverWait for inVisiblityOfElement
 		
 		public void waitForInVisiblityOfElement(WebElement element, long seconds) {
+			//WebDriverWait wait = new WebDriverWait(dr.get(), Duration.ofSeconds(seconds));
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
 			wait.until(ExpectedConditions.visibilityOf(element));
 		}
@@ -569,6 +594,7 @@ public class BaseClass {
 //	     //  42. Refresh Page
 		
 		public void refreshPage() {
+			//dr.get().navigate().refresh();
 			driver.navigate().refresh();
 		}
 		
@@ -577,10 +603,13 @@ public class BaseClass {
 		public void env() throws Exception {
 			
 			if (getConfigureProperty("Environment_QA").equalsIgnoreCase("Yes")) {
+				//dr.get().get(readExcel("Test Datas", "Environments",1,1));
 				driver.get(readExcel("Test Datas", "Environments",1,1));
 			} else if (getConfigureProperty("Environment_PREPOD").equalsIgnoreCase("Yes")) {
+				//dr.get().get(readExcel("Test Datas", "Environments",2,1));
 				driver.get(readExcel("Test Datas", "Environments",2,1));
 			} else if (getConfigureProperty("Environment_PRODUCTION").equalsIgnoreCase("Yes")) {
+				//dr.get().get(readExcel("Test Datas", "Environments",3,1));
 				driver.get(readExcel("Test Datas", "Environments",3,1));	
 			}
 		}
@@ -589,6 +618,7 @@ public class BaseClass {
 		
 		public String getCurrentUrl() {
 		
+		//	String currentUrl = dr.get().getCurrentUrl();
 			String currentUrl = driver.getCurrentUrl();
 			return currentUrl;	
 		}
@@ -597,6 +627,7 @@ public class BaseClass {
 		
 		public void scrollDownToAnElement(WebElement element) {
 			
+			//JavascriptExecutor executor = (JavascriptExecutor)dr.get();			
 			JavascriptExecutor executor = (JavascriptExecutor)driver;
 			executor.executeScript("argument[0].scrollIntoView()",element);
 		}
@@ -605,10 +636,15 @@ public class BaseClass {
 		
 		public void scrollDownToBottomOfThePage() {
 			
+			//JavascriptExecutor executor = (JavascriptExecutor)dr.get();			
 			JavascriptExecutor executor = (JavascriptExecutor)driver;
 			executor.executeScript("window.scrollBy(0,document.body.scrollHeight)");
 		}	
 		
+//		//47. Getter for driver
+//		public WebDriver getDriver() {
+//			return dr.get();
+//		}
 		
 		
 }

@@ -56,7 +56,6 @@ public class Hooks extends BaseClass {
 		
 		waitForPageLoad();
 		if(driver != null) {
-			sleep(2000);
 			quit();
 		}
 		

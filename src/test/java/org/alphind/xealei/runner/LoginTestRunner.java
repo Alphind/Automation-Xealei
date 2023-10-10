@@ -11,6 +11,10 @@
 package org.alphind.xealei.runner;
 
 
+import java.io.File;
+import java.net.URI;
+import java.nio.file.Path;
+
 import org.junit.runner.RunWith;
 
 import io.cucumber.junit.Cucumber;
@@ -18,7 +22,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 
-@CucumberOptions(features = "src\\test\\resources\\Features\\TC1_Login.feature",tags = "@Login-AllScenarios",
+@CucumberOptions(features = "src//test//resources//Features//TC1_Login.feature",tags = "@Login-AllScenarios",
 glue = "org.alphind.xealei.stepdefinition", dryRun = !true ,monochrome = true, plugin = {"html:target/html.html",
 		"junit:target/junit.xml",
 		"json:target/json.json",
@@ -27,8 +31,6 @@ glue = "org.alphind.xealei.stepdefinition", dryRun = !true ,monochrome = true, p
 
 public class LoginTestRunner  {
 
-			
-	
 }		
 
 
