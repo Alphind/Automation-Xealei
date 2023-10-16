@@ -8,12 +8,13 @@
 #
 #*/
 
-@Login-AllScenarios
+#@Login-AllScenarios
 Feature: Verify Xealei Login Page
 
   Background: 
     Given User is on Xealei login page
 
+@Login-AllScenarios
   Scenario Outline: To verify the web url link for login page
     Then User must verify the login page is displayed
     Then User must verify the tab url address for login screen
