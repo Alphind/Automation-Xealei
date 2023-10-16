@@ -14,7 +14,6 @@ Feature: Verify Xealei Login Page
   Background: 
     Given User is on Xealei login page
 
-@Login-AllScenarios
   Scenario Outline: To verify the web url link for login page
     Then User must verify the login page is displayed
     Then User must verify the tab url address for login screen
@@ -63,6 +62,7 @@ Feature: Verify Xealei Login Page
     When User must perform login with valid email and password by click the Enter key
     Then User must verify once the page is navigate to HOME_DASHBOARD successfully "Home"
     
+    @Login-AllScenarios
   Scenario Outline: To verify Xealei login page with valid credentials
     When User must perform login with valid email and password
     Then User must verify once the page is navigate to HOME_DASHBOARD successfully "Home"

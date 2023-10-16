@@ -35,7 +35,6 @@ license agreement
 					<!-- Specify your test runner classes here -->
 					<includes>
 						<include>org.alphind.xealei.runner.TC1LoginTestRunner</include>
-						<include>org.alphind.xealei.runner.TC2AddSuitesTestRunner</include>
 					</includes>
 				</configuration>
 				<dependencies>
