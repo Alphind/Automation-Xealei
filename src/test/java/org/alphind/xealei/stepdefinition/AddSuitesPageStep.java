@@ -56,6 +56,7 @@ public class AddSuitesPageStep extends BaseClass {
 					readExcel("Test Datas", "Environments", 3, 1) + "main/suites", getCurrentUrl());
 		}
 
+		
 	}
 
 // ***** To verify the field 'Suite Name *' and Location * is mandatory *****
@@ -83,6 +84,21 @@ public class AddSuitesPageStep extends BaseClass {
 		}
 	}
 	
+	@Then("User must perform all fields except Suite Name")
+	public void user_must_perform_all_fields_except_suite_name() throws IOException {
+
+		pom.getAddSuitesPage().allFieldsExceptSuiteName();
+
+	}
+
+	@Then("User must verify the error message under Suite Name field {string}")
+	public void user_must_verify_the_error_message_under_suite_name_field(String valMsgForSuiteName) {
+
+		Assert.assertEquals("Validation message for suiteName not displayed", valMsgForSuiteName,
+				getText(pom.getAddSuitesPage().getActValMsgForSuiteName()));
+
+	}
+	
 	@Then("User must perform all fields except Location")
 	public void user_must_perform_all_fields_except_location() throws IOException {
 	    
@@ -94,21 +110,6 @@ public class AddSuitesPageStep extends BaseClass {
 	    
 		Assert.assertEquals("Validation message for location not displayed", expValMsgForLocation,
 				getText(pom.getAddSuitesPage().getActValMsgForLocation()));
-	}
-
-	@Then("User must perform all fields except Suite Name")
-	public void user_must_perform_all_fields_except_suite_name() throws IOException {
-
-		pom.getAddSuitesPage().exceptSuiteName();
-
-	}
-
-	@Then("User must verify the error message under Suite Name field {string}")
-	public void user_must_verify_the_error_message_under_suite_name_field(String valMsgForSuiteName) {
-
-		Assert.assertEquals("Validation message for suiteName not displayed", valMsgForSuiteName,
-				getText(pom.getAddSuitesPage().getActValMsgForSuiteName()));
-
 	}
 
 // ****** To verify duplicate validation for 'Suite Name' ******
@@ -131,9 +132,9 @@ public class AddSuitesPageStep extends BaseClass {
 
 	@Then("User must perform only mandatory fields with existing suiteName and different location")
 	public void user_must_perform_only_mandatory_fields_with_existing_suite_name_and_different_location()
-			throws IOException {
-
-		pom.getAddSuitesPage().existSuiteNamewithDiffLocation();
+			throws Exception {
+		
+		pom.getAddSuitesPage().exitSuiteNameWithDiffLocation();
 
 	}
 
@@ -210,23 +211,22 @@ public class AddSuitesPageStep extends BaseClass {
 		waitForPageLoad();
 		Assert.assertEquals("Toast Message is not displayed", expToastMsg,
 				getText(pom.getAddSuitesPage().getActToastMessage()));
+	 
+		click(pom.getAddSuitesPage().getBtnToastMsg());
 	}
 
 	@Then("User must verify mandatory fields are created successsfully")
-	public void user_must_verify_mandatory_fields_are_created_successsfully() throws IOException {
+	public void user_must_verify_mandatory_fields_are_created_successsfully() throws Exception {
 
 		pom.getAddSuitesPage().getCreatedSuitePerformedMandatoryField();
 
 		waitForPageLoad();
 
 		sleep(1000);
-
-		Assert.assertEquals("Created SuiteName is Mismatched", pom.getAddSuitesPage().createdSuite,
-				getText(pom.getAddSuitesPage().getCreatedSuiteName()));
-
-		Assert.assertEquals("Created Location is Mismatched", pom.getAddSuitesPage().getLocationDataFromExcel,
-				getText(pom.getAddSuitesPage().getCreatedLocation()));
-
+		
+		Assert.assertEquals("Created SuiteName Mismatched", pom.getAddSuitesPage().createSuiteName, getText(pom.getAddSuitesPage().getCreatedSN()));
+		Assert.assertEquals("Created Location  Mismatched", readExcel("Test Datas", "AddSuites",1, 1), getText(pom.getAddSuitesPage().getCreatedLocation()));
+		
 	}
 
 // ****** To verify user able to Add/Create Suites by entering all fields ******						

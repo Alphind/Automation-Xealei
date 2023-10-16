@@ -7,10 +7,8 @@
 #* You may use, distribute and modify this code for internal purpose,  however, distribution outside the organization     * is prohibited without prior and proper license agreement
 #
 #*/
-
 @AddSuites-AllScenarios
 Feature: Verify Xealei Suites > Add Suites Page
-
 
   Background: 
     Given User is on Xealei login page
@@ -19,19 +17,17 @@ Feature: Verify Xealei Suites > Add Suites Page
     And User must navigate to Suite Module
     Then User must verify suite page is displayed "Suites"
 
-
   Scenario Outline: To verify the web url link for suite page
     Then User must verify the tab url address for suites screen
-    
-    
+
   Scenario Outline: To verify the field 'Suite Name *' and 'Location *' is mandatory
     And User must click Add Suite button
     Then User must verify "Add Suite" popup should be displayed after click the Add Suites button
-    And User must perform all fields except Location
-    Then User must verify the error message under Location field "Please select facility location"
     And User must perform all fields except Suite Name
     Then User must verify the error message under Suite Name field "Please Enter Suite Name"
- 
+    And User must perform all fields except Location
+    Then User must verify the error message under Location field "Please select facility location"
+
   #@TC-ValidationNotIncluded
   #Scenario Outline: To verify the field 'Suite Name *' with invalid data - (Spacebar & tilde)
   #
@@ -41,6 +37,7 @@ Feature: Verify Xealei Suites > Add Suites Page
   #Then User must verify "Add Suite" popup should be displayed after click the Add Suites button
   #And User must perform all fields suite name field alone with invalid data - (Spacebar & tilde)
   #Then User must verify the error message
+  #
   #@TC-ValidationNotIncluded
   #Scenario Outline: To verify the field 'Suite Name *' on limit for characters
   #
@@ -68,8 +65,7 @@ Feature: Verify Xealei Suites > Add Suites Page
   #Then User must verify "Add Suite" popup should be displayed after click the Add Suites button
   #And User must perform only non mandatory fields
   #Then User must verify that more than "11" digits can not be entered in the respective fields
-
-@InProgress 
+  
   Scenario Outline: To verify duplicate validation for 'Suite Name'
     And User must click Add Suite button
     Then User must verify "Add Suite" popup should be displayed after click the Add Suites button
@@ -89,7 +85,6 @@ Feature: Verify Xealei Suites > Add Suites Page
     Then User must verify the error message contains for Mandatory fields "Please Enter Suite Name" and "Please select facility location"
     And User must close the Add Suite popup
     Then User must verify the Add Suite popup is closed successfully
-    
 
   Scenario Outline: To verify user able to Add/Create Suites by entering only Non-Mandatory fields
     And User must click Add Suite button
@@ -97,20 +92,18 @@ Feature: Verify Xealei Suites > Add Suites Page
     And User must perform only non-mandatory fields
     Then User must verify the error message contains for Mandatory fields "Please Enter Suite Name" and "Please select facility location"
 
-  Scenario Outline: To verify user able to Add/Create Suites by entering only Mandatory fields and also verify the 'Bread Crums' button in Suites view screen
+  Scenario Outline: To verify user able to Add/Create Suites by entering only Mandatory fields
     And User must click Add Suite button
     Then User must verify "Add Suite" popup should be displayed after click the Add Suites button
     And User must perform only mandatory fields
     Then User must verify the toast message after perform only mandatory fields "Saved Successfully!!"
     Then User must verify mandatory fields are created successsfully
-    
 
-  Scenario Outline: To verify user able to Add/Create Suites by entering all fields 
+  Scenario Outline: To verify user able to Add/Create Suites by entering all fields
     And User must click Add Suite button
     Then User must verify "Add Suite" popup should be displayed after click the Add Suites button
     And User must perform all fields and verify the toast message after perform all fields "Saved Successfully!!"
     Then User must verify all fields are created successsfully
-
 
   Scenario Outline: To verify 'Bread Crums' button in Suites view screen
     And User must search the existing suiteName and click the image in suites screen

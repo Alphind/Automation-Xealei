@@ -43,7 +43,7 @@ public class AddSuitesPage extends BaseClass {
 	@FindBy(xpath = "//h5[text()='Suites']")
 	private WebElement suitesPage;
 
-	@FindBy(xpath = "//span[text()='Add Suites']")
+	@FindBy(xpath = "//span[text()='Add Suites']/parent::span/parent::button")
 	private WebElement btnAddSuites;
 
 	@FindBy(xpath = "//h2[contains(text(),'Add Suite')]")
@@ -127,33 +127,33 @@ public class AddSuitesPage extends BaseClass {
 		return availability;
 	}
 
-	public WebElement getEditSuiteButton() {
-		return editSuiteButton;
-	}
-
-	public WebElement getSuiteUpdateButton() {
-		return suiteUpdateButton;
-	}
-
-	public WebElement getUpdatedSuiteName() {
-		return updatedSuiteName;
-	}
-
-	public WebElement getUpdatedLocation() {
-		return updatedLocation;
-	}
-
-	public WebElement getUpdatedLength() {
-		return updatedLength;
-	}
-
-	public WebElement getUpdatedWidth() {
-		return updatedWidth;
-	}
-
-	public WebElement getUpdatedHeight() {
-		return updatedHeight;
-	}
+//	public WebElement getEditSuiteButton() {
+//		return editSuiteButton;
+//	}
+//
+//	public WebElement getSuiteUpdateButton() {
+//		return suiteUpdateButton;
+//	}
+//
+//	public WebElement getUpdatedSuiteName() {
+//		return updatedSuiteName;
+//	}
+//
+//	public WebElement getUpdatedLocation() {
+//		return updatedLocation;
+//	}
+//
+//	public WebElement getUpdatedLength() {
+//		return updatedLength;
+//	}
+//
+//	public WebElement getUpdatedWidth() {
+//		return updatedWidth;
+//	}
+//
+//	public WebElement getUpdatedHeight() {
+//		return updatedHeight;
+//	}
 
 	public String getCreateSuiteName() {
 		return createSuiteName;
@@ -163,9 +163,6 @@ public class AddSuitesPage extends BaseClass {
 		return createdSuite;
 	}
 
-	public String getGetLocationDataFromExcel() {
-		return getLocationDataFromExcel;
-	}
 
 	public String getSuiteName() {
 		return SuiteName;
@@ -194,6 +191,7 @@ public class AddSuitesPage extends BaseClass {
 	private WebElement actValMsgForLocation;
 
 	String dropDownListForLocation = "//span[text()='locationName']/parent::mat-option";
+	String dropDownListForDiffLocation = "//span[text()='location']/parent::mat-option";
 
 	@FindBy(xpath = "//span[text()='Saved Successfully!!']")
 	private WebElement actToastMsg;
@@ -255,26 +253,29 @@ public class AddSuitesPage extends BaseClass {
 
 	String availability = "//span[text()='availability']/parent::mat-option";
 
-	@FindBy(xpath = "//span[text()='Edit']/parent::button")
-	private WebElement editSuiteButton;
-
-	@FindBy(xpath = "//span[text()='Update']/parent::button")
-	private WebElement suiteUpdateButton;
-
-	@FindBy(xpath = "(//span[@class='d-block'])[1]")
-	private WebElement updatedSuiteName;
-
-	@FindBy(xpath = "(//span[@class='d-block'])[2]")
-	private WebElement updatedLocation;
-
-	@FindBy(xpath = "(//span[@class='d-block'])[3]")
-	private WebElement updatedLength;
-
-	@FindBy(xpath = "(//span[@class='d-block'])[4]")
-	private WebElement updatedWidth;
-
-	@FindBy(xpath = "(//span[@class='d-block'])[5]")
-	private WebElement updatedHeight;
+	String emptyLocation = "(//mat-option[@role='option'])[1]";
+	
+	
+//	@FindBy(xpath = "//span[text()='Edit']/parent::button")
+//	private WebElement editSuiteButton;
+//
+//	@FindBy(xpath = "//span[text()='Update']/parent::button")
+//	private WebElement suiteUpdateButton;
+//
+//	@FindBy(xpath = "(//span[@class='d-block'])[1]")
+//	private WebElement updatedSuiteName;
+//
+//	@FindBy(xpath = "(//span[@class='d-block'])[2]")
+//	private WebElement updatedLocation;
+//
+//	@FindBy(xpath = "(//span[@class='d-block'])[3]")
+//	private WebElement updatedLength;
+//
+//	@FindBy(xpath = "(//span[@class='d-block'])[4]")
+//	private WebElement updatedWidth;
+//
+//	@FindBy(xpath = "(//span[@class='d-block'])[5]")
+//	private WebElement updatedHeight;
 
 	public WebElement getSuitesPage() {
 		return suitesPage;
@@ -340,10 +341,9 @@ public class AddSuitesPage extends BaseClass {
 	 * 
 	 */
 
-	String createSuiteName;
+	public String createSuiteName;
 	
 	public String createdSuite;
-	public String getLocationDataFromExcel;
     public String existingSN;
     
 	String SuiteName;
@@ -353,6 +353,9 @@ public class AddSuitesPage extends BaseClass {
 	String Height;
 	String createdSuiteName;
 
+	String crSuiteName;
+	
+	int noOfTotalRows;
 
 	public void navToSuiteModule() {
 
@@ -381,39 +384,37 @@ public class AddSuitesPage extends BaseClass {
 		click(getTxtRtnToSuitesBreadCrum());
 	}
 	
-	public void allFieldsExceptLocation() throws IOException {
+	public void allFieldsExceptSuiteName() throws IOException {
 
-		createSuiteName = (readExcel("Test Datas", "AddSuites", 1, 0) + dateAndTime());
-		System.out.println(createSuiteName);
-		sendKeys(suiteName, createSuiteName);
+		click(location);
+		String getLocationDataFromExcel = readExcel("Test Datas", "AddSuites", 1, 1);
+		dropDownListForLocation = dropDownListForLocation.replaceAll("locationName", getLocationDataFromExcel);
+		selectDropDown(dropDownListForLocation);
 		sendKeys(length, readExcel("Test Datas", "AddSuites", 1, 2));
 		sendKeys(width, readExcel("Test Datas", "AddSuites", 1, 3));
 		sendKeys(height, readExcel("Test Datas", "AddSuites", 1, 4));
 		click(btnAdd);
 
 	}
-	
-	public void exceptSuiteName() throws IOException {
 
-		click(suiteName);
-		clearText(suiteName);
+	public void allFieldsExceptLocation() throws IOException {
+
+		createSuiteName = (readExcel("Test Datas", "AddSuites", 1, 0) + dateAndTime());
+		System.out.println(createSuiteName);
+		sendKeys(suiteName, createSuiteName);
 		click(location);
-		getLocationDataFromExcel = readExcel("Test Datas", "AddSuites", 1, 1);
-		dropDownListForLocation = dropDownListForLocation.replaceAll("locationName", getLocationDataFromExcel);
-		selectDropDown(dropDownListForLocation);
+		selectDropDown(emptyLocation);
 		click(btnAdd);
-
 	}
-
 
 	public void duplicateDatas() throws IOException {
 		
 		createSuiteName = (readExcel("Test Datas", "AddSuites", 1, 0) + dateAndTime());
 		System.out.println(createSuiteName);
 		sendKeys(suiteName, createSuiteName);
-		createdSuite = writeExcel("Test Datas", "AddSuites", 1, 5, createSuiteName);
+		String crSuiteName = writeExcel("Test Datas", "CreatedSuites", 0, createSuiteName);
 		click(location);
-		getLocationDataFromExcel = readExcel("Test Datas", "AddSuites", 1, 1);
+		String getLocationDataFromExcel = readExcel("Test Datas", "AddSuites", 1, 1);
 		dropDownListForLocation = dropDownListForLocation.replaceAll("locationName", getLocationDataFromExcel);
 		selectDropDown(dropDownListForLocation);
 		click(btnAdd);
@@ -421,24 +422,45 @@ public class AddSuitesPage extends BaseClass {
 		Assert.assertEquals("Toast Message is not displayed","Saved Successfully!!", getText(actToastMsg));
 		click(btnAddSuites);
 		waitForPageLoad();
-		sendKeys(suiteName, readExcel("Test Datas", "AddSuites", 1, 5));
+		sendKeys(suiteName, crSuiteName);
 		click(location);
-		getLocationDataFromExcel = readExcel("Test Datas", "AddSuites", 1, 1);
+		//getLocationDataFromExcel = readExcel("Test Datas", "AddSuites", 1, 1);
 		dropDownListForLocation = dropDownListForLocation.replaceAll("locationName", getLocationDataFromExcel);
 		selectDropDown(dropDownListForLocation);
 		click(btnAdd);
+        waitForPageLoad();
+	}
 
-	}
-	
-public void existSuiteNamewithDiffLocation() throws IOException {
+   public void exitSuiteNameWithDiffLocation() throws Exception {
 		
-		sendKeys(suiteName, readExcel("Test Datas", "AddSuites", 1, 5));
+	    createSuiteName = (readExcel("Test Datas", "AddSuites", 1, 0) + dateAndTime());
+		System.out.println(createSuiteName);
+		sendKeys(suiteName, createSuiteName);
+		
+		crSuiteName = writeExcel("Test Datas", "CreatedSuites", 0, createSuiteName);
 		click(location);
-		getLocationDataFromExcel = readExcel("Test Datas", "AddSuites", 2, 1);
+		String getLocationDataFromExcel = readExcel("Test Datas", "AddSuites", 1, 1);
+		System.out.println("create Loc :"+getLocationDataFromExcel);
 		dropDownListForLocation = dropDownListForLocation.replaceAll("locationName", getLocationDataFromExcel);
 		selectDropDown(dropDownListForLocation);
 		click(btnAdd);
-	}
+		waitForPageLoad();
+		
+	click(btnAddSuites);
+	
+	waitForPageLoad();
+	sendKeys(suiteName, crSuiteName);
+	String diffLocationFromExcel = readExcel("Test Datas", "AddSuites", 2, 1);
+	System.out.println("created Loc :"+diffLocationFromExcel);
+	
+	click(location);
+	
+	dropDownListForDiffLocation = dropDownListForDiffLocation.replaceAll("location", diffLocationFromExcel);
+	selectDropDown(dropDownListForDiffLocation);
+	click(btnAdd);
+   
+}
+	
 	
 	public void nonMandatoryFields() throws IOException {
 
@@ -454,36 +476,49 @@ public void existSuiteNamewithDiffLocation() throws IOException {
 		createSuiteName = (readExcel("Test Datas", "AddSuites", 1, 0) + dateAndTime());
 		System.out.println(createSuiteName);
 		sendKeys(suiteName, createSuiteName);
-		createdSuite = writeExcel("Test Datas", "AddSuites", 1, 5, createSuiteName);
+		
+		File file = new File(".//Excel//Test Datas.xlsx");
+		FileInputStream stream = new FileInputStream(file);
+		Workbook workbook = new XSSFWorkbook(stream);
+		Sheet sheet = workbook.getSheet("CreatedSuites");
+		
+		int lastRowNum = sheet.getLastRowNum();
+		
+		sheet.createRow(lastRowNum+1).createCell(0).setCellValue(createSuiteName);
+        workbook.close();
 		click(location);
-		getLocationDataFromExcel = readExcel("Test Datas", "AddSuites", 1, 1);
+		String getLocationDataFromExcel = readExcel("Test Datas", "AddSuites", 1, 1);
 		dropDownListForLocation = dropDownListForLocation.replaceAll("locationName", getLocationDataFromExcel);
 		selectDropDown(dropDownListForLocation);
 		click(btnAdd);
-
 	}
-
-	public void getCreatedSuitePerformedMandatoryField() throws IOException {
+	
+	
+public void getCreatedSuitePerformedMandatoryField() throws IOException {
 		
+	
 		waitForPageLoad();
-		sendKeyWithEnter(suitesSearchBox, createdSuite);
+		sendKeyWithEnter(suitesSearchBox, createSuiteName);
 		waitForPageLoad();
 		click(searchCreatedSN);
-	}
+}
+
 
 	public void createSuitePerformedAllFields(String expToastMessage) throws Exception {
 
 		File file = new File(".//Excel//Test Datas.xlsx");
 		FileInputStream stream = new FileInputStream(file);
-		@SuppressWarnings("resource")
 		Workbook workbook = new XSSFWorkbook(stream);
 		Sheet sheet = workbook.getSheet("AddSuites");
 
-		int noOfRows = sheet.getLastRowNum();
-		System.out.println(noOfRows);
+        noOfTotalRows = sheet.getLastRowNum();
+		System.out.println(noOfTotalRows);
 	
-		for (int i = 1; i <= noOfRows; i++) {
+		for (int i = 1; i <= noOfTotalRows; i++) {
 
+			int lastRow = sheet.getLastRowNum();
+			System.out.println("Total Rows :" +lastRow);
+			
 			SuiteName = sheet.getRow(i).getCell(0).getStringCellValue() + dateAndTime();
 			System.out.println(SuiteName);
 			Location = sheet.getRow(i).getCell(1).getStringCellValue();
@@ -519,10 +554,23 @@ public void existSuiteNamewithDiffLocation() throws IOException {
 			Assert.assertEquals("Toast Message is not displayed",expToastMessage, getText(actToastMsg));
 			waitForPageLoad();
 			click(btnToastMsg);
-			sheet.getRow(i).getCell(5).setCellValue(SuiteName);
+			
+			File writeFile = new File(".//Excel//Test Datas.xlsx");
+			FileInputStream writeStream = new FileInputStream(writeFile);
+			
+			Workbook wb = new XSSFWorkbook(writeStream);
+			Sheet s = wb.getSheet("CreatedSuites");
+			
+			int lastRows = s.getLastRowNum();
+			System.out.println("Total Rows :" +lastRows);
+			
+            s.createRow(lastRows+1).createCell(0).setCellValue(SuiteName);
+            
 			FileOutputStream outputStream = new FileOutputStream(file);
-	        workbook.write(outputStream);
-			if(i==noOfRows) {
+			
+	        wb.write(outputStream);
+			
+	        if(i==noOfTotalRows) {
 				System.out.println("Row is empty");
 	            break;
 			} else {
@@ -532,9 +580,11 @@ public void existSuiteNamewithDiffLocation() throws IOException {
 				click(btnAddSuites);
 			waitForPageLoad();
 			click(btnAddSuites);
-			}	       
+			}	  
+	        wb.close();
+	        workbook.close();
 		}   
-		}
+	}
 	
 
 public void getCreatedSuitePerformedAllFields() throws IOException, AWTException {
@@ -543,22 +593,30 @@ public void getCreatedSuitePerformedAllFields() throws IOException, AWTException
 	
 	File file = new File(".//Excel//Test Datas.xlsx");
 	FileInputStream stream = new FileInputStream(file);
-	@SuppressWarnings("resource")
 	Workbook workbook = new XSSFWorkbook(stream);
-	Sheet sheet = workbook.getSheet("AddSuites");
+	Sheet AddSuitesSheet = workbook.getSheet("AddSuites");
+	Sheet createdSuiteSheet = workbook.getSheet("CreatedSuites");
+    
+	int noOfRowsInCreatedSuite = createdSuiteSheet.getLastRowNum();
+	int noOfRowsinAddSuite = AddSuitesSheet.getLastRowNum();
 
-	int noOfRows = sheet.getLastRowNum();
+	System.out.println("Total Num Of Rows in Created Suite :"+noOfRowsInCreatedSuite);
+	System.out.println("Total Num Of Rows in Add Suite :"+noOfRowsinAddSuite);
+	
+    for (int j = noOfRowsinAddSuite; j >= 1; j--) {
+	
+		System.out.println("Rows count :"+j);
+		System.out.println(noOfTotalRows);
+		String CrSuiteName = readExcel("Test Datas", "CreatedSuites", noOfRowsInCreatedSuite, 0);
+		String getCrlocation = readExcel("Test Datas", "AddSuites",j, 1);
+		String getCrLength = readExcel("Test Datas", "AddSuites",j, 2);
+		String getCrWidth = readExcel("Test Datas", "AddSuites",j, 3);
+		String getCrHeight = readExcel("Test Datas", "AddSuites",j, 4);
 
-	for (int j = 1; j <= noOfRows; j++) {
 		
 		
-		createdSuiteName = sheet.getRow(j).getCell(5).getStringCellValue();
-		Location = sheet.getRow(j).getCell(1).getStringCellValue();
-		Length = sheet.getRow(j).getCell(2).getStringCellValue();
-		Width = sheet.getRow(j).getCell(3).getStringCellValue();
-		Height = sheet.getRow(j).getCell(4).getStringCellValue();
 		waitForPageLoad();
-		sendKeyWithEnter(suitesSearchBox, createdSuiteName);
+		sendKeyWithEnter(suitesSearchBox, CrSuiteName);
 		waitForPageLoad();
 		keyPress(KeyEvent.VK_ENTER);
 		keyRelease(KeyEvent.VK_ENTER);
@@ -566,16 +624,21 @@ public void getCreatedSuitePerformedAllFields() throws IOException, AWTException
 		click(clickViewBtn);
 		waitForPageLoad();
 		waitForPageLoad();
-		waitFortextToBePresentInElement(createdSN, getText(createdSN), 10);
+		waitFortextToBePresentInElement(createdSN, CrSuiteName, 10);
 		sleep(1000);
 		waitForPageLoad();
-		Assert.assertEquals("Created SuiteName Mismatched", createdSuiteName, getText(createdSN));
-		Assert.assertEquals("Created Location  Mismatched", Location,         getText(createdLoc));
-		Assert.assertEquals("Created Length    Mismatched", Length,           getText(createdLength));
-		Assert.assertEquals("Created Width     Mismatched", Width,            getText(createdWidth));
-		Assert.assertEquals("Created Height    Mismatched", Height,           getText(createdHeight));
-	
-		if(j==noOfRows) {
+		Assert.assertEquals("Created SuiteName Mismatched", CrSuiteName, getText(createdSN));
+		System.out.println(CrSuiteName);
+		Assert.assertEquals("Created Location  Mismatched", getCrlocation,         getText(createdLoc));
+		System.out.println(getCrlocation);
+		Assert.assertEquals("Created Length    Mismatched", getCrLength,           getText(createdLength));
+		System.out.println(getCrLength);
+		Assert.assertEquals("Created Width     Mismatched", getCrWidth,            getText(createdWidth));
+		System.out.println(getCrWidth);
+		Assert.assertEquals("Created Height    Mismatched", getCrHeight,           getText(createdHeight));
+		System.out.println(getCrHeight);
+		
+		if(j<=0) {
 			
 			break;
 			
@@ -585,22 +648,32 @@ public void getCreatedSuitePerformedAllFields() throws IOException, AWTException
 			waitForPageLoad();
 			clearText(suitesSearchBox);
 		}
-	}
+		workbook.close();
+	noOfRowsInCreatedSuite --;
+}
 }
 
 public void searchCreatedSuiteName() throws IOException {
 
+	File file = new File(".//Excel//Test Datas.xlsx");
+	FileInputStream stream = new FileInputStream(file);
+	Workbook workbook = new XSSFWorkbook(stream);
+	Sheet createdSuiteSheet = workbook.getSheet("CreatedSuites");
+    
+	int noOfRowsInCreatedSuite = createdSuiteSheet.getLastRowNum();
+	
 	waitForPageLoad();
-	existingSN = readExcel("Test Datas", "AddSuites", 1, 5);
+	existingSN = readExcel("Test Datas", "CreatedSuites", noOfRowsInCreatedSuite, 0);
 	sendKeyWithEnter(suitesSearchBox, existingSN);
+	workbook.close();
 	waitForPageLoad();
 	click(clickImageInSearchedSN);
+	
 }
 
 public String getBreadCrumLinkText() throws IOException {
 	
 	waitForPageLoad();
-	String existingSN = readExcel("Test Datas", "AddSuites", 1, 5);
 	BC = BC.replaceAll("createdSN",existingSN );
 	String textString = getTextString(BC);
 	return textString;

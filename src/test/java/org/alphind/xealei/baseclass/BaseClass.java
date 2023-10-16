@@ -202,6 +202,10 @@ public class BaseClass {
 	public void click(WebElement element) {
 		element.click();
 	}
+	
+	public void clickEnter(WebElement element) {
+		element.sendKeys(Keys.ENTER);;
+	}
 
 	// 16. Close
 
@@ -382,14 +386,15 @@ public class BaseClass {
 
 	// 34. Write Data to Excel
 
-	public String writeExcel(String fileName, String sheetname, int rownum, int cellnum,String newdatacell)
+	public String writeExcel(String fileName, String sheetname, int cellnum,String newdatacell)
 			throws IOException {
-
+		
 		File file = new File(".//Excel//"+fileName+".xlsx");
 		FileInputStream stream = new FileInputStream(file);
 		Workbook workbook = new XSSFWorkbook(stream);
 		Sheet sheet = workbook.getSheet(sheetname);
-		Row row = sheet.getRow(rownum);
+		int lastRowNum = sheet.getLastRowNum();
+		Row row = sheet.createRow(lastRowNum+1);
 		Cell cell = row.createCell(cellnum);
 		cell.setCellValue(newdatacell);
 		FileOutputStream stream1 = new FileOutputStream(file);

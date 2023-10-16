@@ -35,10 +35,8 @@ license agreement
 					<!-- Specify your test runner classes here -->
 					<includes>
 						<include>org.alphind.xealei.runner.LoginTestRunner</include>
+						<include>org.alphind.xealei.runner.AddSuitesTestRunner</include>
 					</includes>
-					<excludes>
-						<exclude> org.alphind.xealei.runner.AddSuitesTestRunner</exclude>
-					</excludes>
 				</configuration>
 				<dependencies>
 					<dependency>

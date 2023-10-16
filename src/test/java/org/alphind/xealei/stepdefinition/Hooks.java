@@ -29,7 +29,7 @@ public class Hooks extends BaseClass {
 	        	browserType();
 	    		env();
 	    		maximize();
-	    		implicitWaitBySeconds(25);
+	    		implicitWaitBySeconds(15);
 	    		
 	}
 
@@ -56,6 +56,7 @@ public class Hooks extends BaseClass {
 		
 		waitForPageLoad();
 		if(driver != null) {
+			sleep(2000);
 			quit();
 		}
 		

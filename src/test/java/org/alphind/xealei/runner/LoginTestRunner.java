@@ -11,10 +11,6 @@
 package org.alphind.xealei.runner;
 
 
-import java.io.File;
-import java.net.URI;
-import java.nio.file.Path;
-
 import org.junit.runner.RunWith;
 
 import io.cucumber.junit.Cucumber;
@@ -27,6 +23,7 @@ glue = "org.alphind.xealei.stepdefinition", dryRun = !true ,monochrome = true, p
 		"junit:target/junit.xml",
 		"json:target/json.json",
 		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"})
+
 
 
 public class LoginTestRunner  {
