@@ -20,33 +20,33 @@ public class LoginPage extends BaseClass {
 	/*
 	 * Description - All the Login Module/Page locators are stored here..
 	 */
-	
+
 	public LoginPage() {
-		//this.driver = getDriver();
+		// this.driver = getDriver();
 		PageFactory.initElements(driver, this);
 	}
-	
+
 	@FindBy(xpath = "//p[contains(text(),'Powered by Alphind © 2023')]")
 	private WebElement valForLoginScreen;
-	
+
 	@FindBy(xpath = "//h3[text()='LOGIN']")
 	private WebElement loginTextVerification;
 
 	@FindBy(xpath = "(//span[@class='text-danger']/parent::mat-label)[1]")
 	private WebElement UNMandatoryVerification;
-	
+
 	@FindBy(xpath = "(//span[@class='text-danger']/parent::mat-label)[2]")
 	private WebElement PassMandatoryVerification;
-	
+
 	@FindBy(xpath = "//img[@class='show-hide-pwd1']")
 	private WebElement eyeShow;
 
 	@FindBy(xpath = "//a[text()='Forgot password?']")
 	private WebElement hyperLnkForgotPassword;
-	
+
 	@FindBy(xpath = "//a[text()='Privacy Policy']")
 	private WebElement lnkPrivacyPolicy;
-	
+
 	@FindBy(xpath = "//h1[text()='PRIVACY POLICY']")
 	private WebElement privacyPolicyContent;
 
@@ -80,7 +80,7 @@ public class LoginPage extends BaseClass {
 	public WebElement getValForLoginScreen() {
 		return valForLoginScreen;
 	}
-	
+
 	public WebElement getLoginTextVerification() {
 		return loginTextVerification;
 	}
@@ -92,27 +92,27 @@ public class LoginPage extends BaseClass {
 	public WebElement getPassMandatoryVerification() {
 		return PassMandatoryVerification;
 	}
-	
+
 	public WebElement getEyeShow() {
 		return eyeShow;
 	}
-	
+
 	public WebElement getHyperLnkForgotPassword() {
 		return hyperLnkForgotPassword;
 	}
-	
+
 	public WebElement getLnkPrivacyPolicy() {
 		return lnkPrivacyPolicy;
 	}
-	
+
 	public WebElement getBottomText() {
 		return bottomText;
 	}
-	
+
 	public WebElement getPrivacyPolicyContent() {
 		return privacyPolicyContent;
 	}
-	
+
 	public WebElement getUserName() {
 		return userName;
 	}
@@ -151,10 +151,10 @@ public class LoginPage extends BaseClass {
 	 */
 
 	public void enterPassword() throws Exception {
-		
+
 		sendKeys(getPassword(), readExcel("Test Datas", "Login", 1, 4));
 	}
-	
+
 	public void LoginWithInvalidCredentials() throws Exception {
 
 		sendKeys(getUserName(), readExcel("Test Datas", "Login", 1, 3));
@@ -210,7 +210,6 @@ public class LoginPage extends BaseClass {
 
 	public void LoginWithValidCredentials() throws Exception {
 
-
 		if (getConfigureProperty("Environment_QA").equalsIgnoreCase("Yes")) {
 			sendKeys(getUserName(), readExcel("Test Datas", "Login", 1, 1));
 			sendKeys(getPassword(), readExcel("Test Datas", "Login", 1, 2));
@@ -236,7 +235,6 @@ public class LoginPage extends BaseClass {
 			sendKeys(getUserName(), readExcel("Test Datas", "Login", 2, 1));
 			sendKeys(getPassword(), readExcel("Test Datas", "Login", 2, 2));
 		}
-		
 
 	}
 

@@ -59,53 +59,51 @@ import com.mongodb.client.model.Filters;
 import io.cucumber.java.Scenario;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-
 public class BaseClass {
 
 	// Driver initialized in class level
-	protected Scenario s ;
-	//public ThreadLocal<WebDriver> dr = new ThreadLocal<WebDriver>();
-    
+	protected Scenario s;
+	// public ThreadLocal<WebDriver> dr = new ThreadLocal<WebDriver>();
+
 	public static WebDriver driver;
-	
-	
+
 	// 1. To set the browser
 
 	public void browserType() throws Exception {
 
 		if (getConfigureProperty("Chrome").equalsIgnoreCase("Yes")) {
-			WebDriverManager.chromedriver().setup(); 
+			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
-			
+
 		} else if (getConfigureProperty("Edge").equalsIgnoreCase("Yes")) {
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
-			
+
 		} else if (getConfigureProperty("Firefox").equalsIgnoreCase("Yes")) {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 		}
-		
+
 	}
 
 	// 2. To launch the URL
 
 	public void loadUrl(String Url) {
-		//dr.get().get(Url);
+		// dr.get().get(Url);
 		driver.get(Url);
 	}
 
 	// 3. Maximize Window
 
 	public void maximize() {
-		//dr.get().manage().window().maximize();
+		// dr.get().manage().window().maximize();
 		driver.manage().window().maximize();
 	}
 
 	// 4. To find the element by using ID
 
 	public WebElement findElementById(String id) {
-		//WebElement element = dr.get().findElement(By.id(id));
+		// WebElement element = dr.get().findElement(By.id(id));
 		WebElement element = driver.findElement(By.id(id));
 		return element;
 	}
@@ -113,7 +111,7 @@ public class BaseClass {
 	// 5. To find the element by using NAME
 
 	public WebElement findElementByName(String name) {
-		//WebElement element = dr.get().findElement(By.name(name));
+		// WebElement element = dr.get().findElement(By.name(name));
 		WebElement element = driver.findElement(By.name(name));
 		return element;
 	}
@@ -121,7 +119,7 @@ public class BaseClass {
 	// 6. To find the element by using CLASSNAME
 
 	public WebElement findElementByClassName(String className) {
-		//WebElement element = dr.get().findElement(By.className(className));
+		// WebElement element = dr.get().findElement(By.className(className));
 		WebElement element = driver.findElement(By.className(className));
 		return element;
 	}
@@ -129,7 +127,7 @@ public class BaseClass {
 	// 7. To find the element by using XPATH
 
 	public WebElement xpath(String xpath) {
-		//WebElement element = dr.get().findElement(By.xpath(xpath));
+		// WebElement element = dr.get().findElement(By.xpath(xpath));
 		WebElement element = driver.findElement(By.xpath(xpath));
 		return element;
 	}
@@ -150,14 +148,15 @@ public class BaseClass {
 	// 10. To set the timeout for findElement and findElements
 
 	public void implicitWaitBySeconds(long seconds) {
-		//dr.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
+		// dr.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
 	}
 
 	// 11. Explicit wait - WebDriverWait for alertIsPresent
 
 	public void waitForAlertIsPresent(long seconds) {
-	//	WebDriverWait wait = new WebDriverWait(dr.get(), Duration.ofSeconds(seconds));
+		// WebDriverWait wait = new WebDriverWait(dr.get(),
+		// Duration.ofSeconds(seconds));
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
 		wait.until(ExpectedConditions.alertIsPresent());
 	}
@@ -165,7 +164,8 @@ public class BaseClass {
 	// 12. Explicit wait - WebDriverWait for elementToBeClickable
 
 	public void waitForElementToBeClickable(WebElement element, long seconds) {
-		// WebDriverWait wait = new WebDriverWait(dr.get(), Duration.ofSeconds(seconds));
+		// WebDriverWait wait = new WebDriverWait(dr.get(),
+		// Duration.ofSeconds(seconds));
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
@@ -174,17 +174,17 @@ public class BaseClass {
 
 	public String takesScreenshot(String Name) throws Exception {
 
-		//TakesScreenshot screen = (TakesScreenshot) dr.get();
+		// TakesScreenshot screen = (TakesScreenshot) dr.get();
 		TakesScreenshot screen = (TakesScreenshot) driver;
 		File source = screen.getScreenshotAs(OutputType.FILE);
 		File destination = new File(".//ExtentReports//Screenshots//" + Name + ".png");
 		FileUtils.copyFile(source, destination);
 		FileInputStream fis = new FileInputStream(destination);
-		byte[] bytes = new byte[(int)destination.length()];
+		byte[] bytes = new byte[(int) destination.length()];
 		fis.read(bytes);
 		String base64 = new String((bytes));
 		fis.close();
-		return "data:image/png;base64"+base64;
+		return "data:image/png;base64" + base64;
 	}
 
 //	// 14. Screenshot for Report
@@ -202,22 +202,28 @@ public class BaseClass {
 	public void click(WebElement element) {
 		element.click();
 	}
-	
+
 	public void clickEnter(WebElement element) {
-		element.sendKeys(Keys.ENTER);;
+		element.sendKeys(Keys.ENTER);
+		;
+	}
+
+	public void deleteUsingSendKeys(WebElement element) {
+		element.sendKeys(Keys.CONTROL + "a");
+		element.sendKeys(Keys.DELETE);
 	}
 
 	// 16. Close
 
 	public void close() {
-		//dr.get().close();
+		// dr.get().close();
 		driver.close();
 	}
 
 	// 17. Quit
 
 	public void quit() {
-		//dr.get().quit();
+		// dr.get().quit();
 		driver.quit();
 	}
 
@@ -226,7 +232,7 @@ public class BaseClass {
 	public String readExcel(String fileName, String sheetName, int rowNum, int cellNum) throws IOException {
 
 		String res = null;
-		File file = new File(".//Excel//"+fileName+".xlsx");
+		File file = new File(".//Excel//" + fileName + ".xlsx");
 		FileInputStream stream = new FileInputStream(file);
 		Workbook workbook = new XSSFWorkbook(stream);
 		Sheet sheet = workbook.getSheet(sheetName);
@@ -261,7 +267,7 @@ public class BaseClass {
 
 	// 19. Configuration Property File
 
-	public String getConfigureProperty(String key) throws Exception{
+	public String getConfigureProperty(String key) throws Exception {
 
 		FileInputStream stream = new FileInputStream(".//Configuration Property file//Config.properties");
 		Properties properties = new Properties();
@@ -321,7 +327,8 @@ public class BaseClass {
 
 	public void elementIsClickable(WebElement element, long seconds) {
 
-		//WebDriverWait wait = new WebDriverWait(dr.get(), Duration.ofSeconds(seconds));
+		// WebDriverWait wait = new WebDriverWait(dr.get(),
+		// Duration.ofSeconds(seconds));
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
@@ -329,7 +336,8 @@ public class BaseClass {
 	// 27. explicitWait for textToBePresentInElement
 
 	public void waitFortextToBePresentInElement(WebElement element, String text, long seconds) {
-		//WebDriverWait wait = new WebDriverWait(dr.get(), Duration.ofSeconds(seconds));
+		// WebDriverWait wait = new WebDriverWait(dr.get(),
+		// Duration.ofSeconds(seconds));
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
 		wait.until(ExpectedConditions.textToBePresentInElement(element, text));
 	}
@@ -337,7 +345,8 @@ public class BaseClass {
 	// 28. explicitWait for visibilityOfElement
 
 	public void visibilityOfElement(WebElement element, long seconds) {
-		//WebDriverWait wait = new WebDriverWait(dr.get(), Duration.ofSeconds(seconds));
+		// WebDriverWait wait = new WebDriverWait(dr.get(),
+		// Duration.ofSeconds(seconds));
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
@@ -346,7 +355,7 @@ public class BaseClass {
 
 	public WebElement cssSelector(String css) {
 
-		//WebElement element = dr.get().findElement(By.cssSelector(css));
+		// WebElement element = dr.get().findElement(By.cssSelector(css));
 		WebElement element = driver.findElement(By.cssSelector(css));
 		return element;
 	}
@@ -355,7 +364,7 @@ public class BaseClass {
 
 	public WebElement findElementByTagName(String tagName) {
 
-		//WebElement element = dr.get().findElement(By.tagName(tagName));
+		// WebElement element = dr.get().findElement(By.tagName(tagName));
 		WebElement element = driver.findElement(By.tagName(tagName));
 		return element;
 	}
@@ -364,7 +373,7 @@ public class BaseClass {
 
 	public List<WebElement> findElementsByXpath(String xpath) {
 
-		//List<WebElement> elements = dr.get().findElements(By.xpath(xpath));
+		// List<WebElement> elements = dr.get().findElements(By.xpath(xpath));
 		List<WebElement> elements = driver.findElements(By.xpath(xpath));
 		return elements;
 	}
@@ -372,7 +381,7 @@ public class BaseClass {
 	// 32. String click
 
 	public void selectDropDown(String elementxpath) {
-		//click(dr.get().findElement(By.xpath(elementxpath)));
+		// click(dr.get().findElement(By.xpath(elementxpath)));
 		click(driver.findElement(By.xpath(elementxpath)));
 	}
 
@@ -386,15 +395,14 @@ public class BaseClass {
 
 	// 34. Write Data to Excel
 
-	public String writeExcel(String fileName, String sheetname, int cellnum,String newdatacell)
-			throws IOException {
-		
-		File file = new File(".//Excel//"+fileName+".xlsx");
+	public String writeExcel(String fileName, String sheetname, int cellnum, String newdatacell) throws IOException {
+
+		File file = new File(".//Excel//" + fileName + ".xlsx");
 		FileInputStream stream = new FileInputStream(file);
 		Workbook workbook = new XSSFWorkbook(stream);
 		Sheet sheet = workbook.getSheet(sheetname);
 		int lastRowNum = sheet.getLastRowNum();
-		Row row = sheet.createRow(lastRowNum+1);
+		Row row = sheet.createRow(lastRowNum + 1);
 		Cell cell = row.createCell(cellnum);
 		cell.setCellValue(newdatacell);
 		FileOutputStream stream1 = new FileOutputStream(file);
@@ -403,8 +411,39 @@ public class BaseClass {
 		return newdatacell;
 	}
 
-	
-	
+	public String writeExcelForSingleRow(String fileName, String sheetname, int rowNum, int cellNum, String newdatacell)
+			throws IOException {
+
+		File file = new File(".//Excel//" + fileName + ".xlsx");
+		FileInputStream stream = new FileInputStream(file);
+		Workbook workbook = new XSSFWorkbook(stream);
+		Sheet sheet = workbook.getSheet(sheetname);
+		Row row = sheet.createRow(rowNum);
+		Cell cell = row.createCell(cellNum);
+		cell.setCellValue(newdatacell);
+		FileOutputStream stream1 = new FileOutputStream(file);
+		workbook.write(stream1);
+		workbook.close();
+		return newdatacell;
+	}
+
+	public String writeExcelLastRow(String fileName, String sheetname, int cellnum, String newdatacell)
+			throws IOException {
+
+		File file = new File(".//Excel//" + fileName + ".xlsx");
+		FileInputStream stream = new FileInputStream(file);
+		Workbook workbook = new XSSFWorkbook(stream);
+		Sheet sheet = workbook.getSheet(sheetname);
+		int lastRowNum = sheet.getLastRowNum();
+		Row row = sheet.getRow(lastRowNum);
+		Cell cell = row.createCell(cellnum);
+		cell.setCellValue(newdatacell);
+		FileOutputStream stream1 = new FileOutputStream(file);
+		workbook.write(stream1);
+		workbook.close();
+		return newdatacell;
+	}
+
 	// 35.getText
 
 	public String getText(WebElement updatedSuiteName) {
@@ -445,7 +484,8 @@ public class BaseClass {
 	// 40. Explicit wait - WebDriverWait for VisiblityOfElement
 
 	public void waitForVisiblityOfElement(WebElement element, long seconds) {
-		//WebDriverWait wait = new WebDriverWait(dr.get(), Duration.ofSeconds(seconds));
+		// WebDriverWait wait = new WebDriverWait(dr.get(),
+		// Duration.ofSeconds(seconds));
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
@@ -453,7 +493,7 @@ public class BaseClass {
 	// 41. getText - String
 
 	public String getTextString(String elementxpath) {
-		//String text = getText(dr.get().findElement(By.xpath(elementxpath)));
+		// String text = getText(dr.get().findElement(By.xpath(elementxpath)));
 		String text = getText(driver.findElement(By.xpath(elementxpath)));
 		return text;
 	}
@@ -464,62 +504,61 @@ public class BaseClass {
 
 //		WebElement loading = dr.get().findElement(By.xpath("//div[contains(text(),'Loading')]"));
 //		WebDriverWait wait = new WebDriverWait(dr.get(), Duration.ofMinutes(3));
-			WebElement loading = driver.findElement(By.xpath("//div[contains(text(),'Loading')]"));
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofMinutes(3));
-			wait.until(ExpectedConditions.invisibilityOf(loading));
-		
+		WebElement loading = driver.findElement(By.xpath("//div[contains(text(),'Loading')]"));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMinutes(3));
+		wait.until(ExpectedConditions.invisibilityOf(loading));
+
 	}
-	
+
 	// 43. Thread-Sleep
 
-		public void sleep(long millis) {
+	public void sleep(long millis) {
 
-				try {
-					Thread.sleep(millis);
-				} catch (InterruptedException e) {
-					
-					e.printStackTrace();
-				}
+		try {
+			Thread.sleep(millis);
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
 		}
-		
-    // 44. Robot class for upload photo 
-		
-		public void uploadImage(String imagePath) {
+	}
+
+	// 44. Robot class for upload photo
+
+	public void uploadImage(String imagePath) {
 		StringSelection stringSelection = new StringSelection(imagePath);
-        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-        clipboard.setContents(stringSelection, null);
-        Robot robot = null;
-        try {
-            robot = new Robot();
-        } catch (AWTException e) {
-            e.printStackTrace();
-        }
-        robot.keyPress(KeyEvent.VK_ENTER);
-        robot.keyRelease(KeyEvent.VK_ENTER);
-        robot.keyPress(KeyEvent.VK_CONTROL);
-        robot.keyPress(KeyEvent.VK_V);
-        robot.keyRelease(KeyEvent.VK_V);
-        robot.keyRelease(KeyEvent.VK_CONTROL);
-        robot.keyPress(KeyEvent.VK_ENTER);
-        robot.keyRelease(KeyEvent.VK_ENTER);
-}
-		
-		//45. Environment SetupUp
-		
-		public void environment(String Env) {
-			
-		if(Env.equalsIgnoreCase("QA")) {
+		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		clipboard.setContents(stringSelection, null);
+		Robot robot = null;
+		try {
+			robot = new Robot();
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+	}
+
+	// 45. Environment SetupUp
+
+	public void environment(String Env) {
+
+		if (Env.equalsIgnoreCase("QA")) {
 			loadUrl("https://qa.xealei.com/");
 		} else if (Env.equalsIgnoreCase("PREPOD")) {
 			loadUrl("https://preprod.xealei.com/");
 		}
-		}
-		
-		
-		public void cleanRecordFromDB(boolean CleanRecord, String collectionName, String key, String value) {
-			
-			if (CleanRecord == true) {
-				
+	}
+
+	public void cleanRecordFromDB(boolean CleanRecord, String collectionName, String key, String value) {
+
+		if (CleanRecord == true) {
+
 //			// ************* MongoDB deployment's connection string *************
 			String uri = "mongodb+srv://adminXealei:hNntCLqUSkTxbJel@xealei-qa.1of90.mongodb.net"
 					+ "/xealeiqa?retryWrites=true&w=majority";
@@ -527,16 +566,15 @@ public class BaseClass {
 			MongoClient mongoClient = MongoClients.create(uri);
 
 //			// ************* Create one Collection *************
-	     	MongoDatabase db = mongoClient.getDatabase("xealeiqa");
-	
+			MongoDatabase db = mongoClient.getDatabase("xealeiqa");
+
 //			//************* To delete particular document *************
-		   db.getCollection(collectionName).findOneAndDelete(Filters.eq(key, value));
+			db.getCollection(collectionName).findOneAndDelete(Filters.eq(key, value));
 			System.out.println("Document deleted successfully..!");
-	     	
-			}
+
 		}
-		
-		
+	}
+
 //		public List<String> readDatafromExcel001(String pathName, String sheetName, int cellNum)  {
 //
 //			try {
@@ -581,75 +619,94 @@ public class BaseClass {
 //			}
 //
 //		}
-		
+
 //		// 40. Explicit wait - WebDriverWait for inVisiblityOfElement
-		
-		public void waitForInVisiblityOfElement(WebElement element, long seconds) {
-			//WebDriverWait wait = new WebDriverWait(dr.get(), Duration.ofSeconds(seconds));
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
-			wait.until(ExpectedConditions.visibilityOf(element));
-		}
-		
+
+	public void waitForInVisiblityOfElement(WebElement element, long seconds) {
+		// WebDriverWait wait = new WebDriverWait(dr.get(),
+		// Duration.ofSeconds(seconds));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
+		wait.until(ExpectedConditions.visibilityOf(element));
+	}
+
 //     //  41. Clear Text
-		
-		public void clearText(WebElement element) {
-			element.clear();
-		}
+
+	public void clearText(WebElement element) {
+		element.clear();
+	}
 
 //	     //  42. Refresh Page
-		
-		public void refreshPage() {
-			//dr.get().navigate().refresh();
-			driver.navigate().refresh();
-		}
-		
+
+	public void refreshPage() {
+		// dr.get().navigate().refresh();
+		driver.navigate().refresh();
+	}
+
 //	     //  43. Environment set up
-		
-		public void env() throws Exception {
-			
-			if (getConfigureProperty("Environment_QA").equalsIgnoreCase("Yes")) {
-				//dr.get().get(readExcel("Test Datas", "Environments",1,1));
-				driver.get(readExcel("Test Datas", "Environments",1,1));
-			} else if (getConfigureProperty("Environment_PREPOD").equalsIgnoreCase("Yes")) {
-				//dr.get().get(readExcel("Test Datas", "Environments",2,1));
-				driver.get(readExcel("Test Datas", "Environments",2,1));
-			} else if (getConfigureProperty("Environment_PRODUCTION").equalsIgnoreCase("Yes")) {
-				//dr.get().get(readExcel("Test Datas", "Environments",3,1));
-				driver.get(readExcel("Test Datas", "Environments",3,1));	
-			}
+
+	public void env() throws Exception {
+
+		if (getConfigureProperty("Environment_QA").equalsIgnoreCase("Yes")) {
+			// dr.get().get(readExcel("Test Datas", "Environments",1,1));
+			driver.get(readExcel("Test Datas", "Environments", 1, 1));
+		} else if (getConfigureProperty("Environment_PREPOD").equalsIgnoreCase("Yes")) {
+			// dr.get().get(readExcel("Test Datas", "Environments",2,1));
+			driver.get(readExcel("Test Datas", "Environments", 2, 1));
+		} else if (getConfigureProperty("Environment_PRODUCTION").equalsIgnoreCase("Yes")) {
+			// dr.get().get(readExcel("Test Datas", "Environments",3,1));
+			driver.get(readExcel("Test Datas", "Environments", 3, 1));
 		}
-		
+	}
+
 //	     //  44. get Current URL
-		
-		public String getCurrentUrl() {
-		
-		//	String currentUrl = dr.get().getCurrentUrl();
-			String currentUrl = driver.getCurrentUrl();
-			return currentUrl;	
-		}
- 
+
+	public String getCurrentUrl() {
+
+		// String currentUrl = dr.get().getCurrentUrl();
+		String currentUrl = driver.getCurrentUrl();
+		return currentUrl;
+	}
+
 //		// 45. Scroll Down - (JavaScript Executor)
-		
-		public void scrollDownToAnElement(WebElement element) {
-			
-			//JavascriptExecutor executor = (JavascriptExecutor)dr.get();			
-			JavascriptExecutor executor = (JavascriptExecutor)driver;
-			executor.executeScript("argument[0].scrollIntoView()",element);
-		}
-		
+
+	public void scrollDownToAnElement(WebElement element) {
+
+		// JavascriptExecutor executor = (JavascriptExecutor)dr.get();
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript("argument[0].scrollIntoView()", element);
+	}
+
 //		// 46. Scroll Bottom of the page - (JavaScript Executor)
-		
-		public void scrollDownToBottomOfThePage() {
-			
-			//JavascriptExecutor executor = (JavascriptExecutor)dr.get();			
-			JavascriptExecutor executor = (JavascriptExecutor)driver;
-			executor.executeScript("window.scrollBy(0,document.body.scrollHeight)");
-		}	
-		
+
+	public void scrollDownToBottomOfThePage() {
+
+		// JavascriptExecutor executor = (JavascriptExecutor)dr.get();
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript("window.scrollBy(0,document.body.scrollHeight)");
+	}
+
+	public void TabUsingSendKeys(WebElement element) {
+
+		element.sendKeys(Keys.ENTER);
+	}
+
 //		//47. Getter for driver
 //		public WebDriver getDriver() {
 //			return dr.get();
 //		}
-		
-		
+
+//      //48. Click Using - JavaScript Executor
+
+	public void jsExecutorClick(WebElement element) {
+
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript("arguments[0].click();", element);
+	}
+
+//      //49. Full Page Load - getPageLoad
+
+	public void waitForFullPageElementLoad() {
+
+		driver.manage().timeouts().getPageLoadTimeout();
+	}
 }

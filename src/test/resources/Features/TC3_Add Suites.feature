@@ -65,19 +65,6 @@ Feature: Verify Xealei Suites > Add Suites Page
   #Then User must verify "Add Suite" popup should be displayed after click the Add Suites button
   #And User must perform only non mandatory fields
   #Then User must verify that more than "11" digits can not be entered in the respective fields
-  
-  Scenario Outline: To verify duplicate validation for 'Suite Name'
-    And User must click Add Suite button
-    Then User must verify "Add Suite" popup should be displayed after click the Add Suites button
-    And User must perform only mandatory fields with existing suiteName and location
-    Then User must verify the toast message after perform dupicate datas "Suite Name already exists."
-
-  Scenario Outline: To verify duplicate Suite name with different 'Location'
-    And User must click Add Suite button
-    Then User must verify "Add Suite" popup should be displayed after click the Add Suites button
-    And User must perform only mandatory fields with existing suiteName and different location
-    Then User must verify the toast message after perform existing suiteName and different location "Saved Successfully!!"
-
   Scenario Outline: To verify validation message is displayed under mandatory fields also verify the user able to close the Add Suite popup
     And User must click Add Suite button
     Then User must verify "Add Suite" popup should be displayed after click the Add Suites button
@@ -85,6 +72,17 @@ Feature: Verify Xealei Suites > Add Suites Page
     Then User must verify the error message contains for Mandatory fields "Please Enter Suite Name" and "Please select facility location"
     And User must close the Add Suite popup
     Then User must verify the Add Suite popup is closed successfully
+
+  Scenario Outline: To verify duplicate validation for 'Suite Name'
+    And User must click Add Suite button
+    Then User must verify "Add Suite" popup should be displayed after click the Add Suites button
+    And User must perform only mandatory fields with existing suiteName and location
+    Then User must verify the toast message '"Suite Name already exists."'
+
+  Scenario Outline: To verify user able to Add/Create duplicate Suite name with different 'Location'
+    And User must click Add Suite button
+    Then User must verify "Add Suite" popup should be displayed after click the Add Suites button
+    And User must perform only mandatory fields with existing suiteName and different location and then verify the toast message after perform existing suiteName and different location "Saved Successfully!!"
 
   Scenario Outline: To verify user able to Add/Create Suites by entering only Non-Mandatory fields
     And User must click Add Suite button

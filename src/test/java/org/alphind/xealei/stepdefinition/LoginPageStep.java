@@ -67,7 +67,6 @@ public class LoginPageStep extends BaseClass {
 	@Then("User must verify the Email and password fields contains * symbol")
 	public void user_must_verify_the_email_and_password_fields_contains_symbol() throws Exception {
 
-		
 		String email = getText(pom.getLoginPage().getUNMandatoryVerification());
 		String password = getText(pom.getLoginPage().getPassMandatoryVerification());
 
@@ -111,7 +110,7 @@ public class LoginPageStep extends BaseClass {
 			System.out.println("Pasword Textbox doesn't contains eye icon");
 			throw new Exception("Assertion Failed");
 		}
-		
+
 	}
 
 	@Then("User must verify the {string} text is displayed in Login button")
@@ -138,7 +137,7 @@ public class LoginPageStep extends BaseClass {
 
 		Assert.assertEquals("Copyrights text is mismatched", expBtmPageText,
 				getText(pom.getLoginPage().getBottomText()));
-		System.out.println("verify_the_text_is_displayed :"+getText(pom.getLoginPage().getBottomText()));
+		System.out.println("verify_the_text_is_displayed :" + getText(pom.getLoginPage().getBottomText()));
 	}
 
 //  ***** To verify the eye icon is working in Password field *****
@@ -152,10 +151,9 @@ public class LoginPageStep extends BaseClass {
 	@Then("User must verify the entered password in password textbox is display as hidden")
 	public void user_must_verify_the_entered_password_in_password_textbox_is_display_as_hidden() throws Exception {
 
-		
 		String passwordType = getAttribute(pom.getLoginPage().getPassword(), "type");
 		boolean passwordField = "password".equalsIgnoreCase(passwordType);
-		
+
 		if (passwordField) {
 
 			System.out.println("Password is hide");
@@ -178,7 +176,7 @@ public class LoginPageStep extends BaseClass {
 
 		String passwordType = getAttribute(pom.getLoginPage().getPassword(), "type");
 		boolean passwordField = "text".equalsIgnoreCase(passwordType);
-		
+
 		if (passwordField) {
 
 			System.out.println("Password is Unhide");
@@ -190,7 +188,7 @@ public class LoginPageStep extends BaseClass {
 	}
 
 // ***** To verify the Privacy Policy link *****
-	
+
 	@When("User must click the Privacy Policy")
 	public void user_must_click_the_privacy_policy() {
 
@@ -206,7 +204,7 @@ public class LoginPageStep extends BaseClass {
 	}
 
 // ***** To verify Xealei Login page with Invalid credentials *****
-	
+
 	@When("User must perform invalid email and password and click Login button")
 	public void user_must_perform_invalid_email_and_password_and_click_login_button() throws Exception {
 
@@ -223,7 +221,7 @@ public class LoginPageStep extends BaseClass {
 	}
 
 // ***** To verify Xealei Login Page by enter only valid Email/Username *****
-	
+
 	@When("User must enter valid email in email textbox and click Login button without enter password")
 	public void user_must_enter_valid_email_in_email_textbox_and_click_login_button_without_enter_password()
 			throws Exception {
@@ -240,7 +238,7 @@ public class LoginPageStep extends BaseClass {
 	}
 
 // ***** To verify Xealei Login Page by enter only valid Password *****
-	
+
 	@When("User must enter valid password in password textbox and click Login button without enter email")
 	public void user_must_enter_valid_password_in_password_textbox_and_click_login_button_without_enter_email()
 			throws Exception {
@@ -257,7 +255,7 @@ public class LoginPageStep extends BaseClass {
 	}
 
 // ***** To verify Xealei Login Page by enter only valid Email/Username and Invalid Password *****
-	
+
 	@When("User must enter valid email and invalid password and click Login button")
 	public void user_must_enter_valid_email_and_invalid_password_and_click_login_button() throws Exception {
 
@@ -274,7 +272,7 @@ public class LoginPageStep extends BaseClass {
 	}
 
 // ***** To verify Xealei Login Page without enter Email/Username and Password *****
-	
+
 	@When("User click Login button without enter username and password")
 	public void user_click_login_button_without_enter_username_and_password() {
 
@@ -294,7 +292,7 @@ public class LoginPageStep extends BaseClass {
 	}
 
 // ***** To verify Xealei login page with valid credentials *****
-	
+
 	@When("User must perform login with valid email and password")
 	public void user_must_perform_login_with_valid_email_and_password() throws Exception {
 
@@ -302,7 +300,7 @@ public class LoginPageStep extends BaseClass {
 	}
 
 // ***** To verify Xealei login page by click the ENTER key with valid credentials *****
-	
+
 	@When("User must perform login with valid email and password by click the Enter key")
 	public void user_must_perform_login_with_valid_email_and_password_by_click_the_enter_key() throws Exception {
 

@@ -11,6 +11,7 @@
 package org.alphind.xealei.stepdefinition;
 
 import java.io.File;
+import java.net.SocketException;
 
 import org.alphind.xealei.baseclass.BaseClass;
 import org.apache.commons.io.FileUtils;
@@ -22,56 +23,52 @@ import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 
-
 public class Hooks extends BaseClass {
-	
 
 	@Before
 	public void setUp() throws Exception {
 
-	        	browserType();
-	    		env();
-	    		maximize();
-	    		implicitWaitBySeconds(15);
-	    		File reportPath = new File(".//Extent Reports");
-	    		FileUtils.cleanDirectory(reportPath);
-	    		
+		browserType();
+		env();
+		maximize();
+		implicitWaitBySeconds(15);
+		File reportPath = new File(".//Extent Reports");
+		FileUtils.cleanDirectory(reportPath);
+
 	}
 
 	@AfterStep
 	public void ssAfterStep(Scenario scenario) {
-	
+
 		waitForPageLoad();
 		final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 		scenario.attach(screenshot, "image/png", scenario.getName());
 	}
-	
+
 	@After
 	public void screenShot(Scenario scenario) throws Exception {
 
 		if (scenario.isFailed()) {
 			final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 			scenario.attach(screenshot, "image/png", scenario.getName());
-		}	
+		}
 	}
-	
-	
+
 	@After(order = 1)
-	public void tearDown() {
-		
+	public void tearDown() throws SocketException {
+
 		waitForPageLoad();
-		if(driver != null) {
-			sleep(2000);
+		waitForFullPageElementLoad();
+		if (driver != null) {
 			quit();
 		}
-		
+
 	}
-	
+}
+
 //	@After(order = 2)
 //	public void cleaningProcess() {
 //		
 //	/* cleanRecordFromDB(true, "xealeiqa", "", "");
 //	 * cleanRecordFromDB(true, null, null, null);
-//	 */
-
-}
+//	 */ }

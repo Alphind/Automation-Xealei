@@ -26,7 +26,7 @@ public class CommonSteps extends BaseClass {
 		waitForPageLoad();
 		System.out.println("exp Text :" + expMessage);
 		System.out.println("Actual Text :" + getText(pom.getLoginPage().getNavToHomePageSuccessfully()));
-	
+
 		Assert.assertEquals("Unable to navigate HOME Dashboard", expMessage,
 				getText(pom.getLoginPage().getNavToHomePageSuccessfully()));
 

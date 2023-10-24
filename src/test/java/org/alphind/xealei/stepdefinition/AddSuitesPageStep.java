@@ -29,14 +29,14 @@ public class AddSuitesPageStep extends BaseClass {
 	@Then("User must navigate to Suite Module")
 	public void user_must_navigate_to_suite_module() {
 
-		pom.getAddSuitesPage().navToSuiteModule();
+		pom.getSuitesPage().navToSuiteModule();
 	}
 
 	@Then("User must verify suite page is displayed {string}")
 	public void user_must_verify_suite_page_is_displayed(String expText) throws Exception {
 
 		waitForPageLoad();
-		Assert.assertEquals("Suites Page is Not Displayed", expText, getText(pom.getAddSuitesPage().getSuitesPage()));
+		Assert.assertEquals("Suites Page is Not Displayed", expText, getText(pom.getSuitesPage().getSuitesPage()));
 
 	}
 
@@ -56,7 +56,6 @@ public class AddSuitesPageStep extends BaseClass {
 					readExcel("Test Datas", "Environments", 3, 1) + "main/suites", getCurrentUrl());
 		}
 
-		
 	}
 
 // ***** To verify the field 'Suite Name *' and Location * is mandatory *****
@@ -64,7 +63,7 @@ public class AddSuitesPageStep extends BaseClass {
 	@Then("User must click Add Suite button")
 	public void user_must_click_add_suite_button() {
 
-		pom.getAddSuitesPage().addSuiteButton();
+		pom.getSuitesPage().addSuiteButton();
 
 	}
 
@@ -74,20 +73,20 @@ public class AddSuitesPageStep extends BaseClass {
 
 		waitForPageLoad();
 
-		String actualtext = getText(pom.getAddSuitesPage().getAddSuitePopupText());
+		String actualtext = getText(pom.getSuitesPage().getAddSuitePopupText());
 
-		if (actualtext.contains("Add Suite")) {
+		if (actualtext.contains(expText)) {
 			System.out.println("Popup displayed as expected");
 		} else {
 			System.out.println("Popup Not displayed Expected : " + expText + " but was : " + actualtext);
 			throw new Exception("Assertion failed");
 		}
 	}
-	
+
 	@Then("User must perform all fields except Suite Name")
 	public void user_must_perform_all_fields_except_suite_name() throws IOException {
 
-		pom.getAddSuitesPage().allFieldsExceptSuiteName();
+		pom.getSuitesPage().allFieldsExceptSuiteName();
 
 	}
 
@@ -95,64 +94,67 @@ public class AddSuitesPageStep extends BaseClass {
 	public void user_must_verify_the_error_message_under_suite_name_field(String valMsgForSuiteName) {
 
 		Assert.assertEquals("Validation message for suiteName not displayed", valMsgForSuiteName,
-				getText(pom.getAddSuitesPage().getActValMsgForSuiteName()));
+				getText(pom.getSuitesPage().getActValMsgForSuiteName()));
 
 	}
-	
+
 	@Then("User must perform all fields except Location")
 	public void user_must_perform_all_fields_except_location() throws IOException {
-	    
-		pom.getAddSuitesPage().allFieldsExceptLocation();
+
+		pom.getSuitesPage().allFieldsExceptLocation();
 	}
 
 	@Then("User must verify the error message under Location field {string}")
 	public void user_must_verify_the_error_message_under_location_field(String expValMsgForLocation) {
-	    
+
 		Assert.assertEquals("Validation message for location not displayed", expValMsgForLocation,
-				getText(pom.getAddSuitesPage().getActValMsgForLocation()));
+				getText(pom.getSuitesPage().getActValMsgForLocation()));
 	}
 
 // ****** To verify duplicate validation for 'Suite Name' ******
 
 	@Then("User must perform only mandatory fields with existing suiteName and location")
-	public void user_must_perform_only_mandatory_fields_with_existing_suite_name_and_location() throws IOException {
+	public void user_must_perform_only_mandatory_fields_with_existing_suite_name_and_location() throws Exception {
 
-		pom.getAddSuitesPage().duplicateDatas();
+		pom.getSuitesPage().duplicateDatas();
+
 	}
 
-	@Then("User must verify the toast message after perform dupicate datas {string}")
-	public void user_must_verify_the_toast_message_after_perform_dupicate_datas(String expToastMsg) {
+	@Then("User must verify the toast message {string}")
+	public void user_must_verify_the_toast_message(String expSuiteExistToastMessage) {
 
 		waitForPageLoad();
-		Assert.assertEquals("Suite Name already exists  toast message is not displayed", expToastMsg,
-				getText(pom.getAddSuitesPage().getActSNExitsToastMsg()));
+		Assert.assertEquals("Suite Name already exists  toast message is not displayed", expSuiteExistToastMessage,
+				getText(pom.getSuitesPage().getSNExitsToastMsg()));
+		click(pom.getSuitesPage().getBtnToastMsgAlreadyExistOk());
 	}
 
 // ****** To verify duplicate Suite name with different 'Location' ******
 
-	@Then("User must perform only mandatory fields with existing suiteName and different location")
-	public void user_must_perform_only_mandatory_fields_with_existing_suite_name_and_different_location()
-			throws Exception {
-		
-		pom.getAddSuitesPage().exitSuiteNameWithDiffLocation();
+	@Then("User must perform only mandatory fields with existing suiteName and different location and then verify the toast message after perform existing suiteName and different location {string}")
+	public void user_must_perform_only_mandatory_fields_with_existing_suite_name_and_different_location_and_then__verify_the_toast_message_after_perform_existing_suite_name_and_different_location(
+			String expSavedSuccessfullToastMsg) throws Exception {
+
+		pom.getSuitesPage().exitSuiteNameWithDiffLocation(expSavedSuccessfullToastMsg);
 
 	}
 
-	@Then("User must verify the toast message after perform existing suiteName and different location {string}")
-	public void user_must_verify_the_toast_message_after_perform_existing_suite_name_and_different_location(
-			String expToastMsg) {
-
-		waitForPageLoad();
-		Assert.assertEquals("Toast Message is not displayed", expToastMsg,
-				getText(pom.getAddSuitesPage().getActToastMessage()));
-	}
+//	@Then("User must verify the toast message after perform existing suiteName and different location {string}")
+//	public void user_must_verify_the_toast_message_after_perform_existing_suite_name_and_different_location(
+//			String expToastMsg) {
+//
+//		waitForPageLoad();
+//		Assert.assertEquals("Toast Message is not displayed", expToastMsg,
+//				getText(pom.getAddSuitesPage().getActToastMessage()));
+//		pom.getAddSuitesPage().getBtnToastMsgSuccessOk();
+//	}
 
 // ****** To verify validation message is displayed under mandatory fields also verify the user able to close the Add Suite popup ******
 
 	@Then("User must click Add button")
 	public void user_must_click_add_button() {
 
-		pom.getAddSuitesPage().add();
+		pom.getSuitesPage().add();
 	}
 
 	@Then("User must verify the error message contains for Mandatory fields {string} and {string}")
@@ -162,23 +164,23 @@ public class AddSuitesPageStep extends BaseClass {
 		waitForPageLoad();
 
 		Assert.assertEquals("Validation message for suites Name is not displayed", expValMsgForSuiteName,
-				getText(pom.getAddSuitesPage().getActValMsgForSuiteName()));
+				getText(pom.getSuitesPage().getActValMsgForSuiteName()));
 
 		Assert.assertEquals("Validation message for location is not displayed", expValMsgForLocation,
-				getText(pom.getAddSuitesPage().getActValMsgForLocation()));
+				getText(pom.getSuitesPage().getActValMsgForLocation()));
 
 	}
 
 	@Then("User must close the Add Suite popup")
 	public void user_must_close_the_add_suite_popup() {
 
-		pom.getAddSuitesPage().closePopup();
+		pom.getSuitesPage().closePopup();
 	}
 
 	@Then("User must verify the Add Suite popup is closed successfully")
 	public void user_must_verify_the_add_suite_popup_is_closed_successfully() throws Exception {
 
-		WebElement btnAddSuites = pom.getAddSuitesPage().getBtnAddSuites();
+		WebElement btnAddSuites = pom.getSuitesPage().getBtnAddSuites();
 
 		if (btnAddSuites.isEnabled()) {
 			System.out.println("Popup is closed");
@@ -193,7 +195,7 @@ public class AddSuitesPageStep extends BaseClass {
 	@Then("User must perform only non-mandatory fields")
 	public void user_must_perform_only_non_mandatory_fields() throws IOException {
 
-		pom.getAddSuitesPage().nonMandatoryFields();
+		pom.getSuitesPage().nonMandatoryFields();
 	}
 
 // ****** To verify user able to Add/Create Suites by entering only Mandatory fields	******	
@@ -201,7 +203,7 @@ public class AddSuitesPageStep extends BaseClass {
 	@Then("User must perform only mandatory fields")
 	public void user_must_perform_only_mandatory_fields() throws Exception {
 
-		pom.getAddSuitesPage().mandatoryFields();
+		pom.getSuitesPage().mandatoryFields();
 
 	}
 
@@ -209,24 +211,26 @@ public class AddSuitesPageStep extends BaseClass {
 	public void user_must_verify_the_toast_message_after_perform_only_mandatory_fields(String expToastMsg) {
 
 		waitForPageLoad();
-		Assert.assertEquals("Toast Message is not displayed", expToastMsg,
-				getText(pom.getAddSuitesPage().getActToastMessage()));
-	 
-		click(pom.getAddSuitesPage().getBtnToastMsg());
+		Assert.assertEquals("Saved Successfull Toast Message is not displayed", expToastMsg,
+				getText(pom.getSuitesPage().getSavedSuccessfullToastMessage()));
+
+		click(pom.getSuitesPage().getBtnToastMsgSuccessOk());
 	}
 
 	@Then("User must verify mandatory fields are created successsfully")
 	public void user_must_verify_mandatory_fields_are_created_successsfully() throws Exception {
 
-		pom.getAddSuitesPage().getCreatedSuitePerformedMandatoryField();
+		pom.getSuitesPage().getCreatedSuitePerformedMandatoryField();
 
 		waitForPageLoad();
 
 		sleep(1000);
-		
-		Assert.assertEquals("Created SuiteName Mismatched", pom.getAddSuitesPage().createSuiteName, getText(pom.getAddSuitesPage().getCreatedSN()));
-		Assert.assertEquals("Created Location  Mismatched", readExcel("Test Datas", "AddSuites",1, 1), getText(pom.getAddSuitesPage().getCreatedLocation()));
-		
+		waitForFullPageElementLoad();
+		Assert.assertEquals("Created SuiteName Mismatched", pom.getSuitesPage().createSuiteName,
+				getText(pom.getSuitesPage().getCreatedSN()));
+		Assert.assertEquals("Created Location  Mismatched", readExcel("Test Datas", "AddSuites", 1, 1),
+				getText(pom.getSuitesPage().getCreatedLocation()));
+
 	}
 
 // ****** To verify user able to Add/Create Suites by entering all fields ******						
@@ -235,13 +239,13 @@ public class AddSuitesPageStep extends BaseClass {
 	public void user_must_perform_all_fields_and_verify_the_toast_message_after_perform_all_fields(
 			String expToastMessage) throws Exception {
 
-		pom.getAddSuitesPage().createSuitePerformedAllFields(expToastMessage);
+		pom.getSuitesPage().createSuitePerformedAllFields(expToastMessage);
 	}
 
 	@Then("User must verify all fields are created successsfully")
 	public void user_must_verify_all_fields_are_created_successsfully() throws IOException, AWTException {
 
-		pom.getAddSuitesPage().getCreatedSuitePerformedAllFields();
+		pom.getSuitesPage().getCreatedSuitePerformedAllFields();
 	}
 
 // ****** To verify 'Bread Crums' button in Suites view screen ******					
@@ -249,7 +253,7 @@ public class AddSuitesPageStep extends BaseClass {
 	@Then("User must search the existing suiteName and click the image in suites screen")
 	public void user_must_search_the_existing_suite_name_and_click_the_image_in_suites_screen() throws IOException {
 
-		pom.getAddSuitesPage().searchCreatedSuiteName();
+		pom.getSuitesPage().searchCreatedSuiteName();
 
 	}
 
@@ -259,12 +263,12 @@ public class AddSuitesPageStep extends BaseClass {
 
 		waitForPageLoad();
 
-		String txtBreadCrum = getText(pom.getAddSuitesPage().getBreadCrumLink());
+		String txtBreadCrum = getText(pom.getSuitesPage().getBreadCrumLink());
 		System.out.println("Breadcrums Suite text :" + txtBreadCrum);
-		System.out.println("Breadcrums Suite>createdSN text :" + pom.getAddSuitesPage().getBreadCrumLinkText());
+		System.out.println("Breadcrums Suite>createdSN text :" + pom.getSuitesPage().getBreadCrumLinkText());
 
 		if (txtBreadCrum.contains("Suites")
-				&& pom.getAddSuitesPage().getBreadCrumLinkText().contains(pom.getAddSuitesPage().existingSN)) {
+				&& pom.getSuitesPage().getBreadCrumLinkText().contains(pom.getSuitesPage().existingSN)) {
 			System.out.println("Breadcrums link is displayed with selected suiteName");
 		} else {
 			throw new Exception("Assertion Failed : Breadcrums link is not displayed with selected suiteName ");
@@ -275,11 +279,11 @@ public class AddSuitesPageStep extends BaseClass {
 	public void user_must_verify_after_click_the_breadcrums_link_it_should_be_return_to_suite_searched_page()
 			throws Exception {
 
-		pom.getAddSuitesPage().clickBreadCrumSuiteLink();
+		pom.getSuitesPage().clickBreadCrumSuiteLink();
 
 		waitForPageLoad();
 
-		WebElement clickViewBtn = pom.getAddSuitesPage().getClickViewBtn();
+		WebElement clickViewBtn = pom.getSuitesPage().getClickViewBtn();
 
 		if (clickViewBtn.isDisplayed()) {
 			System.out.println("Breadcrums link is successfully returned to suite searched page");
