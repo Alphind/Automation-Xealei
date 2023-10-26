@@ -1016,12 +1016,14 @@ public class SuitesPage extends BaseClass {
 		waitForPageLoad();
 		click(clickViewBtn);
 		waitForPageLoad();
+		waitForFullPageElementLoad();
 		sleep(1000);
 		System.out.println("expSN:" + MFSuiteName);
 		System.out.println("actSN:" + getText(createdSN));
 
 		waitForPageLoad();
 
+		waitForFullPageElementLoad();
 		Assert.assertEquals("Suite Name is not updated successfully", MFSuiteName, getText(createdSN));
 
 		if (existLocation.equals(getLocationDataFromExcel)) {

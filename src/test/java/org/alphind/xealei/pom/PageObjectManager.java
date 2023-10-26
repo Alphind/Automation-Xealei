@@ -31,8 +31,4 @@ public class PageObjectManager {
 		return (suitesPage == null) ? suitesPage = new SuitesPage() : suitesPage;
 	}
 
-	public IndividualsPage getIndividualsPage() {
-		return (individualPage == null) ? individualPage = new IndividualsPage() : individualPage;
-
-	}
 }

@@ -205,20 +205,6 @@ license agreement
 			<scope>provided</scope>
 		</dependency>
 		
-		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-devtools -->
-<dependency>
-    <groupId>org.seleniumhq.selenium</groupId>
-    <artifactId>selenium-devtools</artifactId>
-    <version>4.0.0-rc-1</version>
-</dependency>
-
-<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-devtools-v118 -->
-<dependency>
-    <groupId>org.seleniumhq.selenium</groupId>
-    <artifactId>selenium-devtools-v118</artifactId>
-    <version>4.14.1</version>
-</dependency>
-
 
 	</dependencies>
 </project>

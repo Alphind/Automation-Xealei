@@ -11,7 +11,7 @@
 package org.alphind.xealei.stepdefinition;
 
 import java.io.File;
-import java.net.SocketException;
+import java.io.IOException;
 
 import org.alphind.xealei.baseclass.BaseClass;
 import org.apache.commons.io.FileUtils;
@@ -47,7 +47,7 @@ public class Hooks extends BaseClass {
 
 	@After
 	public void screenShot(Scenario scenario) throws Exception {
-
+		
 		if (scenario.isFailed()) {
 			final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 			scenario.attach(screenshot, "image/png", scenario.getName());
@@ -55,15 +55,18 @@ public class Hooks extends BaseClass {
 	}
 
 	@After(order = 1)
-	public void tearDown() throws SocketException {
-
+	public void tearDown(){
+		
 		waitForPageLoad();
 		waitForFullPageElementLoad();
 		if (driver != null) {
 			quit();
 		}
-
-	}
+          
+	}	
+	
+	
+	
 }
 
 //	@After(order = 2)

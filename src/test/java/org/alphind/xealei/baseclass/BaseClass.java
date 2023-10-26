@@ -57,7 +57,7 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 
 import io.cucumber.java.Scenario;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.bonigarcia.wdm.WebDriverManager;  
 
 public class BaseClass {
 
@@ -709,4 +709,89 @@ public class BaseClass {
 
 		driver.manage().timeouts().getPageLoadTimeout();
 	}
+	
+////     //50. Sending Mail
+//
+//	public void SendMail() throws IOException, MessagingException {
+//		final String username = "mohamedrazul.s@alphind.com";
+//
+//	      final String password = "qmkjpgjpvxtvdrpb";
+//
+//	      final String host = "smtp.office365.com";
+//
+//	      final String port = "587";
+//
+//	      final String toAddress="mohamedrazul.s@alphind.com";
+//
+//	      Properties properties = new Properties();
+//
+//	      properties.put("mail.smtp.host", host);
+//
+//	      properties.put("mail.smtp.port", port);
+//
+//	      properties.put("mail.smtp.auth", "true");
+//
+//	      properties.put("mail.smtp.starttls.enable", "true");
+//
+//	      // creates a new session with an authenticator
+//
+//	      Authenticator auth = new Authenticator() {
+//
+//	          public PasswordAuthentication getPasswordAuthentication() {
+//
+//	              return new PasswordAuthentication(username, password);
+//
+//	          }
+//
+//	      };
+//
+//	      Session session = Session.getInstance(properties, auth);
+//
+//	      // creates a new e-mail message
+//
+//	      Message msg = new MimeMessage(session);
+//
+//	      msg.setFrom(new InternetAddress(username));
+//
+//		InternetAddress[] toAddresses = { new InternetAddress(toAddress) };
+//
+//	      msg.setRecipients(Message.RecipientType.TO, toAddresses);
+//
+//	      msg.setSubject("Automation test Report");
+//
+//	      msg.setSentDate(new Date());
+//
+//	      // set plain text message
+//
+//	      BodyPart messageBodyPart = new MimeBodyPart(); 
+//
+//	      messageBodyPart.setText("Mail Body");
+//
+//	      //msg.setText("This is a message sent through java program for testing whether it can sent a mail");
+//
+//	      System.out.println("message set");
+//
+//	      MimeBodyPart attachmentPart = new MimeBodyPart();
+//
+//				attachmentPart.attachFile(new File(".//Extent Reports"));
+//			
+//	      Multipart multipart = new MimeMultipart();
+//
+//	      multipart.addBodyPart(messageBodyPart);
+//
+//	      multipart.addBodyPart(attachmentPart);
+//
+//	      msg.setContent(multipart);
+//
+//
+//	      // sends the e-mail
+//
+//	      Transport.send(msg);
+//
+//	      System.out.println("Mail sent");
+//
+//
+//	}
+
+
 }
