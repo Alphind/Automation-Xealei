@@ -983,6 +983,8 @@ public class SuitesPage extends BaseClass {
 
 		click(btnUpdateSuite);
 
+		waitForPageLoad();
+		
 		Assert.assertEquals("Toast Message is not displayed", expToastMessage, getText(savedSuccessfullToastMsg));
 		click(btnToastMsgSuccessOk);
 
