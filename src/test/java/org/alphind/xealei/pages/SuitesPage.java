@@ -1016,6 +1016,7 @@ public class SuitesPage extends BaseClass {
 		deleteUsingSendKeys(suitesSearchBox);
 		sendKeyWithEnter(suitesSearchBox, MFSuiteName);
 		waitForPageLoad();
+		waitForElementToBeClickable(clickViewBtn, 10);
 		click(clickViewBtn);
 		waitForPageLoad();
 		waitForFullPageElementLoad();
