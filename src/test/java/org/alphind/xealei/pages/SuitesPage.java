@@ -636,7 +636,7 @@ public class SuitesPage extends BaseClass {
 				System.out.println("Row is !empty");
 
 				waitForPageLoad();
-
+				waitForFullPageElementLoad();
 				click(btnAddSuites);
 				waitForPageLoad();
 				click(btnAddSuites);
@@ -984,7 +984,7 @@ public class SuitesPage extends BaseClass {
 		click(btnUpdateSuite);
 
 		waitForPageLoad();
-		
+
 		Assert.assertEquals("Toast Message is not displayed", expToastMessage, getText(savedSuccessfullToastMsg));
 		click(btnToastMsgSuccessOk);
 
