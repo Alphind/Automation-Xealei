@@ -830,12 +830,14 @@ public class SuitesPage extends BaseClass {
 		int lastRowNum = createdSuiteSheet.getLastRowNum();
 
 		String lastCreatedSuite = readExcel("Test Datas", "CreatedSuites", lastRowNum - 1, 0);
-		click(suitesModule);
-		waitForPageLoad();
 		deleteUsingSendKeys(suitesSearchBox);
 		waitForPageLoad();
+		click(suitesModule);
+		waitForPageLoad();
+		waitForFullPageElementLoad();
 		sendKeyWithEnter(suitesSearchBox, lastCreatedSuite);
 		waitForPageLoad();
+		waitForFullPageElementLoad();
 		click(clickViewBtn);
 		waitForPageLoad();
 		sleep(3000);

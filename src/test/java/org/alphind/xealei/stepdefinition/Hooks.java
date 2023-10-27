@@ -11,7 +11,7 @@
 package org.alphind.xealei.stepdefinition;
 
 import java.io.File;
-import java.io.IOException;
+import java.net.SocketException;
 
 import org.alphind.xealei.baseclass.BaseClass;
 import org.apache.commons.io.FileUtils;
@@ -55,20 +55,14 @@ public class Hooks extends BaseClass {
 	}
 
 	@After(order = 1)
-	public void tearDown(){
+	public void tearDown() throws SocketException{
 		
 		waitForPageLoad();
-		waitForFullPageElementLoad();
 		if (driver != null) {
 			quit();
 		}
-          
-	}	
-	
-	
-	
+	}
 }
-
 //	@After(order = 2)
 //	public void cleaningProcess() {
 //		

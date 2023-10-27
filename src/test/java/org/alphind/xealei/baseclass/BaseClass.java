@@ -72,7 +72,7 @@ public class BaseClass {
 	public void browserType() throws Exception {
 
 		if (getConfigureProperty("Chrome").equalsIgnoreCase("Yes")) {
-			WebDriverManager.chromedriver().setup();
+			WebDriverManager.chromedriver().setup();			
 			driver = new ChromeDriver();
 
 		} else if (getConfigureProperty("Edge").equalsIgnoreCase("Yes")) {
