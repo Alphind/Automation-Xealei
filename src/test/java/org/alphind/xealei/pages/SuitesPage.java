@@ -761,6 +761,7 @@ public class SuitesPage extends BaseClass {
 		keyPress(KeyEvent.VK_ENTER);
 		keyRelease(KeyEvent.VK_ENTER);
 		waitForPageLoad();
+		waitForFullPageElementLoad();
 		click(clickViewBtn);
 		waitForPageLoad();
 		waitForPageLoad();
