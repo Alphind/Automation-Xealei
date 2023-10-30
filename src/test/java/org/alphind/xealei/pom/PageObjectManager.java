@@ -10,9 +10,8 @@
 
 package org.alphind.xealei.pom;
 
-import org.alphind.xealei.pages.SuitesPage;
-import org.alphind.xealei.pages.IndividualsPage;
 import org.alphind.xealei.pages.LoginPage;
+import org.alphind.xealei.pages.SuitesPage;
 
 public class PageObjectManager {
 
@@ -21,7 +20,6 @@ public class PageObjectManager {
 	 */
 	private LoginPage loginPage;
 	private SuitesPage suitesPage;
-	private IndividualsPage individualPage;
 
 	public LoginPage getLoginPage() {
 		return (loginPage == null) ? loginPage = new LoginPage() : loginPage;

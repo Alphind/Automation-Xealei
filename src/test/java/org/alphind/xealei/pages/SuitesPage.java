@@ -384,7 +384,7 @@ public class SuitesPage extends BaseClass {
 	int noOfTotalRows;
 
 	public void navToSuiteModule() {
-
+		
 		waitForPageLoad();
 		click(suitesModule);
 	}
@@ -873,51 +873,6 @@ public class SuitesPage extends BaseClass {
 		click(btnUpdateSuite);
 	}
 
-	public void updateDuplicateDatawithDiffLocation() throws IOException {
-
-//     waitForFullPageElementLoad();	
-//     String diffLoc = getText(createdLoc);
-//	 System.out.println(diffLoc);
-//	 
-//	 String get1stRowFromExcel = readExcel("Test Datas", "EditSuites", 1, 1);
-//	 System.out.println("1st Row From Excel :"+get1stRowFromExcel);
-//	 
-//	 String get2ndRowFromExcel = readExcel("Test Datas", "EditSuites", 2, 1);
-//	 System.out.println("2nd Row From Excel :"+get2ndRowFromExcel);
-//	 
-//	 dropDownListForLocation = dropDownListForLocation.replaceAll("locationName", get2ndRowFromExcel);
-//		
-//	 click(location);
-//	 selectDropDown(dropDownListForLocation);
-
-//	
-//	 if (diffLoc.equals(get1stRowFromExcel)) {
-//		dropDownListForLocation = dropDownListForLocation.replaceAll("locationName", get2ndRowFromExcel);
-//		
-//		click(location);
-//		selectDropDown(dropDownListForLocation);
-//
-//	 }
-//		else if (diffLoc.equals(get2ndRowFromExcel)) {
-//		dropDownListForDiffLocation = dropDownListForDiffLocation.replaceAll("location", get1stRowFromExcel);	
-//		
-//		click(location);
-//		selectDropDown(dropDownListForDiffLocation);
-//		
-//			}
-//	if (diffLoc.equals(getLocationDataFromExcel)) {
-//		click(location);
-//		dropDownListForLocation = dropDownListForLocation.replaceAll("locationName", getAnotherLocationDataFromExcel);
-//		selectDropDown(dropDownListForLocation);
-//		
-//		} 
-//		else if (diffLoc.equals(getAnotherLocationDataFromExcel)) {
-//			click(location);
-//			dropDownListForDiffLocation = dropDownListForDiffLocation.replaceAll("location", getLocationDataFromExcel);	
-//		selectDropDown(dropDownListForDiffLocation);
-//		}
-
-	}
 
 	public void verifyExistSNWithDiffLocationIsUpdatedSuccessfully() throws Exception {
 
@@ -1004,6 +959,8 @@ public class SuitesPage extends BaseClass {
 
 	public void verifyMandatoryFieldsAreUpdatedSuccessfully() throws Exception {
 
+		deleteUsingSendKeys(suitesSearchBox);
+		
 		File file = new File(".//Excel//Test Datas.xlsx");
 		FileInputStream stream = new FileInputStream(file);
 		Workbook workbook = new XSSFWorkbook(stream);
@@ -1012,17 +969,9 @@ public class SuitesPage extends BaseClass {
 		int lastRowNum = createdSuiteSheet.getLastRowNum();
 
 		MFSuiteName = readExcel("Test Datas", "CreatedSuites", lastRowNum, 0);
-
-		click(suitesModule);
-		waitForPageLoad();
-		deleteUsingSendKeys(suitesSearchBox);
+		
 		sendKeyWithEnter(suitesSearchBox, MFSuiteName);
-		waitForPageLoad();
-		waitForElementToBeClickable(clickViewBtn, 10);
-		click(clickViewBtn);
-		waitForPageLoad();
-		waitForFullPageElementLoad();
-		sleep(1000);
+
 		System.out.println("expSN:" + MFSuiteName);
 		System.out.println("actSN:" + getText(createdSN));
 

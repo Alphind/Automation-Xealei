@@ -22,7 +22,6 @@ public class LoginPage extends BaseClass {
 	 */
 
 	public LoginPage() {
-		// this.driver = getDriver();
 		PageFactory.initElements(driver, this);
 	}
 
@@ -76,6 +75,10 @@ public class LoginPage extends BaseClass {
 
 	@FindBy(xpath = "//mat-error[text()=' Please enter password ']")
 	private WebElement errorMessageForPassword;
+	
+	@FindBy(xpath = "//span[contains(text(),'Unknown Error.')]")
+	private WebElement unknownErrorToastMsg;
+	
 
 	public WebElement getValForLoginScreen() {
 		return valForLoginScreen;
@@ -144,6 +147,10 @@ public class LoginPage extends BaseClass {
 	public WebElement getErrorMessageForPassword() {
 		return errorMessageForPassword;
 	}
+	
+	public WebElement getUnknownErrorToastMsg() {
+		return unknownErrorToastMsg;
+	}
 
 	/*
 	 * Description - Below method helps to perform the Testcase actions for Login
@@ -164,11 +171,11 @@ public class LoginPage extends BaseClass {
 
 	public void LoginWithValidEmail() throws Exception {
 
-		if (getConfigureProperty("Environment_QA").equalsIgnoreCase("Yes")) {
+		if (getConfigureProperty("Environment").equalsIgnoreCase("QA")) {
 			sendKeys(getUserName(), readExcel("Test Datas", "Login", 1, 1));
-		} else if (getConfigureProperty("Environment_PREPOD").equalsIgnoreCase("Yes")) {
+		} else if (getConfigureProperty("Environment").equalsIgnoreCase("PREPROD")) {
 			sendKeys(getUserName(), readExcel("Test Datas", "Login", 2, 1));
-		} else if (getConfigureProperty("Environment_PRODUCTION").equalsIgnoreCase("Yes")) {
+		} else if (getConfigureProperty("Environment").equalsIgnoreCase("PROD")) {
 			sendKeys(getUserName(), readExcel("Test Datas", "Login", 2, 1));
 		}
 		click(getLoginButton());
@@ -176,11 +183,11 @@ public class LoginPage extends BaseClass {
 
 	public void LoginWithValidPassword() throws Exception {
 
-		if (getConfigureProperty("Environment_QA").equalsIgnoreCase("Yes")) {
+		if (getConfigureProperty("Environment").equalsIgnoreCase("QA")) {
 			sendKeys(getPassword(), readExcel("Test Datas", "Login", 1, 2));
-		} else if (getConfigureProperty("Environment_PREPOD").equalsIgnoreCase("Yes")) {
+		} else if (getConfigureProperty("Environment").equalsIgnoreCase("PREPROD")) {
 			sendKeys(getPassword(), readExcel("Test Datas", "Login", 2, 2));
-		} else if (getConfigureProperty("Environment_PRODUCTION").equalsIgnoreCase("Yes")) {
+		} else if (getConfigureProperty("Environment").equalsIgnoreCase("PROD")) {
 			sendKeys(getPassword(), readExcel("Test Datas", "Login", 2, 2));
 		}
 		click(getLoginButton());
@@ -188,13 +195,13 @@ public class LoginPage extends BaseClass {
 
 	public void LoginWithValidEmailAndInvalidPassword() throws Exception {
 
-		if (getConfigureProperty("Environment_QA").equalsIgnoreCase("Yes")) {
+		if (getConfigureProperty("Environment").equalsIgnoreCase("QA")) {
 			sendKeys(getUserName(), readExcel("Test Datas", "Login", 1, 1));
 			sendKeys(getPassword(), readExcel("Test Datas", "Login", 1, 4));
-		} else if (getConfigureProperty("Environment_PREPOD").equalsIgnoreCase("Yes")) {
+		} else if (getConfigureProperty("Environment").equalsIgnoreCase("PREPROD")) {
 			sendKeys(getUserName(), readExcel("Test Datas", "Login", 2, 1));
 			sendKeys(getPassword(), readExcel("Test Datas", "Login", 1, 4));
-		} else if (getConfigureProperty("Environment_PRODUCTION").equalsIgnoreCase("Yes")) {
+		} else if (getConfigureProperty("Environment").equalsIgnoreCase("PROD")) {
 			sendKeys(getUserName(), readExcel("Test Datas", "Login", 2, 1));
 			sendKeys(getPassword(), readExcel("Test Datas", "Login", 1, 4));
 		}
@@ -210,13 +217,13 @@ public class LoginPage extends BaseClass {
 
 	public void LoginWithValidCredentials() throws Exception {
 
-		if (getConfigureProperty("Environment_QA").equalsIgnoreCase("Yes")) {
+		if (getConfigureProperty("Environment").equalsIgnoreCase("QA")) {
 			sendKeys(getUserName(), readExcel("Test Datas", "Login", 1, 1));
 			sendKeys(getPassword(), readExcel("Test Datas", "Login", 1, 2));
-		} else if (getConfigureProperty("Environment_PREPOD").equalsIgnoreCase("Yes")) {
+		} else if (getConfigureProperty("Environment").equalsIgnoreCase("PREPROD")) {
 			sendKeys(getUserName(), readExcel("Test Datas", "Login", 2, 1));
 			sendKeys(getPassword(), readExcel("Test Datas", "Login", 2, 2));
-		} else if (getConfigureProperty("Environment_PRODUCTION").equalsIgnoreCase("Yes")) {
+		} else if (getConfigureProperty("Environment").equalsIgnoreCase("PROD")) {
 			sendKeys(getUserName(), readExcel("Test Datas", "Login", 2, 1));
 			sendKeys(getPassword(), readExcel("Test Datas", "Login", 2, 2));
 		}
@@ -225,13 +232,13 @@ public class LoginPage extends BaseClass {
 
 	public void LoginUsingEnterKey() throws Exception {
 
-		if (getConfigureProperty("Environment_QA").equalsIgnoreCase("Yes")) {
+		if (getConfigureProperty("Environment").equalsIgnoreCase("QA")) {
 			sendKeys(getUserName(), readExcel("Test Datas", "Login", 1, 1));
 			sendKeyWithEnter(getPassword(), readExcel("Test Datas", "Login", 1, 2));
-		} else if (getConfigureProperty("Environment_PREPOD").equalsIgnoreCase("Yes")) {
+		} else if (getConfigureProperty("Environment").equalsIgnoreCase("PREPROD")) {
 			sendKeys(getUserName(), readExcel("Test Datas", "Login", 2, 1));
 			sendKeys(getPassword(), readExcel("Test Datas", "Login", 2, 2));
-		} else if (getConfigureProperty("Environment_PRODUCTION").equalsIgnoreCase("Yes")) {
+		} else if (getConfigureProperty("Environment").equalsIgnoreCase("PROD")) {
 			sendKeys(getUserName(), readExcel("Test Datas", "Login", 2, 1));
 			sendKeys(getPassword(), readExcel("Test Datas", "Login", 2, 2));
 		}

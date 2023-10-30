@@ -45,13 +45,13 @@ public class AddSuitesPageStep extends BaseClass {
 	@Then("User must verify the tab url address for suites screen")
 	public void user_must_verify_the_tab_url_address_for_suites_screen() throws Exception {
 
-		if (getConfigureProperty("Environment_QA").equalsIgnoreCase("Yes")) {
+		if (getConfigureProperty("Environment").equalsIgnoreCase("QA")) {
 			Assert.assertEquals("Suite page tab url is wrong",
 					readExcel("Test Datas", "Environments", 1, 1) + "main/suites", getCurrentUrl());
-		} else if (getConfigureProperty("Environment_PREPOD").equalsIgnoreCase("Yes")) {
+		} else if (getConfigureProperty("Environment").equalsIgnoreCase("PREPROD")) {
 			Assert.assertEquals("Suite page tab url is wrong",
 					readExcel("Test Datas", "Environments", 2, 1) + "main/suites", getCurrentUrl());
-		} else if (getConfigureProperty("Environment_PRODUCTION").equalsIgnoreCase("Yes")) {
+		} else if (getConfigureProperty("Environment").equalsIgnoreCase("PROD")) {
 			Assert.assertEquals("Suite page tab url is wrong",
 					readExcel("Test Datas", "Environments", 3, 1) + "main/suites", getCurrentUrl());
 		}
@@ -283,9 +283,7 @@ public class AddSuitesPageStep extends BaseClass {
 
 		waitForPageLoad();
 
-		WebElement clickViewBtn = pom.getSuitesPage().getClickViewBtn();
-
-		if (clickViewBtn.isDisplayed()) {
+		if (pom.getSuitesPage().getClickViewBtn().isDisplayed()) {
 			System.out.println("Breadcrums link is successfully returned to suite searched page");
 		} else {
 			throw new Exception("Assertion Failed : Breadcrums link is not returned to suite searched page");

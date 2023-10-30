@@ -1,4 +1,4 @@
-/* Copyright (C) 2023  Alphind Solution Software Pvt. Ltd. - All Rights Reserved.
+/** Copyright (C) 2023  Alphind Solution Software Pvt. Ltd. - All Rights Reserved.
 
 * created by Mohamed Razul
 
@@ -45,8 +45,11 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -67,71 +70,73 @@ public class BaseClass {
 
 	public static WebDriver driver;
 
-	// 1. To set the browser
-
+	/**
+	 * To launch the browser that to be automated.
+	 * @throws Exception - if the browser value is invalid.
+	 */
 	public void browserType() throws Exception {
+		if (getConfigureProperty("Browser").equalsIgnoreCase("chrome")) {
+			WebDriverManager.chromedriver().setup();
+           driver = new ChromeDriver(getChromeOptions());
 
-		if (getConfigureProperty("Chrome").equalsIgnoreCase("Yes")) {
-			WebDriverManager.chromedriver().setup();			
-			driver = new ChromeDriver();
-
-		} else if (getConfigureProperty("Edge").equalsIgnoreCase("Yes")) {
+		} else if (getConfigureProperty("Browser").equalsIgnoreCase("edge")) {
 			WebDriverManager.edgedriver().setup();
-			driver = new EdgeDriver();
+			driver = new EdgeDriver(getEdgeOptions());
 
-		} else if (getConfigureProperty("Firefox").equalsIgnoreCase("Yes")) {
+		} else if (getConfigureProperty("Browser").equalsIgnoreCase("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
-			driver = new FirefoxDriver();
+			driver = new FirefoxDriver(getFirefoxOptions());
+		}else {
+			throw new Exception("Browser Value is not valid in config.properties file.");
 		}
-
 	}
 
-	// 2. To launch the URL
-
-	public void loadUrl(String Url) {
-		// dr.get().get(Url);
-		driver.get(Url);
+	
+	private ChromeOptions getChromeOptions() {
+		ChromeOptions chromeOption = new ChromeOptions();
+		if (getConfigureProperty("HeadlessLaunch").equalsIgnoreCase("Yes")) {
+			chromeOption.addArguments("--headless", "--window-size=1920,1080");
+		}else {
+			System.out.println("Running in UI mode.");
+		} 
+		if(getConfigureProperty("StartMaximized").equalsIgnoreCase("Yes")) {
+			chromeOption .addArguments("start-maximized");
+		}else {
+			System.out.println("Browser not maximized.");
+		}
+		return chromeOption;
 	}
-
-	// 3. Maximize Window
-
-	public void maximize() {
-		// dr.get().manage().window().maximize();
-		driver.manage().window().maximize();
+	
+	private EdgeOptions getEdgeOptions() {
+		EdgeOptions edgeOption = new EdgeOptions();
+		if (getConfigureProperty("HeadlessLaunch").equalsIgnoreCase("Yes")) {
+			edgeOption.addArguments("--headless", "--window-size=1920,1080");
+		}else {
+			System.out.println("Running in UI mode.");
+		}
+		if(getConfigureProperty("StartMaximized").equalsIgnoreCase("Yes")) {
+			edgeOption.addArguments("start-maximized");
+		}else {
+			System.out.println("Browser not maximized.");
+		}
+		return edgeOption;
 	}
-
-	// 4. To find the element by using ID
-
-	public WebElement findElementById(String id) {
-		// WebElement element = dr.get().findElement(By.id(id));
-		WebElement element = driver.findElement(By.id(id));
-		return element;
+	
+	private FirefoxOptions getFirefoxOptions() {
+		FirefoxOptions fireFoxOption = new FirefoxOptions();
+		if (getConfigureProperty("HeadlessLaunch").equalsIgnoreCase("Yes")) {
+			fireFoxOption.addArguments("--headless", "--window-size=1920,1080");
+		}else {
+			System.out.println("Running in UI mode.");
+		}
+		if(getConfigureProperty("StartMaximized").equalsIgnoreCase("Yes")) {
+			fireFoxOption.addArguments("start-maximized");
+		}else {
+			System.out.println("Browser not maximized.");
+		}
+		return fireFoxOption;
 	}
-
-	// 5. To find the element by using NAME
-
-	public WebElement findElementByName(String name) {
-		// WebElement element = dr.get().findElement(By.name(name));
-		WebElement element = driver.findElement(By.name(name));
-		return element;
-	}
-
-	// 6. To find the element by using CLASSNAME
-
-	public WebElement findElementByClassName(String className) {
-		// WebElement element = dr.get().findElement(By.className(className));
-		WebElement element = driver.findElement(By.className(className));
-		return element;
-	}
-
-	// 7. To find the element by using XPATH
-
-	public WebElement xpath(String xpath) {
-		// WebElement element = dr.get().findElement(By.xpath(xpath));
-		WebElement element = driver.findElement(By.xpath(xpath));
-		return element;
-	}
-
+	
 	// 8. Send the Data's using SENDKEYS
 
 	public void sendKeys(WebElement element, String datasToSend) {
@@ -186,16 +191,6 @@ public class BaseClass {
 		fis.close();
 		return "data:image/png;base64" + base64;
 	}
-
-//	// 14. Screenshot for Report
-//
-//	public Scenario takesScreen(Scenario sc) {
-//
-//		TakesScreenshot screen = (TakesScreenshot) driver;
-//		byte[] source = screen.getScreenshotAs(OutputType.BYTES);
-//		sc.embed(source, "Every Scenario");
-//		return sc;
-//	}
 
 	// 15. Click
 
@@ -267,12 +262,18 @@ public class BaseClass {
 
 	// 19. Configuration Property File
 
-	public String getConfigureProperty(String key) throws Exception {
+	public String getConfigureProperty(String key) {
 
-		FileInputStream stream = new FileInputStream(".//Configuration Property file//Config.properties");
-		Properties properties = new Properties();
-		properties.load(stream);
-		return properties.get(key).toString();
+		try {
+			FileInputStream stream = new FileInputStream(".//Configuration Property file//Config.properties");
+			Properties properties = new Properties();
+			properties.load(stream);
+			return properties.get(key).toString();
+		}catch(IOException e) {
+			e.printStackTrace();
+			return "";
+		}
+
 	}
 
 	// 20. selectByValue - Select dropDown based on value
@@ -368,7 +369,15 @@ public class BaseClass {
 		WebElement element = driver.findElement(By.tagName(tagName));
 		return element;
 	}
+// 31. findElement --- > xpath
+	
+	public WebElement findElementByXpath(String xpath) {
 
+		// WebElement elements = dr.get().findElement(By.xpath(xpath));
+		WebElement elements = driver.findElement(By.xpath(xpath));
+		return elements;
+	}
+	
 	// 31. listOfWebElement --- > ByTagName
 
 	public List<WebElement> findElementsByXpath(String xpath) {
@@ -544,17 +553,7 @@ public class BaseClass {
 		robot.keyRelease(KeyEvent.VK_ENTER);
 	}
 
-	// 45. Environment SetupUp
-
-	public void environment(String Env) {
-
-		if (Env.equalsIgnoreCase("QA")) {
-			loadUrl("https://qa.xealei.com/");
-		} else if (Env.equalsIgnoreCase("PREPOD")) {
-			loadUrl("https://preprod.xealei.com/");
-		}
-	}
-
+	
 	public void cleanRecordFromDB(boolean CleanRecord, String collectionName, String key, String value) {
 
 		if (CleanRecord == true) {
@@ -575,51 +574,6 @@ public class BaseClass {
 		}
 	}
 
-//		public List<String> readDatafromExcel001(String pathName, String sheetName, int cellNum)  {
-//
-//			try {
-//			List<String> res =null;
-//			File file = new File(".//Excel//"+pathName+".xlsx");
-//			FileInputStream stream = new FileInputStream(file);
-//			Workbook workbook = new XSSFWorkbook(stream);
-//			Sheet sheet = workbook.getSheet(sheetName);
-//			
-//			int lastrownum = sheet.getLastRowNum();
-//			
-//			for(int i=1;i<lastrownum;i++) {
-//				Row row = sheet.getRow(i);
-//				Cell cell = row.getCell(cellNum);
-//				CellType cellType = cell.getCellType();
-//				switch (cellType) {
-//
-//				case STRING:
-//					res.add(cell.getStringCellValue());
-//					break;
-//				case NUMERIC:
-//					if (DateUtil.isCellDateFormatted(cell)) {
-//						Date date = cell.getDateCellValue();
-//						SimpleDateFormat dateFormat = new SimpleDateFormat("MMM/dd/yy");
-//						res.add( dateFormat.format(date));
-//					} else {
-//						double numericCellValue = cell.getNumericCellValue();
-//						BigDecimal b = BigDecimal.valueOf(numericCellValue);
-//						res.add(b.toString());
-//					}
-//					break;
-//				default:
-//					break;
-//				}
-//			}
-//			
-//			workbook.close();
-//			return res;}
-//			catch(IOException e) {
-//				e.printStackTrace();
-//				return null;
-//			}
-//
-//		}
-
 //		// 40. Explicit wait - WebDriverWait for inVisiblityOfElement
 
 	public void waitForInVisiblityOfElement(WebElement element, long seconds) {
@@ -634,27 +588,22 @@ public class BaseClass {
 	public void clearText(WebElement element) {
 		element.clear();
 	}
-
-//	     //  42. Refresh Page
-
-	public void refreshPage() {
-		// dr.get().navigate().refresh();
-		driver.navigate().refresh();
-	}
-
+	
 //	     //  43. Environment set up
 
 	public void env() throws Exception {
 
-		if (getConfigureProperty("Environment_QA").equalsIgnoreCase("Yes")) {
+		if (getConfigureProperty("Environment").equalsIgnoreCase("QA")) {
 			// dr.get().get(readExcel("Test Datas", "Environments",1,1));
 			driver.get(readExcel("Test Datas", "Environments", 1, 1));
-		} else if (getConfigureProperty("Environment_PREPOD").equalsIgnoreCase("Yes")) {
+		} else if (getConfigureProperty("Environment").equalsIgnoreCase("PREPROD")) {
 			// dr.get().get(readExcel("Test Datas", "Environments",2,1));
 			driver.get(readExcel("Test Datas", "Environments", 2, 1));
-		} else if (getConfigureProperty("Environment_PRODUCTION").equalsIgnoreCase("Yes")) {
+		} else if (getConfigureProperty("Environment").equalsIgnoreCase("PROD")) {
 			// dr.get().get(readExcel("Test Datas", "Environments",3,1));
 			driver.get(readExcel("Test Datas", "Environments", 3, 1));
+		}else {
+			throw new Exception("Environment Value is not valid in config.properties file.");
 		}
 	}
 
@@ -690,11 +639,6 @@ public class BaseClass {
 		element.sendKeys(Keys.ENTER);
 	}
 
-//		//47. Getter for driver
-//		public WebDriver getDriver() {
-//			return dr.get();
-//		}
-
 //      //48. Click Using - JavaScript Executor
 
 	public void jsExecutorClick(WebElement element) {
@@ -709,89 +653,5 @@ public class BaseClass {
 
 		driver.manage().timeouts().getPageLoadTimeout();
 	}
-	
-////     //50. Sending Mail
-//
-//	public void SendMail() throws IOException, MessagingException {
-//		final String username = "mohamedrazul.s@alphind.com";
-//
-//	      final String password = "qmkjpgjpvxtvdrpb";
-//
-//	      final String host = "smtp.office365.com";
-//
-//	      final String port = "587";
-//
-//	      final String toAddress="mohamedrazul.s@alphind.com";
-//
-//	      Properties properties = new Properties();
-//
-//	      properties.put("mail.smtp.host", host);
-//
-//	      properties.put("mail.smtp.port", port);
-//
-//	      properties.put("mail.smtp.auth", "true");
-//
-//	      properties.put("mail.smtp.starttls.enable", "true");
-//
-//	      // creates a new session with an authenticator
-//
-//	      Authenticator auth = new Authenticator() {
-//
-//	          public PasswordAuthentication getPasswordAuthentication() {
-//
-//	              return new PasswordAuthentication(username, password);
-//
-//	          }
-//
-//	      };
-//
-//	      Session session = Session.getInstance(properties, auth);
-//
-//	      // creates a new e-mail message
-//
-//	      Message msg = new MimeMessage(session);
-//
-//	      msg.setFrom(new InternetAddress(username));
-//
-//		InternetAddress[] toAddresses = { new InternetAddress(toAddress) };
-//
-//	      msg.setRecipients(Message.RecipientType.TO, toAddresses);
-//
-//	      msg.setSubject("Automation test Report");
-//
-//	      msg.setSentDate(new Date());
-//
-//	      // set plain text message
-//
-//	      BodyPart messageBodyPart = new MimeBodyPart(); 
-//
-//	      messageBodyPart.setText("Mail Body");
-//
-//	      //msg.setText("This is a message sent through java program for testing whether it can sent a mail");
-//
-//	      System.out.println("message set");
-//
-//	      MimeBodyPart attachmentPart = new MimeBodyPart();
-//
-//				attachmentPart.attachFile(new File(".//Extent Reports"));
-//			
-//	      Multipart multipart = new MimeMultipart();
-//
-//	      multipart.addBodyPart(messageBodyPart);
-//
-//	      multipart.addBodyPart(attachmentPart);
-//
-//	      msg.setContent(multipart);
-//
-//
-//	      // sends the e-mail
-//
-//	      Transport.send(msg);
-//
-//	      System.out.println("Mail sent");
-//
-//
-//	}
-
 
 }

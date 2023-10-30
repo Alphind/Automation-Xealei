@@ -36,13 +36,13 @@ public class LoginPageStep extends BaseClass {
 	@Then("User must verify the tab url address for login screen")
 	public void user_must_verify_the_tab_url_address_for_login_screen() throws Exception {
 
-		if (getConfigureProperty("Environment_QA").equalsIgnoreCase("Yes")) {
+		if (getConfigureProperty("Environment").equalsIgnoreCase("QA")) {
 			Assert.assertEquals("Login page url is wrong", readExcel("Test Datas", "Environments", 1, 1) + "login",
 					getCurrentUrl());
-		} else if (getConfigureProperty("Environment_PREPOD").equalsIgnoreCase("Yes")) {
+		} else if (getConfigureProperty("Environment").equalsIgnoreCase("PREPROD")) {
 			Assert.assertEquals("Login page url is wrong", readExcel("Test Datas", "Environments", 2, 1) + "login",
 					getCurrentUrl());
-		} else if (getConfigureProperty("Environment_PRODUCTION").equalsIgnoreCase("Yes")) {
+		} else if (getConfigureProperty("Environment").equalsIgnoreCase("PROD")) {
 			Assert.assertEquals("Login page url is wrong", readExcel("Test Datas", "Environments", 3, 1) + "login",
 					getCurrentUrl());
 		}

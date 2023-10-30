@@ -25,12 +25,14 @@ import io.cucumber.java.Scenario;
 
 public class Hooks extends BaseClass {
 
+	final String passed = getConfigureProperty("PassedScreenShots");
+	final String failed = getConfigureProperty("FailedScreenShots");
+	
 	@Before
 	public void setUp() throws Exception {
 
 		browserType();
 		env();
-		maximize();
 		implicitWaitBySeconds(15);
 		File reportPath = new File(".//Extent Reports");
 		FileUtils.cleanDirectory(reportPath);
@@ -41,20 +43,36 @@ public class Hooks extends BaseClass {
 	public void ssAfterStep(Scenario scenario) {
 
 		waitForPageLoad();
-		final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-		scenario.attach(screenshot, "image/png", scenario.getName());
-	}
-
-	@After
-	public void screenShot(Scenario scenario) throws Exception {
 		
-		if (scenario.isFailed()) {
+		if(passed.equalsIgnoreCase("Yes") && failed.equalsIgnoreCase("Yes")) {
 			final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 			scenario.attach(screenshot, "image/png", scenario.getName());
+		}else if(passed.equalsIgnoreCase("Yes") && (failed.equalsIgnoreCase("No") || failed.equals(""))){
+			if (scenario.getStatus().toString().equals("PASSED")) {
+				final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+				scenario.attach(screenshot, "image/png", scenario.getName());
+			}
+		}else if(failed.equalsIgnoreCase("Yes") && (passed.equalsIgnoreCase("No") || passed.equals(""))){
+			if (scenario.isFailed()) {
+				final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+				scenario.attach(screenshot, "image/png", scenario.getName());
+			}
+		} else {
+			System.out.println("Screenshot value is not valid");
 		}
+		
 	}
 
-	@After(order = 1)
+//	@After
+//	public void screenShot(Scenario scenario) throws Exception {
+//		
+//		if (scenario.isFailed()) {
+//			final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+//			scenario.attach(screenshot, "image/png", scenario.getName());
+//		}
+//	}
+
+	@After
 	public void tearDown() throws SocketException{
 		
 		waitForPageLoad();
